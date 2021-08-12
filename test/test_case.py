@@ -2,7 +2,8 @@ from pages.addnew import AddNew
 from pages.wploginpage import WpLoginPage
 
 
-def test_login_to_wordpress(browser, config):
+def test_sale_notification(browser, config):
+
     wplog = WpLoginPage(browser)
     nx = AddNew(browser)
 

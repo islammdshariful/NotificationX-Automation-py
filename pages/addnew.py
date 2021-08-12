@@ -11,6 +11,8 @@ class AddNew:
                          f'2]/div[2]/button')
 
     # common fields
+    NT_TEMPLATE_TEXT = (By.ID, f'notification-template')
+    RANDOM_ORDER = (By.ID, f'random_order')
     LINK_TYPE = (By.XPATH, f'react-select-8-option-2')
     UTM_CAMPAIGN = (By.ID, f'utm_campaign')
     UTM_MEDIUM = (By.ID, f'utm_medium')
@@ -41,26 +43,30 @@ class AddNew:
     SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
     SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/div')
-    SALE_NAME = (By.ID, f'react-select-9-option-2')
-    SALE_TEXT = (By.ID, f'notification-template')
-    SALE_TITLE = (By.ID, f'react-select-10-option-1')
-    SALE_TIME = (By.ID, f'react-select-11-option-1')
+    SALE_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    SALE_1ST_CHOOSE = (By.ID, f'react-select-9-option-2')
+    SALE_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    SALE_2ND_CHOOSE = (By.ID, f'react-select-10-option-1')
+    SALE_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    SALE_3RD_CHOOSE = (By.ID, f'react-select-11-option-1')
     SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div/div[2]/div/label')
-    SALE_RANDOM_ORDER = (By.ID, f'random_order')
-    SALE_SHOW_PURCHASE_OF = (By.ID, f'react-select-12-option-0')
-    SALE_EXCLUDE_BY = (By.ID, f'react-select-13-option-0')
+    SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]/div/svg')
+    SALE_SHOW_PURCHASE_OF_CHOOSE = (By.ID, f'react-select-12-option-0')
+    SALE_EXCLUDE_BY = (By.XPATH, f'//*[@id="product_exclude_by"]/div/div[2]/div/svg')
+    SALE_EXCLUDE_BY_CHOOSE = (By.ID, f'react-select-13-option-0')
     SALE_MULTI_ORDER = (By.ID, f'combine_multiorder')
     SALE_MULTI_ORDER_TEXT = (By.ID, f'combine_multiorder_text')
 
     # comment notification
     COMMENT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[2]/div/label')
     COMMENT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[5]/div/label/img')
-    COMMENT_NAME = (By.ID, f'react-select-9-option-2')
-    COMMENT_TEXT = (By.ID, f'notification-template')
-    COMMENT_TITLE = (By.ID, f'react-select-10-option-1')
-    COMMENT_TIME = (By.ID, f'react-select-11-option-1')
+    COMMENT_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    COMMENT_1ST_CHOOSE = (By.ID, f'react-select-9-option-2')
+    COMMENT_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    COMMENT_2ND_CHOOSE = (By.ID, f'react-select-10-option-1')
+    COMMENT_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    COMMENT_3RD_CHOOSE = (By.ID, f'react-select-11-option-1')
     COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div/div[2]/div/label')
-    COMMENT_RANDOM_ORDER = (By.ID, f'random_order')
     COMMENT_CONTENT_LENGHT = (By.ID, f'content_trim_length')
 
     # review notification
@@ -69,23 +75,65 @@ class AddNew:
     REVIEW_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[2]/div/label/img')
     REVIEW_TEMPLATE = (By.ID, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
     # org
-    REVIEW_USERNAME = (By.ID, f'')
-    REVIEW_TEXT = (By.ID, f'')
-    REVIEW_RATING = (By.ID, f'')
-
+    REVIEW_WP_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_reviews_product_type"]/div/div[2]/div/svg')
+    REVIEW_WP_PRODUCT_TYPE_CHOOSE = (By.ID, f'react-select-13-option-0')
+    REVIEW_WP_SLUG = (By.ID, f'wp_reviews_slug')
+    REVIEW_WP_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
+    REVIEW_WP_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    REVIEW_WP_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
+    REVIEW_WP_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
     # review notification - woo
+    REVIEW_WOO_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
+    REVIEW_WOO_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    REVIEW_WOO_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
+    REVIEW_WOO_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
 
 
-
+    # download notification
     DOWNLOAD_STAT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[4]/div/label')
+    DOWNLOAD_STAT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
+    DOWNLOAD_STAT_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_stats_product_type"]/div/div[2]/div/svg')
+    DOWNLOAD_STAT_PRODUCT_TYPE_CHOOSE = (By.ID, f'react-select-15-option-0')
+    DOWNLOAD_STAT_PRODUCT_PLUGIN = (By.ID, f'react-select-13-option-0')
+    DOWNLOAD_STAT_SLUG = (By.ID, f'wp_stats_slug')
+    DOWNLOAD_STAT_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    DOWNLOAD_STAT_1ST_CHOOSE = (By.ID, f'react-select-9-option-1')
+    DOWNLOAD_STAT_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    DOWNLOAD_STAT_2ND_CHOOSE = (By.ID, f'react-select-10-option-3')
+    DOWNLOAD_STAT_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    DOWNLOAD_STAT_3RD_CHOOSE = (By.ID, f'react-select-11-option-3')
+    DOWNLOAD_STAT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
 
+    # elearning notification
     ELEARNING = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[5]/div/label')
     ELEARNING_TUTOR = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
+    ELEARNING_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
+    ELEARNING_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    ELEARNING_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    ELEARNING_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    ELEARNING_2ND_CHOOSE = (By.ID, f'react-select-25-option-1')
+    ELEARNING_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    ELEARNING_3RD_CHOOSE = (By.ID, f'react-select-26-option-1')
+    ELEARNING_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div/label')
+    ELEARNING_SHOW_NOTIFICATION_OF = (By.XPATH, f'//*[@id="ld_product_control"]/div/div[2]/div/svg')
+    ELEARNING_SHOW_NOTIFICATION_OF_CHOOSE = (By.ID, f'react-select-27-option-1')
+    ELEARNING_SELECT_COURSE = (By.XPATH, f'//*[@id="ld_course_list"]/div[1]/div[2]/div/svg')
+    ELEARNING_SELECT_COURSE_CHOOSE = (By.ID, f'react-select-35-option-0')
 
+
+    # donation notification
     DONATION = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[6]/div/label')
 
+    # notification bar
     NXBAR = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[7]/div/label')
 
+    # contact notification
     CONTACT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[8]/div/label')
 
     CONTACT_CF7 = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label')
@@ -93,9 +141,11 @@ class AddNew:
     CONTACT_NIN = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[3]/div/label')
     CONTACT_GRA = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[4]/div/label/div')
 
+    # email subscription
     EMAIL = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[9]/div/label')
     EMAIL_MC = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label')
 
+    # custom notification
     CUSTOM = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[11]/div/label')
 
     def __init__(self, browser):
@@ -112,17 +162,50 @@ class AddNew:
         self.browser.find_element(*self.SALE).click()
         self.browser.find_element(*self.SALE_WOO).click() if src == "woo" else \
             self.browser.find_element(*self.SALE_EDD).click()
-
+        # next page design
         self.browser.find_element(*self.NEXT_0).click()
 
         # design page
+        self.browser.find_element(*self.SALE_TEMPLATE).click()
+        # next page content
         self.browser.find_element(*self.NEXT_1).click()
 
         # content page
+        # 1st
+        self.browser.find_element(*self.SALE_1ST).click()
+        self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).click().clear().send_keys('Kine fello')
+        # 2nd
+        self.browser.find_element(*self.SALE_2ND).click()
+        self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.SALE_3RD).click()
+        self.browser.find_element(*self.SALE_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
+        # show purchased of
+        self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF).click()
+        self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF_CHOOSE).click()
+        # exclude by
+        self.browser.find_element(*self.SALE_EXCLUDE_BY).click()
+        self.browser.find_element(*self.SALE_EXCLUDE_BY_CHOOSE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        # multi order
+        self.browser.find_element(*self.SALE_MULTI_ORDER).click()
+        self.browser.find_element(*self.SALE_MULTI_ORDER).click()
+        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).click().clear().send_keys('Aro onek kichu')
+        # next page display
         self.browser.find_element(*self.NEXT_1).click()
 
         # display page
+        # next page customize
         self.browser.find_element(*self.NEXT_1).click()
+
+        # customize page
+
 
         # publishing notification
         self.browser.execute_script("window.scrollTo(0, 0)")
