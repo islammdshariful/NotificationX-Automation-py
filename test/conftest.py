@@ -2,6 +2,7 @@ import sys
 import json
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture
@@ -16,7 +17,15 @@ def config(scope='session'):
 
 @pytest.fixture
 def browser(config):
-    b = webdriver.Chrome(str(sys.path[1]) + '/driver/chromedriver.exe')
+    opts = Options()
+    opts.add_experimental_option("detach", True)
+    # opts.add_experimental_option('debuggerAddress', 'localhost:9250')
+    b = webdriver.Chrome(str(sys.path[1]) + '/driver/chromedriver.exe', chrome_options=opts)
+    # driver = webdriver.Chrome(executable_path=str(sys.path[1]) + '/driver/chromedriver.exe', chrome_options=opts)
     b.maximize_window()
 
     b.implicitly_wait(config['implicitly_wait'])
+
+    yield b
+
+    # b.quit()

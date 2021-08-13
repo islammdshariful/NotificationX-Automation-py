@@ -1,4 +1,8 @@
+import time
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 import utils.config as conf
 
 
@@ -11,21 +15,26 @@ class AddNew:
                          f'2]/div[2]/button')
 
     # common fields
-    NT_TEMPLATE_TEXT = (By.ID, f'notification-template')
+    NT_TEMPLATE_TEXT = (By.NAME, f'second_param')
     RANDOM_ORDER = (By.ID, f'random_order')
-    LINK_TYPE = (By.XPATH, f'react-select-8-option-2')
+    LINK_TYPE = (By.XPATH, f'//*[@id="link_type"]/div/div[2]')
+    LINK_TYPE_CHOOSE = (By.XPATH, f'react-select-9-option-2')
     UTM_CAMPAIGN = (By.ID, f'utm_campaign')
     UTM_MEDIUM = (By.ID, f'utm_medium')
     UTM_SOURCE = (By.ID, f'utm_source')
     SHOW_DEFAULT_IMAGE = (By.ID, f'show_default_image')
     DEFAULT_IMAGE = (By.XPATH, f'//*[@id="display_tab"]/div[1]/div[2]/div[2]/div[2]/div/div/div[5]/div/label/img')
-    FEATURE_IMAGE = (By.ID, f'react-select-7-option-1')
+    FEATURE_IMAGE = (By.XPATH, f'//*[@id="show_notification_image"]/div/div[2]')
+    FEATURE_IMAGE_CHOOSE = (By.ID, f'react-select-7-option-1')
     GRAVATAR_IMAGE = (By.ID, f'react-select-7-option-2')
     MAP_IMAGE = (By.ID, f'react-select-7-option-3')
-    SHOW_ON = (By.ID, f'react-select-2-option-0')
-    DISPLAY_FOR = (By.ID, f'react-select-3-option-0')
-    POSITION_LEFT = (By.ID, f'react-select-4-option-0')
-    POSITION_RIGHT = (By.ID, f'react-select-4-option-1')
+    SHOW_ON = (By.XPATH, f'//*[@id="show_on"]/div/div[2]')
+    SHOW_ON_CHOOSE = (By.ID, f'react-select-2-option-0')
+    DISPLAY_FOR = (By.XPATH, f'//*[@id="show_on_display"]/div/div[2]')
+    DISPLAY_FOR_CHOOSE = (By.ID, f'react-select-3-option-0')
+    POSITION = (By.XPATH, f'//*[@id="position"]/div/div[2]')
+    POSITION_CHOOSE_LEFT = (By.ID, f'react-select-4-option-0')
+    POSITION_CHOOSE_RIGHT = (By.ID, f'react-select-4-option-1')
     NOTIFICATION_SIZE = (By.ID, f'size')
     CLOSE_BUTTON = (By.ID, f'close_button')
     HIDE_ON_MOBILE = (By.ID, f'hide_on_mobile')
@@ -33,27 +42,32 @@ class AddNew:
     DELAY_BEFORE = (By.ID, f'delay_before')
     DISPLAY_FOR = (By.ID, f'display_for')
     DELAY_BETWEEN = (By.ID, f'delay_between')
+    SOUND = (By.XPATH, f'//*[@id="sound"]/div/div[2]')
+    SOUND_CHOOSE = (By.ID, f'react-select-5-option-1')
     DISPLAY_LAST = (By.ID, f'display_last')
     DISPLAY_FORM = (By.ID, f'display_from')
     LOOP = (By.ID, f'loop')
     LINK_OPEN = (By.ID, f'link_open')
 
     # Sale notification
-    SALE = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[1]/div/label')
+    SALE = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2] /div/div/div/div/div[1]/div/label')
     SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
-    SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/div')
-    SALE_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    SALE_1ST_CHOOSE = (By.ID, f'react-select-9-option-2')
-    SALE_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    SALE_2ND_CHOOSE = (By.ID, f'react-select-10-option-1')
-    SALE_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    SALE_3RD_CHOOSE = (By.ID, f'react-select-11-option-1')
-    SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div/div[2]/div/label')
-    SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]/div/svg')
-    SALE_SHOW_PURCHASE_OF_CHOOSE = (By.ID, f'react-select-12-option-0')
-    SALE_EXCLUDE_BY = (By.XPATH, f'//*[@id="product_exclude_by"]/div/div[2]/div/svg')
-    SALE_EXCLUDE_BY_CHOOSE = (By.ID, f'react-select-13-option-0')
+    SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
+    SALE_1ST = (By.XPATH,
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]/div')
+    SALE_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
+    SALE_2ND = (By.XPATH,
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]/div')
+    SALE_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    SALE_3RD = (By.XPATH,
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]/div')
+    SALE_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]')
+    SALE_SHOW_PURCHASE_OF_CHOOSE = (By.ID, f'react-select-13-option-0')
+    SALE_EXCLUDE_BY = (By.XPATH, f'//*[@id="product_exclude_by"]/div/div[2]')
+    SALE_EXCLUDE_BY_CHOOSE = (By.ID, f'react-select-14-option-0')
     SALE_MULTI_ORDER = (By.ID, f'combine_multiorder')
     SALE_MULTI_ORDER_TEXT = (By.ID, f'combine_multiorder_text')
 
@@ -94,7 +108,6 @@ class AddNew:
     REVIEW_WOO_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
     REVIEW_WOO_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
 
-
     # download notification
     DOWNLOAD_STAT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[4]/div/label')
     DOWNLOAD_STAT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
@@ -126,7 +139,6 @@ class AddNew:
     ELEARNING_SELECT_COURSE = (By.XPATH, f'//*[@id="ld_course_list"]/div[1]/div[2]/div/svg')
     ELEARNING_SELECT_COURSE_CHOOSE = (By.ID, f'react-select-35-option-0')
 
-
     # donation notification
     DONATION = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[6]/div/label')
 
@@ -154,6 +166,84 @@ class AddNew:
     def load(self):
         self.browser.get(conf.URL_NX)
 
+    def double_clicks(self, element):
+        self.browser.find_element(*element).click()
+        self.browser.find_element(*element).click()
+
+    def common_task(self):
+        # link type
+        self.browser.find_element(*self.LINK_TYPE).click()
+        self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
+        # utm controls
+        self.browser.find_element(*self.UTM_SOURCE).send_keys('source_automation')
+        self.browser.find_element(*self.UTM_MEDIUM).send_keys('medium_automation')
+        self.browser.find_element(*self.UTM_CAMPAIGN).send_keys('campaign_automation')
+        # next page display
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # image
+        self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
+        self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
+        self.browser.find_element(*self.FEATURE_IMAGE).click()
+        self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
+        # visibility
+        self.browser.find_element(*self.SHOW_ON).click()
+        self.browser.find_element(*self.SHOW_ON_CHOOSE).click()
+        # next page customize
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # customize page
+        # appearance
+        self.browser.find_element(*self.POSITION).click()
+        self.browser.find_element(*self.POSITION_CHOOSE_RIGHT).click()
+        # notification size
+        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys('400')
+        # display close option
+        self.double_clicks(self.CLOSE_BUTTON)
+        self.double_clicks(self.HIDE_ON_MOBILE)
+        # queue management
+        self.double_clicks(self.GLOBAL_QUEUE)
+        # timing
+        # delay before
+        self.browser.find_element(*self.DELAY_BEFORE).clear()
+        # self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.CONTROL, 'a')
+        # self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DELAY_BEFORE).send_keys('1')
+        # display for
+        self.browser.find_element(*self.DISPLAY_FOR).clear()
+        # self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.CONTROL, 'a')
+        # self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_FOR).send_keys('5')
+        # delay between
+        self.browser.find_element(*self.DELAY_BETWEEN).clear()
+        # self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.CONTROL, 'a')
+        # self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DELAY_BETWEEN).send_keys('2')
+        # sound
+        self.browser.find_element(*self.SOUND).click()
+        self.browser.find_element(*self.SOUND_CHOOSE).click()
+        # behavior
+        # display last
+        self.browser.find_element(*self.DISPLAY_LAST).clear()
+        # self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.CONTROL, 'a')
+        # self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_LAST).send_keys('19')
+        # display form the last
+        self.browser.find_element(*self.DISPLAY_FORM).clear()
+        # self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.CONTROL, 'a')
+        # self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_FORM).send_keys('20')
+        # loop
+        self.double_clicks(self.LOOP)
+        # open link in a new tab
+        self.browser.find_element(*self.LINK_OPEN).click()
+
+        # publishing notification
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.PUBLISH).click()
+
     def add_sale_notification(self, src):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
@@ -172,10 +262,13 @@ class AddNew:
 
         # content page
         # 1st
+        self.browser.execute_script("window.scrollTo(0, 0)")
         self.browser.find_element(*self.SALE_1ST).click()
         self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
         # nt template
-        self.browser.find_element(*self.NT_TEMPLATE_TEXT).click().clear().send_keys('Kine fello')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine fello')
         # 2nd
         self.browser.find_element(*self.SALE_2ND).click()
         self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
@@ -185,6 +278,9 @@ class AddNew:
         # advanced template
         self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
         self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
         # show purchased of
         self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF).click()
         self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF_CHOOSE).click()
@@ -196,17 +292,9 @@ class AddNew:
         # multi order
         self.browser.find_element(*self.SALE_MULTI_ORDER).click()
         self.browser.find_element(*self.SALE_MULTI_ORDER).click()
-        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).click().clear().send_keys('Aro onek kichu')
-        # next page display
-        self.browser.find_element(*self.NEXT_1).click()
+        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys('Aro onek kichu')
 
-        # display page
-        # next page customize
-        self.browser.find_element(*self.NEXT_1).click()
-
-        # customize page
-
-
-        # publishing notification
-        self.browser.execute_script("window.scrollTo(0, 0)")
-        self.browser.find_element(*self.PUBLISH).click()
+        # common tasks
+        self.common_task()
