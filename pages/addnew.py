@@ -440,3 +440,45 @@ class AddNew:
 
         # common tasks
         self.common_task('review')
+
+    def create_download_stat_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Download Stat Notification')
+
+        # source page
+        self.browser.find_element(*self.DOWNLOAD_STAT).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.DOWNLOAD_STAT_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # choose product type
+        self.browser.find_element(*self.DOWNLOAD_STAT_PRODUCT_TYPE).click()
+        self.browser.find_element(*self.DOWNLOAD_STAT_PRODUCT_PLUGIN_CHOOSE).click()
+        # slug
+        self.browser.find_element(*self.DOWNLOAD_STAT_SLUG).send_keys('essential-addons-for-elementor-lite')
+        # 1st
+        self.browser.find_element(*self.DOWNLOAD_STAT_1ST).click()
+        self.browser.find_element(*self.DOWNLOAD_STAT_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Download kora hoise')
+        # 2nd
+        self.browser.find_element(*self.DOWNLOAD_STAT_2ND).click()
+        self.browser.find_element(*self.DOWNLOAD_STAT_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.DOWNLOAD_STAT_3RD).click()
+        self.browser.find_element(*self.DOWNLOAD_STAT_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.DOWNLOAD_STAT_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.DOWNLOAD_STAT_ADVANCED_TEMPLATE).click()
+
+        # common tasks
+        self.common_task('download-stat')
