@@ -15,4 +15,5 @@ def test_notification(browser, config):
     # nx_add.create_comment_notification()
     # nx_add.create_review_notification('wp')
     # nx_add.create_review_notification('woo')
-    nx_add.create_download_stat_notification()
+    # nx_add.create_download_stat_notification()
+    nx_add.create_e_learning_notification()

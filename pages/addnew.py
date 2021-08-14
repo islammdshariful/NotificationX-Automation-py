@@ -150,27 +150,33 @@ class AddNew:
     DOWNLOAD_STAT_3RD_CHOOSE = (By.ID, f'react-select-12-option-3')
     DOWNLOAD_STAT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div')
 
-    # elearning notification
-    ELEARNING = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[5]/div/label')
-    ELEARNING_TUTOR = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
-    ELEARNING_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
-    ELEARNING_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    ELEARNING_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    ELEARNING_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    ELEARNING_2ND_CHOOSE = (By.ID, f'react-select-25-option-1')
-    ELEARNING_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    ELEARNING_3RD_CHOOSE = (By.ID, f'react-select-26-option-1')
-    ELEARNING_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div/label')
-    ELEARNING_SHOW_NOTIFICATION_OF = (By.XPATH, f'//*[@id="ld_product_control"]/div/div[2]/div/svg')
-    ELEARNING_SHOW_NOTIFICATION_OF_CHOOSE = (By.ID, f'react-select-27-option-1')
-    ELEARNING_SELECT_COURSE = (By.XPATH, f'//*[@id="ld_course_list"]/div[1]/div[2]/div/svg')
-    ELEARNING_SELECT_COURSE_CHOOSE = (By.ID, f'react-select-35-option-0')
+    # e-learning notification
+    eLEARNING = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[5]/div/label')
+    eLEARNING_TUTOR = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
+    eLEARNING_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
+    eLEARNING_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div['
+                               f'2]')
+    eLEARNING_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    eLEARNING_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div['
+                               f'2]')
+    eLEARNING_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    eLEARNING_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div['
+                               f'2]')
+    eLEARNING_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    eLEARNING_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    eLEARNING_SHOW_NOTIFICATION_OF = (By.XPATH, f'//*[@id="ld_product_control"]/div/div[2]/div')
+    eLEARNING_SHOW_NOTIFICATION_OF_CHOOSE = (By.ID, f'react-select-13-option-1')
+    eLEARNING_SELECT_COURSE = (By.XPATH, f'//*[@id="ld_course_list"]/div[1]/div[2]/div')
+    eLEARNING_SELECT_COURSE_CHOOSE = (By.ID, f'react-select-14-option-0')
 
     # donation notification
     DONATION = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[6]/div/label')
 
     # notification bar
-    NXBAR = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[7]/div/label')
+    NX_BAR = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[7]/div/label')
 
     # contact notification
     CONTACT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[8]/div/label')
@@ -482,3 +488,49 @@ class AddNew:
 
         # common tasks
         self.common_task('download-stat')
+
+    def create_e_learning_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX eLearning Notification')
+
+        # source page
+        self.browser.find_element(*self.eLEARNING).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.eLEARNING_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # 1st
+        self.browser.find_element(*self.eLEARNING_1ST).click()
+        self.browser.find_element(*self.eLEARNING_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Enroll kore fello')
+        # 2nd
+        self.browser.find_element(*self.eLEARNING_2ND).click()
+        self.browser.find_element(*self.eLEARNING_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.eLEARNING_3RD).click()
+        self.browser.find_element(*self.eLEARNING_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.eLEARNING_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.eLEARNING_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        # show notification of
+        self.browser.find_element(*self.eLEARNING_SHOW_NOTIFICATION_OF).click()
+        self.browser.find_element(*self.eLEARNING_SHOW_NOTIFICATION_OF_CHOOSE).click()
+        # select course
+        self.browser.find_element(*self.eLEARNING_SELECT_COURSE).click()
+        self.browser.find_element(*self.eLEARNING_SELECT_COURSE_CHOOSE).click()
+
+        # common tasks
+        self.common_task('e-learning')
