@@ -174,6 +174,29 @@ class AddNew:
 
     # donation notification
     DONATION = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[6]/div/label')
+    DONATION_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
+    DONATION_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div['
+                              f'2]')
+    DONATION_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    DONATION_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div['
+                              f'2]')
+    DONATION_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    DONATION_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div['
+                              f'2]')
+    DONATION_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    DONATION_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[5]/div/div/div/div/div['
+                              f'2]')
+    DONATION_4TH_CHOOSE = (By.ID, f'react-select-14-option-1')
+
+    DONATION_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    DONATION_SHOW_NOTIFICATION_OF = (By.XPATH, f'//*[@id="give_forms_control"]/div/div[2]')
+    DONATION_SHOW_NOTIFICATION_OF_CHOOSE = (By.ID, f'react-select-13-option-1')
+    DONATION_SELECT_FORM = (By.XPATH, f'//*[@id="give_form_list"]/div[1]/div[2]')
+    DONATION_SELECT_FORM_CHOOSE = (By.ID, f'react-select-15-option-0')
 
     # notification bar
     NX_BAR = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[7]/div/label')
@@ -495,6 +518,7 @@ class AddNew:
 
         # source page
         self.browser.find_element(*self.eLEARNING).click()
+        self.browser.find_element(*self.eLEARNING_TUTOR).click()
         # next page design
         self.browser.find_element(*self.NEXT_0).click()
 
@@ -534,3 +558,49 @@ class AddNew:
 
         # common tasks
         self.common_task('e-learning')
+
+    def create_donation_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Donation Notification')
+
+        # source page
+        self.browser.find_element(*self.DONATION).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.DONATION_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # 1st
+        self.browser.find_element(*self.DONATION_1ST).click()
+        self.browser.find_element(*self.DONATION_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Dan korlo')
+        # 2nd
+        self.browser.find_element(*self.DONATION_2ND).click()
+        self.browser.find_element(*self.DONATION_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.DONATION_3RD).click()
+        self.browser.find_element(*self.DONATION_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.DONATION_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.DONATION_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        # show notification of
+        self.browser.find_element(*self.DONATION_SHOW_NOTIFICATION_OF).click()
+        self.browser.find_element(*self.DONATION_SHOW_NOTIFICATION_OF_CHOOSE).click()
+        # select course
+        self.browser.find_element(*self.DONATION_SELECT_FORM).click()
+        self.browser.find_element(*self.DONATION_SELECT_FORM_CHOOSE).click()
+
+        # common tasks
+        self.common_task('donation')
