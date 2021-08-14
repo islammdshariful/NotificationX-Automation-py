@@ -90,47 +90,65 @@ class AddNew:
                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
     COMMENT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
-    COMMENT_CONTENT_LENGHT = (By.ID, f'content_trim_length')
+    COMMENT_CONTENT_LENGTH = (By.ID, f'content_trim_length')
 
     # review notification
     REVIEW = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[3]/div/label')
     REVIEW_ORG = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     REVIEW_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[2]/div/label/img')
-    REVIEW_TEMPLATE = (By.ID, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
+    REVIEW_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
     # org
-    REVIEW_WP_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_reviews_product_type"]/div/div[2]/div/svg')
+    REVIEW_WP_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_reviews_product_type"]/div/div[2]/div')
     REVIEW_WP_PRODUCT_TYPE_CHOOSE = (By.ID, f'react-select-13-option-0')
     REVIEW_WP_SLUG = (By.ID, f'wp_reviews_slug')
-    REVIEW_WP_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[1]/div/div/div/div/div['
+                               f'2]')
     REVIEW_WP_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    REVIEW_WP_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div['
+                               f'2]')
     REVIEW_WP_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    REVIEW_WP_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WP_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[4]/div/div/div/div/div['
+                               f'2]')
     REVIEW_WP_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
-    REVIEW_WP_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
+    REVIEW_WP_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div')
     # review notification - woo
-    REVIEW_WOO_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                                f'1]/div/div/div/div/div[2]')
     REVIEW_WOO_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    REVIEW_WOO_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                                f'3]/div/div/div/div/div[2]')
     REVIEW_WOO_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    REVIEW_WOO_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
+    REVIEW_WOO_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                                f'4]/div/div/div/div/div[2]')
     REVIEW_WOO_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
-    REVIEW_WOO_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
+    REVIEW_WOO_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
 
     # download notification
     DOWNLOAD_STAT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[4]/div/label')
     DOWNLOAD_STAT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
-    DOWNLOAD_STAT_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_stats_product_type"]/div/div[2]/div/svg')
-    DOWNLOAD_STAT_PRODUCT_TYPE_CHOOSE = (By.ID, f'react-select-15-option-0')
-    DOWNLOAD_STAT_PRODUCT_PLUGIN = (By.ID, f'react-select-13-option-0')
+    DOWNLOAD_STAT_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_stats_product_type"]/div/div[2]/div')
+    DOWNLOAD_STAT_PRODUCT_PLUGIN_CHOOSE = (By.ID, f'react-select-13-option-0')
+    DOWNLOAD_STAT_PRODUCT_THEME_CHOOSE = (By.ID, f'react-select-13-option-1')
     DOWNLOAD_STAT_SLUG = (By.ID, f'wp_stats_slug')
-    DOWNLOAD_STAT_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    DOWNLOAD_STAT_1ST_CHOOSE = (By.ID, f'react-select-9-option-1')
-    DOWNLOAD_STAT_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    DOWNLOAD_STAT_2ND_CHOOSE = (By.ID, f'react-select-10-option-3')
-    DOWNLOAD_STAT_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    DOWNLOAD_STAT_3RD_CHOOSE = (By.ID, f'react-select-11-option-3')
-    DOWNLOAD_STAT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div/label')
+    DOWNLOAD_STAT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                   f'1]/div/div/div/div/div[2]')
+    DOWNLOAD_STAT_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
+    DOWNLOAD_STAT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                   f'3]/div/div/div/div/div[2]')
+    DOWNLOAD_STAT_2ND_CHOOSE = (By.ID, f'react-select-11-option-3')
+    DOWNLOAD_STAT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
+                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                   f'4]/div/div/div/div/div[2]')
+    DOWNLOAD_STAT_3RD_CHOOSE = (By.ID, f'react-select-12-option-3')
+    DOWNLOAD_STAT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div')
 
     # elearning notification
     ELEARNING = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[5]/div/label')
@@ -195,9 +213,10 @@ class AddNew:
         self.browser.execute_script("window.scrollTo(0, 0)")
         self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
         self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
-        self.browser.find_element(*self.IMAGE).click()
-        self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
-            self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
+        if src != 'download-stat':
+            self.browser.find_element(*self.IMAGE).click()
+            self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
+                self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
         # visibility
         self.browser.find_element(*self.SHOW_ON).click()
         self.browser.find_element(*self.SHOW_ON_CHOOSE).click()
@@ -347,9 +366,77 @@ class AddNew:
         self.browser.find_element(*self.RANDOM_ORDER).click()
         self.browser.find_element(*self.RANDOM_ORDER).click()
         # content length
-        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys('15')
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGTH).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGTH).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGTH).send_keys('15')
 
         # common tasks
         self.common_task('comment')
+
+    def create_review_notification(self, src):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WP) Notification') if src == 'wp' else \
+            self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WOO) Notification')
+
+        # source page
+        self.browser.find_element(*self.REVIEW).click()
+        # choose source
+        self.browser.find_element(*self.REVIEW_ORG).click() if src == 'wp' else \
+            self.browser.find_element(*self.REVIEW_WOO).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.REVIEW_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        if src == 'wp':
+            # choose product type
+            self.browser.find_element(*self.REVIEW_WP_PRODUCT_TYPE).click()
+            self.browser.find_element(*self.REVIEW_WP_PRODUCT_TYPE_CHOOSE).click()
+            # slug
+            self.browser.find_element(*self.REVIEW_WP_SLUG).send_keys('essential-addons-for-elementor-lite')
+            # 1st
+            self.browser.find_element(*self.REVIEW_WP_1ST).click()
+            self.browser.find_element(*self.REVIEW_WP_1ST_CHOOSE).click()
+            # nt template
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Rate koreche')
+            # 2nd
+            self.browser.find_element(*self.REVIEW_WP_2ND).click()
+            self.browser.find_element(*self.REVIEW_WP_2ND_CHOOSE).click()
+            # 3rd
+            self.browser.find_element(*self.REVIEW_WP_3RD).click()
+            self.browser.find_element(*self.REVIEW_WP_3RD_CHOOSE).click()
+            # advanced template
+            self.browser.find_element(*self.REVIEW_WP_ADVANCED_TEMPLATE).click()
+            self.browser.find_element(*self.REVIEW_WP_ADVANCED_TEMPLATE).click()
+        else:
+            # 1st
+            self.browser.find_element(*self.REVIEW_WOO_1ST).click()
+            self.browser.find_element(*self.REVIEW_WOO_1ST_CHOOSE).click()
+            # nt template
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Rate koreche')
+            # 2nd
+            self.browser.find_element(*self.REVIEW_WOO_2ND).click()
+            self.browser.find_element(*self.REVIEW_WOO_2ND_CHOOSE).click()
+            # 3rd
+            self.browser.find_element(*self.REVIEW_WOO_3RD).click()
+            self.browser.find_element(*self.REVIEW_WOO_3RD_CHOOSE).click()
+            # advanced template
+            self.browser.find_element(*self.REVIEW_WOO_ADVANCED_TEMPLATE).click()
+            self.browser.find_element(*self.REVIEW_WOO_ADVANCED_TEMPLATE).click()
+
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+
+        # common tasks
+        self.common_task('review')
