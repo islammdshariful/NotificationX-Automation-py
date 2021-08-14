@@ -18,16 +18,17 @@ class AddNew:
     NT_TEMPLATE_TEXT = (By.NAME, f'second_param')
     RANDOM_ORDER = (By.ID, f'random_order')
     LINK_TYPE = (By.XPATH, f'//*[@id="link_type"]/div/div[2]')
-    LINK_TYPE_CHOOSE = (By.XPATH, f'react-select-9-option-2')
+    LINK_TYPE_CHOOSE = (By.ID, f'react-select-9-option-2')
     UTM_CAMPAIGN = (By.ID, f'utm_campaign')
     UTM_MEDIUM = (By.ID, f'utm_medium')
     UTM_SOURCE = (By.ID, f'utm_source')
     SHOW_DEFAULT_IMAGE = (By.ID, f'show_default_image')
     DEFAULT_IMAGE = (By.XPATH, f'//*[@id="display_tab"]/div[1]/div[2]/div[2]/div[2]/div/div/div[5]/div/label/img')
-    FEATURE_IMAGE = (By.XPATH, f'//*[@id="show_notification_image"]/div/div[2]')
-    FEATURE_IMAGE_CHOOSE = (By.ID, f'react-select-7-option-1')
-    GRAVATAR_IMAGE = (By.ID, f'react-select-7-option-2')
-    MAP_IMAGE = (By.ID, f'react-select-7-option-3')
+    IMAGE = (By.XPATH, f'//*[@id="show_notification_image"]/div/div[2]')
+    FEATURE_IMAGE_CHOOSE = (By.ID, f'react-select-8-option-1')
+    COMMENT_GRAVATAR_IMAGE = (By.ID, f'react-select-8-option-1')
+    GRAVATAR_IMAGE = (By.ID, f'react-select-8-option-2')
+    MAP_IMAGE = (By.ID, f'react-select-8-option-3')
     SHOW_ON = (By.XPATH, f'//*[@id="show_on"]/div/div[2]')
     SHOW_ON_CHOOSE = (By.ID, f'react-select-2-option-0')
     DISPLAY_FOR = (By.XPATH, f'//*[@id="show_on_display"]/div/div[2]')
@@ -49,19 +50,24 @@ class AddNew:
     LOOP = (By.ID, f'loop')
     LINK_OPEN = (By.ID, f'link_open')
 
+    SUCCESS_NOTICE = (By.XPATH, f'//*[@id="notificationx"]/div/div/div[2]/p')
+
     # Sale notification
     SALE = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2] /div/div/div/div/div[1]/div/label')
     SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
     SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
     SALE_1ST = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]/div')
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
+                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]/div')
     SALE_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
     SALE_2ND = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]/div')
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
+                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]/div')
     SALE_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
     SALE_3RD = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]/div')
+                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
+                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]/div')
     SALE_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
     SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]')
@@ -74,13 +80,16 @@ class AddNew:
     # comment notification
     COMMENT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[2]/div/label')
     COMMENT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[5]/div/label/img')
-    COMMENT_1ST = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    COMMENT_1ST_CHOOSE = (By.ID, f'react-select-9-option-2')
-    COMMENT_2ND = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    COMMENT_2ND_CHOOSE = (By.ID, f'react-select-10-option-1')
-    COMMENT_3RD = (By.XPATH, f'//*[@id="notification-template"]/div/div[2]/div/svg')
-    COMMENT_3RD_CHOOSE = (By.ID, f'react-select-11-option-1')
-    COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div/div[2]/div/label')
+    COMMENT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
+    COMMENT_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    COMMENT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
+    COMMENT_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    COMMENT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
+    COMMENT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
     COMMENT_CONTENT_LENGHT = (By.ID, f'content_trim_length')
 
     # review notification
@@ -170,22 +179,25 @@ class AddNew:
         self.browser.find_element(*element).click()
         self.browser.find_element(*element).click()
 
-    def common_task(self):
+    def common_task(self, src):
         # link type
         self.browser.find_element(*self.LINK_TYPE).click()
         self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
         # utm controls
-        self.browser.find_element(*self.UTM_SOURCE).send_keys('source_automation')
-        self.browser.find_element(*self.UTM_MEDIUM).send_keys('medium_automation')
         self.browser.find_element(*self.UTM_CAMPAIGN).send_keys('campaign_automation')
+        self.browser.find_element(*self.UTM_MEDIUM).send_keys('medium_automation')
+        self.browser.find_element(*self.UTM_SOURCE).send_keys('source_automation')
+
         # next page display
         self.browser.find_element(*self.NEXT_1).click()
 
         # image
+        self.browser.execute_script("window.scrollTo(0, 0)")
         self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
         self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
-        self.browser.find_element(*self.FEATURE_IMAGE).click()
-        self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
+        self.browser.find_element(*self.IMAGE).click()
+        self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
+            self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
         # visibility
         self.browser.find_element(*self.SHOW_ON).click()
         self.browser.find_element(*self.SHOW_ON_CHOOSE).click()
@@ -193,6 +205,7 @@ class AddNew:
         self.browser.find_element(*self.NEXT_1).click()
 
         # customize page
+        self.browser.execute_script("window.scrollTo(0, 0)")
         # appearance
         self.browser.find_element(*self.POSITION).click()
         self.browser.find_element(*self.POSITION_CHOOSE_RIGHT).click()
@@ -207,33 +220,28 @@ class AddNew:
         self.double_clicks(self.GLOBAL_QUEUE)
         # timing
         # delay before
-        self.browser.find_element(*self.DELAY_BEFORE).clear()
-        # self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.DELAY_BEFORE).send_keys('1')
         # display for
-        self.browser.find_element(*self.DISPLAY_FOR).clear()
-        # self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.DISPLAY_FOR).send_keys('5')
         # delay between
-        self.browser.find_element(*self.DELAY_BETWEEN).clear()
-        # self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.DELAY_BETWEEN).send_keys('2')
         # sound
         self.browser.find_element(*self.SOUND).click()
         self.browser.find_element(*self.SOUND_CHOOSE).click()
         # behavior
         # display last
-        self.browser.find_element(*self.DISPLAY_LAST).clear()
-        # self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.DISPLAY_LAST).send_keys('19')
         # display form the last
-        self.browser.find_element(*self.DISPLAY_FORM).clear()
-        # self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.DISPLAY_FORM).send_keys('20')
         # loop
         self.double_clicks(self.LOOP)
@@ -244,7 +252,9 @@ class AddNew:
         self.browser.execute_script("window.scrollTo(0, 0)")
         self.browser.find_element(*self.PUBLISH).click()
 
-    def add_sale_notification(self, src):
+        assert self.browser.find_element(*self.SUCCESS_NOTICE).text == 'Successfully Created.'
+
+    def create_sale_notification(self, src):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
 
@@ -256,19 +266,20 @@ class AddNew:
         self.browser.find_element(*self.NEXT_0).click()
 
         # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
         self.browser.find_element(*self.SALE_TEMPLATE).click()
         # next page content
         self.browser.find_element(*self.NEXT_1).click()
 
         # content page
-        # 1st
         self.browser.execute_script("window.scrollTo(0, 0)")
+        # 1st
         self.browser.find_element(*self.SALE_1ST).click()
         self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine fello')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine nilo')
         # 2nd
         self.browser.find_element(*self.SALE_2ND).click()
         self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
@@ -297,4 +308,48 @@ class AddNew:
         self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys('Aro onek kichu')
 
         # common tasks
-        self.common_task()
+        self.common_task('sale')
+
+    def create_comment_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Comment Notification')
+
+        # source page
+        self.browser.find_element(*self.COMMENT).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.COMMENT_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # 1st
+        self.browser.find_element(*self.COMMENT_1ST).click()
+        self.browser.find_element(*self.COMMENT_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Motamot dilo')
+        # 2nd
+        self.browser.find_element(*self.COMMENT_2ND).click()
+        self.browser.find_element(*self.COMMENT_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.COMMENT_3RD).click()
+        self.browser.find_element(*self.COMMENT_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.COMMENT_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.COMMENT_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        # content length
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.COMMENT_CONTENT_LENGHT).send_keys('15')
+
+        # common tasks
+        self.common_task('comment')
