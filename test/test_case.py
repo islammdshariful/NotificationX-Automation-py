@@ -18,4 +18,5 @@ def test_notification(browser, config):
     # nx_add.create_download_stat_notification()
     # nx_add.create_e_learning_notification()
     # nx_add.create_donation_notification()
-    nx_add.create_contact_notification('cf7')
+    # nx_add.create_contact_notification('cf7')
+    nx_add.create_email_subs_notification()

@@ -220,9 +220,23 @@ class AddNew:
                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
     CONTACT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     CONTACT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[3]/div[2]/div')
+
     # email subscription
     EMAIL = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[9]/div/label')
-    EMAIL_MC = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label')
+    EMAIL_MAILCHIMP = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label')
+    EMAIL_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[3]/div/label/img')
+    EMAIL_FORM = (By.XPATH, f'//*[@id="mailchimp_list"]/div/div[2]')
+    EMAIL_FORM_CHOOSE = (By.ID, f'react-select-13-option-0')
+    EMAIL_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
+    EMAIL_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    EMAIL_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
+    EMAIL_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    EMAIL_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
+    EMAIL_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    EMAIL_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[3]/div[2]/div')
 
     # custom notification
     CUSTOM = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[11]/div/label')
@@ -238,7 +252,7 @@ class AddNew:
         self.browser.find_element(*element).click()
 
     def common_task(self, src):
-        if src != 'contact':
+        if src != 'contact' and src != 'email_subs':
             # link type
             self.browser.find_element(*self.LINK_TYPE).click()
             self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
@@ -305,7 +319,7 @@ class AddNew:
         self.browser.find_element(*self.DISPLAY_FORM).send_keys('20')
         # loop
         self.double_clicks(self.LOOP)
-        if src != 'contact':
+        if src != 'contact' and src != 'email_subs':
             # open link in a new tab
             self.browser.find_element(*self.LINK_OPEN).click()
 
@@ -675,3 +689,47 @@ class AddNew:
 
         # common tasks
         self.common_task('contact')
+
+    def create_email_subs_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Email Subscription Notification')
+
+        # source page
+        self.browser.find_element(*self.EMAIL).click()
+        self.browser.find_element(*self.EMAIL_MAILCHIMP).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.EMAIL_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # select a form
+        self.browser.find_element(*self.EMAIL_FORM).click()
+        self.browser.find_element(*self.CONTACT_FORM_CHOOSE).click()
+        # 1st
+        self.browser.find_element(*self.EMAIL_1ST).click()
+        self.browser.find_element(*self.EMAIL_1ST_CHOOSE).click()
+        # nt template
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Subscription korse')
+        # 2nd
+        self.browser.find_element(*self.EMAIL_2ND).click()
+        self.browser.find_element(*self.EMAIL_2ND_CHOOSE).click()
+        # 3rd
+        self.browser.find_element(*self.EMAIL_3RD).click()
+        self.browser.find_element(*self.EMAIL_3RD_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.EMAIL_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.EMAIL_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+
+        # common tasks
+        self.common_task('email_subs')
