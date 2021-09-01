@@ -1,5 +1,5 @@
 {
-  "implicitly_wait": 10,
+  "implicitly_wait": 30,
   "username": "admin",
   "password": "admin"
 }

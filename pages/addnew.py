@@ -11,10 +11,40 @@ class AddNew:
     NX_TITLE = (By.ID, f'nx-title')
     NEXT_0 = (By.XPATH, f'//*[@id="notificationx"]/div/div/div[2]/div[1]/div/div[2]/div[2]/button')
     NEXT_1 = (By.XPATH, f'//*[@id="notificationx"]/div/div/div[2]/div[1]/div/div[2]/div[2]/button[2]')
-    PUBLISH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[2]/div[1]/div['
+    PUBLISH = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[2]/div[1]/div['
                          f'2]/div[2]/button')
 
     # common fields
+    CONTENT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                             f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                             f'1]/div/div/div/div/div[2]/div')
+    CONTENT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                             f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                             f'3]/div/div/div/div/div[2]/div')
+    CONTENT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                             f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                             f'4]/div/div/div/div/div[2]')
+    CONTENT_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                             f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
+                             f'5]/div/div/div/div/div[2]')
+    CONTENT_1ST_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                f'1]/div/div/div/div/div[2]')
+    CONTENT_2ND_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                f'3]/div/div/div/div/div[2]')
+    CONTENT_3RD_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                                f'4]/div/div/div/div/div[2]')
+    CONTENT_1ST_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div['
+                                           f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
+                                           f'2]/div/div/div[1]/div/div/div/div/div[2]')
+    CONTENT_2ND_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div['
+                                           f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
+                                           f'2]/div/div/div[3]/div/div/div/div/div[2]')
+    CONTENT_3RD_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div['
+                                           f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
+                                           f'2]/div/div/div[4]/div/div/div/div/div[2]')
     NT_TEMPLATE_TEXT = (By.NAME, f'second_param')
     RANDOM_ORDER = (By.ID, f'random_order')
     LINK_TYPE = (By.XPATH, f'//*[@id="link_type"]/div/div[2]')
@@ -57,17 +87,8 @@ class AddNew:
     SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
     SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
-    SALE_1ST = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
-                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]/div')
     SALE_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    SALE_2ND = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
-                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]/div')
     SALE_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    SALE_3RD = (By.XPATH,
-                f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div[2]/div['
-                f'1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]/div')
     SALE_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
     SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]')
@@ -80,14 +101,8 @@ class AddNew:
     # comment notification
     COMMENT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[2]/div/label')
     COMMENT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[5]/div/label/img')
-    COMMENT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
     COMMENT_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    COMMENT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
     COMMENT_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    COMMENT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
     COMMENT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
     COMMENT_CONTENT_LENGTH = (By.ID, f'content_trim_length')
@@ -101,31 +116,13 @@ class AddNew:
     REVIEW_WP_PRODUCT_TYPE = (By.XPATH, f'//*[@id="wp_reviews_product_type"]/div/div[2]/div')
     REVIEW_WP_PRODUCT_TYPE_CHOOSE = (By.ID, f'react-select-13-option-0')
     REVIEW_WP_SLUG = (By.ID, f'wp_reviews_slug')
-    REVIEW_WP_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[1]/div/div/div/div/div['
-                               f'2]')
     REVIEW_WP_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    REVIEW_WP_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div['
-                               f'2]')
     REVIEW_WP_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    REVIEW_WP_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[4]/div/div/div/div/div['
-                               f'2]')
     REVIEW_WP_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
     REVIEW_WP_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div')
     # review notification - woo
-    REVIEW_WOO_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-                                f'1]/div/div/div/div/div[2]')
     REVIEW_WOO_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    REVIEW_WOO_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-                                f'3]/div/div/div/div/div[2]')
     REVIEW_WOO_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    REVIEW_WOO_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-                                f'4]/div/div/div/div/div[2]')
     REVIEW_WOO_3RD_CHOOSE = (By.ID, f'react-select-12-option-2')
     REVIEW_WOO_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
 
@@ -136,17 +133,8 @@ class AddNew:
     DOWNLOAD_STAT_PRODUCT_PLUGIN_CHOOSE = (By.ID, f'react-select-13-option-0')
     DOWNLOAD_STAT_PRODUCT_THEME_CHOOSE = (By.ID, f'react-select-13-option-1')
     DOWNLOAD_STAT_SLUG = (By.ID, f'wp_stats_slug')
-    DOWNLOAD_STAT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                   f'1]/div/div/div/div/div[2]')
     DOWNLOAD_STAT_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    DOWNLOAD_STAT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                   f'3]/div/div/div/div/div[2]')
     DOWNLOAD_STAT_2ND_CHOOSE = (By.ID, f'react-select-11-option-3')
-    DOWNLOAD_STAT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div['
-                                   f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                   f'4]/div/div/div/div/div[2]')
     DOWNLOAD_STAT_3RD_CHOOSE = (By.ID, f'react-select-12-option-3')
     DOWNLOAD_STAT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/div')
 
@@ -154,17 +142,8 @@ class AddNew:
     eLEARNING = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[5]/div/label')
     eLEARNING_TUTOR = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
     eLEARNING_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
-    eLEARNING_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div['
-                               f'2]')
     eLEARNING_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    eLEARNING_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div['
-                               f'2]')
     eLEARNING_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    eLEARNING_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                               f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div['
-                               f'2]')
     eLEARNING_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     eLEARNING_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
     eLEARNING_SHOW_NOTIFICATION_OF = (By.XPATH, f'//*[@id="ld_product_control"]/div/div[2]/div')
@@ -175,21 +154,9 @@ class AddNew:
     # donation notification
     DONATION = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[6]/div/label')
     DONATION_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
-    DONATION_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div['
-                              f'2]')
     DONATION_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    DONATION_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div['
-                              f'2]')
     DONATION_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    DONATION_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[4]/div/div/div/div/div['
-                              f'2]')
     DONATION_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
-    DONATION_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                              f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[5]/div/div/div/div/div['
-                              f'2]')
     DONATION_4TH_CHOOSE = (By.ID, f'react-select-14-option-1')
 
     DONATION_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
@@ -210,14 +177,8 @@ class AddNew:
     CONTACT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[2]/div/label/img')
     CONTACT_FORM = (By.XPATH, f'//*[@id="form_list"]/div/div[2]')
     CONTACT_FORM_CHOOSE = (By.ID, f'react-select-13-option-0')
-    CONTACT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
     CONTACT_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    CONTACT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
     CONTACT_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    CONTACT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                             f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
     CONTACT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     CONTACT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[3]/div[2]/div')
 
@@ -227,32 +188,89 @@ class AddNew:
     EMAIL_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[3]/div/label/img')
     EMAIL_FORM = (By.XPATH, f'//*[@id="mailchimp_list"]/div/div[2]')
     EMAIL_FORM_CHOOSE = (By.ID, f'react-select-13-option-0')
-    EMAIL_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
     EMAIL_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    EMAIL_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
     EMAIL_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    EMAIL_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                           f'2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
     EMAIL_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     EMAIL_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[3]/div[2]/div')
 
     # custom notification
     CUSTOM = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[11]/div/label')
+    CUSTOM_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[11]/div/label/img')
+    CUSTOM_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
+    CUSTOM_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    CUSTOM_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
+    CUSTOM_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    CUSTOM_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[5]/div/div/div/div/div[2]')
+    CUSTOM_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    CUSTOM_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[6]/div/div/div/div/div[2]')
+    CUSTOM_4TH_CHOOSE = (By.ID, f'react-select-13-option-1')
+    CUSTOM_CUSTOM_TEMPLATE_TEXT = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div['
+                                             f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div['
+                                             f'2]/div/div/div[4]/div/input')
+    CUSTOM_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+
+    # id : 0
+    TITLE_1 = (By.ID, f'field-0-0-0')
+    F_NAME_1 = (By.ID, f'field-0-0-5')
+    L_NAME_1 = (By.ID, f'field-0-0-6')
+    CITY_1 = (By.ID, f'field-0-0-8')
+    COUNTRY_1 = (By.ID, f'field-0-0-9')
+    IMAGE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[6]/div[2]/div/div/button')
+    MEDIA_LIBRARY = (By.ID, f'menu-item-browse')
+    IMAGE_1_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[1]/div/div')
+    SELECT_IMAGE = (By.XPATH, f'/html/body/div[4]/div[1]/div/div/div[4]/div/div[2]/button')
+    URL_1 = (By.ID, f'field-0-0-12')
+    TIME_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[8]/div[2]/div')
+    PREVIOUS_MONTH_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
+                                  f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[1]')
+    CHOOSE_DATE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
+                               f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[2]/div/div['
+                               f'2]/div/table/tbody/tr[3]/td[2]')
+    TAB_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div/h4')
+    ADD_NEW_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
+    # id : 1
+    TITLE_2 = (By.ID, f'field-2-1-0')
+    F_NAME_2 = (By.ID, f'field-2-1-5')
+    L_NAME_2 = (By.ID, f'field-2-1-6')
+    CITY_2 = (By.ID, f'field-2-1-8')
+    COUNTRY_2 = (By.ID, f'field-2-1-9')
+    IMAGE_2 = (
+        By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[6]/div[2]/div/div/button')
+    IMAGE_2_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[2]/div/div')
+    URL_2 = (By.ID, f'field-2-1-12')
+    TIME_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[8]/div[2]/div')
+    TAB_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/h4')
+    ADD_NEW_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
+    # id : 2
+    TITLE_3 = (By.ID, f'field-4-2-0')
+    F_NAME_3 = (By.ID, f'field-4-2-5')
+    L_NAME_3 = (By.ID, f'field-4-2-6')
+    CITY_3 = (By.ID, f'field-4-2-8')
+    COUNTRY_3 = (By.ID, f'field-4-2-9')
+    IMAGE_3 = (
+        By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[6]/div[2]/div/div/button')
+    IMAGE_3_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[3]/div/div')
+    URL_3 = (By.ID, f'field-4-2-12')
+    TIME_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[8]/div[2]/div')
+    TAB_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[1]/h4')
 
     def __init__(self, browser):
         self.browser = browser
 
     def load(self):
-        self.browser.get(conf.URL_NX)
+        # self.browser.get(conf.URL_NX)
+        self.browser.find_element(By.XPATH, '//*[@id="toplevel_page_nx-admin"]/a/div[3]').click()
 
     def double_clicks(self, element):
         self.browser.find_element(*element).click()
         self.browser.find_element(*element).click()
 
     def common_task(self, src):
-        if src != 'contact' and src != 'email_subs':
+        if src != 'contact' and src != 'email_subs' and src != 'custom':
             # link type
             self.browser.find_element(*self.LINK_TYPE).click()
             self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
@@ -349,17 +367,17 @@ class AddNew:
         # content page
         self.browser.execute_script("window.scrollTo(0, 0)")
         # 1st
-        self.browser.find_element(*self.SALE_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST).click()
         self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine nilo')
         # 2nd
-        self.browser.find_element(*self.SALE_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND).click()
         self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.SALE_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD).click()
         self.browser.find_element(*self.SALE_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
@@ -403,17 +421,17 @@ class AddNew:
         # content page
         self.browser.execute_script("window.scrollTo(0, 0)")
         # 1st
-        self.browser.find_element(*self.COMMENT_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST).click()
         self.browser.find_element(*self.COMMENT_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Motamot dilo')
         # 2nd
-        self.browser.find_element(*self.COMMENT_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND).click()
         self.browser.find_element(*self.COMMENT_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.COMMENT_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD).click()
         self.browser.find_element(*self.COMMENT_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.COMMENT_ADVANCED_TEMPLATE).click()
@@ -457,34 +475,34 @@ class AddNew:
             # slug
             self.browser.find_element(*self.REVIEW_WP_SLUG).send_keys('essential-addons-for-elementor-lite')
             # 1st
-            self.browser.find_element(*self.REVIEW_WP_1ST).click()
+            self.browser.find_element(*self.CONTENT_1ST_REVIEW_DSTAT).click()
             self.browser.find_element(*self.REVIEW_WP_1ST_CHOOSE).click()
             # nt template
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Rate koreche')
             # 2nd
-            self.browser.find_element(*self.REVIEW_WP_2ND).click()
+            self.browser.find_element(*self.CONTENT_2ND_REVIEW_DSTAT).click()
             self.browser.find_element(*self.REVIEW_WP_2ND_CHOOSE).click()
             # 3rd
-            self.browser.find_element(*self.REVIEW_WP_3RD).click()
+            self.browser.find_element(*self.CONTENT_3RD_REVIEW_DSTAT).click()
             self.browser.find_element(*self.REVIEW_WP_3RD_CHOOSE).click()
             # advanced template
             self.browser.find_element(*self.REVIEW_WP_ADVANCED_TEMPLATE).click()
             self.browser.find_element(*self.REVIEW_WP_ADVANCED_TEMPLATE).click()
         else:
             # 1st
-            self.browser.find_element(*self.REVIEW_WOO_1ST).click()
+            self.browser.find_element(*self.CONTENT_1ST).click()
             self.browser.find_element(*self.REVIEW_WOO_1ST_CHOOSE).click()
             # nt template
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Rate koreche')
             # 2nd
-            self.browser.find_element(*self.REVIEW_WOO_2ND).click()
+            self.browser.find_element(*self.CONTENT_2ND).click()
             self.browser.find_element(*self.REVIEW_WOO_2ND_CHOOSE).click()
             # 3rd
-            self.browser.find_element(*self.REVIEW_WOO_3RD).click()
+            self.browser.find_element(*self.CONTENT_3RD).click()
             self.browser.find_element(*self.REVIEW_WOO_3RD_CHOOSE).click()
             # advanced template
             self.browser.find_element(*self.REVIEW_WOO_ADVANCED_TEMPLATE).click()
@@ -520,17 +538,17 @@ class AddNew:
         # slug
         self.browser.find_element(*self.DOWNLOAD_STAT_SLUG).send_keys('essential-addons-for-elementor-lite')
         # 1st
-        self.browser.find_element(*self.DOWNLOAD_STAT_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST_REVIEW_DSTAT).click()
         self.browser.find_element(*self.DOWNLOAD_STAT_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Download kora hoise')
         # 2nd
-        self.browser.find_element(*self.DOWNLOAD_STAT_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND_REVIEW_DSTAT).click()
         self.browser.find_element(*self.DOWNLOAD_STAT_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.DOWNLOAD_STAT_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD_REVIEW_DSTAT).click()
         self.browser.find_element(*self.DOWNLOAD_STAT_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.DOWNLOAD_STAT_ADVANCED_TEMPLATE).click()
@@ -558,17 +576,17 @@ class AddNew:
         # content page
         self.browser.execute_script("window.scrollTo(0, 0)")
         # 1st
-        self.browser.find_element(*self.eLEARNING_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST).click()
         self.browser.find_element(*self.eLEARNING_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Enroll kore fello')
         # 2nd
-        self.browser.find_element(*self.eLEARNING_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND).click()
         self.browser.find_element(*self.eLEARNING_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.eLEARNING_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD).click()
         self.browser.find_element(*self.eLEARNING_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.eLEARNING_ADVANCED_TEMPLATE).click()
@@ -604,18 +622,21 @@ class AddNew:
         # content page
         self.browser.execute_script("window.scrollTo(0, 0)")
         # 1st
-        self.browser.find_element(*self.DONATION_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST).click()
         self.browser.find_element(*self.DONATION_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Dan korlo')
         # 2nd
-        self.browser.find_element(*self.DONATION_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND).click()
         self.browser.find_element(*self.DONATION_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.DONATION_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD).click()
         self.browser.find_element(*self.DONATION_3RD_CHOOSE).click()
+        # 4th
+        self.browser.find_element(*self.CONTENT_4TH).click()
+        self.browser.find_element(*self.DONATION_4TH_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.DONATION_ADVANCED_TEMPLATE).click()
         self.browser.find_element(*self.DONATION_ADVANCED_TEMPLATE).click()
@@ -664,21 +685,21 @@ class AddNew:
 
         # content page
         self.browser.execute_script("window.scrollTo(0, 0)")
-        #select a form
+        # select a form
         self.browser.find_element(*self.CONTACT_FORM).click()
         self.browser.find_element(*self.CONTACT_FORM_CHOOSE).click()
         # 1st
-        self.browser.find_element(*self.CONTACT_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST_CONTACT_EMAIL).click()
         self.browser.find_element(*self.CONTACT_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Jogajog korlo')
         # 2nd
-        self.browser.find_element(*self.CONTACT_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND_CONTACT_EMAIL).click()
         self.browser.find_element(*self.CONTACT_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.CONTACT_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD_CONTACT_EMAIL).click()
         self.browser.find_element(*self.CONTACT_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.CONTACT_ADVANCED_TEMPLATE).click()
@@ -712,17 +733,17 @@ class AddNew:
         self.browser.find_element(*self.EMAIL_FORM).click()
         self.browser.find_element(*self.CONTACT_FORM_CHOOSE).click()
         # 1st
-        self.browser.find_element(*self.EMAIL_1ST).click()
+        self.browser.find_element(*self.CONTENT_1ST_CONTACT_EMAIL).click()
         self.browser.find_element(*self.EMAIL_1ST_CHOOSE).click()
         # nt template
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Subscription korse')
         # 2nd
-        self.browser.find_element(*self.EMAIL_2ND).click()
+        self.browser.find_element(*self.CONTENT_2ND_CONTACT_EMAIL).click()
         self.browser.find_element(*self.EMAIL_2ND_CHOOSE).click()
         # 3rd
-        self.browser.find_element(*self.EMAIL_3RD).click()
+        self.browser.find_element(*self.CONTENT_3RD_CONTACT_EMAIL).click()
         self.browser.find_element(*self.EMAIL_3RD_CHOOSE).click()
         # advanced template
         self.browser.find_element(*self.EMAIL_ADVANCED_TEMPLATE).click()
@@ -733,3 +754,80 @@ class AddNew:
 
         # common tasks
         self.common_task('email_subs')
+
+    def create_custom_notification(self):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys('NX Custom Notification')
+
+        # source page
+        self.browser.find_element(*self.CUSTOM).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.CUSTOM_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        # 1st
+        self.browser.find_element(*self.CUSTOM_1ST).click()
+        self.browser.find_element(*self.CUSTOM_1ST_CHOOSE).click()
+        # nt template 1
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('from')
+        # 2nd
+        self.browser.find_element(*self.CUSTOM_2ND).click()
+        self.browser.find_element(*self.CUSTOM_2ND_CHOOSE).click()
+        # nt template 2
+        self.browser.find_element(*self.CUSTOM_CUSTOM_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.CUSTOM_CUSTOM_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.CUSTOM_CUSTOM_TEMPLATE_TEXT).send_keys('kine nilo')
+        # 3rd
+        self.browser.find_element(*self.CUSTOM_3RD).click()
+        self.browser.find_element(*self.CUSTOM_3RD_CHOOSE).click()
+        # 4th
+        self.browser.find_element(*self.CUSTOM_4TH).click()
+        self.browser.find_element(*self.CUSTOM_4TH_CHOOSE).click()
+        # advanced template
+        self.browser.find_element(*self.CUSTOM_ADVANCED_TEMPLATE).click()
+        self.browser.find_element(*self.CUSTOM_ADVANCED_TEMPLATE).click()
+        # random order
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+        self.browser.find_element(*self.RANDOM_ORDER).click()
+
+        # input content 1
+        self.browser.find_element(*self.TITLE_1).send_keys('Momo chocolate')
+        self.browser.find_element(*self.F_NAME_1).send_keys('One')
+        self.browser.find_element(*self.L_NAME_1).send_keys('Two')
+        self.browser.find_element(*self.CITY_1).send_keys('Uttara')
+        self.browser.find_element(*self.COUNTRY_1).send_keys('Bangladesh')
+        self.browser.find_element(*self.IMAGE_1).click()
+        self.browser.find_element(*self.IMAGE_1_CHOOSE).click()
+        self.browser.find_element(*self.SELECT_IMAGE).click()
+        self.browser.find_element(*self.URL_1).send_keys('https://translate.google.com/')
+        self.browser.find_element(*self.TIME_1).click()
+        self.browser.find_element(*self.PREVIOUS_MONTH_1).click()
+        self.browser.find_element(*self.CHOOSE_DATE_1).click()
+        self.browser.find_element(*self.TAB_1).click()
+        # input content 1
+        self.browser.find_element(*self.ADD_NEW_1).click()
+        self.browser.find_element(*self.TITLE_2).send_keys('Momo chocolate')
+        self.browser.find_element(*self.F_NAME_2).send_keys('One')
+        self.browser.find_element(*self.L_NAME_2).send_keys('Two')
+        self.browser.find_element(*self.CITY_2).send_keys('Uttara')
+        self.browser.find_element(*self.COUNTRY_2).send_keys('Bangladesh')
+        self.browser.find_element(*self.IMAGE_2).click()
+        self.browser.find_element(*self.IMAGE_2_CHOOSE).click()
+        self.browser.find_element(*self.SELECT_IMAGE).click()
+        self.browser.find_element(*self.URL_2).send_keys('https://translate.google.com/')
+        self.browser.find_element(*self.TIME_2).click()
+        self.browser.find_element(*self.PREVIOUS_MONTH_2).click()
+        self.browser.find_element(*self.CHOOSE_DATE_2).click()
+        self.browser.find_element(*self.TAB_1).click()
+
+        # common tasks
+        self.common_task('custom')

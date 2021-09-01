@@ -11,7 +11,7 @@ class WpLoginPage:
         self.browser = browser
 
     def load(self):
-        self.browser.get(conf.URL)
+        self.browser.get(conf.URL_DASHBOARD)
 
     def login(self, config):
         self.browser.find_element(*self.USERNAME_ID).send_keys(config['username'])

@@ -19,7 +19,8 @@ def config(scope='session'):
 def browser(config):
     opts = Options()
     opts.add_experimental_option("detach", True)
-    # opts.add_experimental_option('debuggerAddress', 'localhost:9222')
+    # opts.add_experimental_option('debuggerAddress', 'localhost:9250')
+    # b = webdriver.Chrome(str(sys.path[1]) + '/driver/chromedriver.exe')
     b = webdriver.Chrome(str(sys.path[1]) + '/driver/chromedriver.exe', chrome_options=opts)
     # b = webdriver.Chrome(executable_path=str(sys.path[1]) + '/driver/chromedriver.exe', chrome_options=opts)
     b.maximize_window()
