@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -25,15 +26,18 @@ class AddNew:
     CONTENT_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
                              f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
                              f'5]/div/div/div/div/div[2]')
-    CONTENT_1ST_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                f'1]/div/div/div/div/div[2]')
-    CONTENT_2ND_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                f'3]/div/div/div/div/div[2]')
-    CONTENT_3RD_REVIEW_DSTAT = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-                                f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
-                                f'4]/div/div/div/div/div[2]')
+    CONTENT_1ST_REVIEW_DSTAT = (
+        By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                  f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                  f'1]/div/div/div/div/div[2]')
+    CONTENT_2ND_REVIEW_DSTAT = (
+        By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                  f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                  f'3]/div/div/div/div/div[2]')
+    CONTENT_3RD_REVIEW_DSTAT = (
+        By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
+                  f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div['
+                  f'4]/div/div/div/div/div[2]')
     CONTENT_1ST_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div['
                                            f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
                                            f'2]/div/div/div[1]/div/div/div/div/div[2]')
@@ -64,6 +68,8 @@ class AddNew:
     POSITION = (By.XPATH, f'//*[@id="position"]/div/div[2]')
     POSITION_CHOOSE_LEFT = (By.ID, f'react-select-4-option-0')
     POSITION_CHOOSE_RIGHT = (By.ID, f'react-select-4-option-1')
+    STICKY_BAR = (By.ID, f'sticky_bar')
+    OVERLAPPING = (By.ID, f'pressbar_body')
     NOTIFICATION_SIZE = (By.ID, f'size')
     CLOSE_BUTTON = (By.ID, f'close_button')
     HIDE_ON_MOBILE = (By.ID, f'hide_on_mobile')
@@ -71,6 +77,9 @@ class AddNew:
     DELAY_BEFORE = (By.ID, f'delay_before')
     DISPLAY_FOR = (By.ID, f'display_for')
     DELAY_BETWEEN = (By.ID, f'delay_between')
+    INITIAL_DELAY = (By.ID, f'initial_delay')
+    AUTO_HIDE = (By.ID, f'auto_hide')
+    HIDE_AFTER = (By.ID, f'hide_after')
     SOUND = (By.XPATH, f'//*[@id="sound"]/div/div[2]')
     SOUND_CHOOSE = (By.ID, f'react-select-5-option-1')
     DISPLAY_LAST = (By.ID, f'display_last')
@@ -191,73 +200,115 @@ class AddNew:
     EMAIL_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
     EMAIL_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[3]/div[2]/div')
 
-    # custom notification
-    CUSTOM = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[11]/div/label')
-    CUSTOM_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[11]/div/label/img')
-    CUSTOM_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
-    CUSTOM_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    CUSTOM_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
-    CUSTOM_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    CUSTOM_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[5]/div/div/div/div/div[2]')
-    CUSTOM_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
-    CUSTOM_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
-                            f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[6]/div/div/div/div/div[2]')
-    CUSTOM_4TH_CHOOSE = (By.ID, f'react-select-13-option-1')
-    CUSTOM_CUSTOM_TEMPLATE_TEXT = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div['
-                                             f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div['
-                                             f'2]/div/div/div[4]/div/input')
-    CUSTOM_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    # # custom notification
+    # CUSTOM = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[11]/div/label')
+    # CUSTOM_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[11]/div/label/img')
+    # CUSTOM_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+    #                         f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
+    # CUSTOM_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    # CUSTOM_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+    #                         f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
+    # CUSTOM_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    # CUSTOM_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+    #                         f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[5]/div/div/div/div/div[2]')
+    # CUSTOM_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    # CUSTOM_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/div['
+    #                         f'2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div[6]/div/div/div/div/div[2]')
+    # CUSTOM_4TH_CHOOSE = (By.ID, f'react-select-13-option-1')
+    # CUSTOM_CUSTOM_TEMPLATE_TEXT = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div/div['
+    #                                          f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div['
+    #                                          f'2]/div/div/div[4]/div/input')
+    # CUSTOM_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    #
+    # # id : 0
+    # TITLE_1 = (By.ID, f'field-0-0-0')
+    # F_NAME_1 = (By.ID, f'field-0-0-5')
+    # L_NAME_1 = (By.ID, f'field-0-0-6')
+    # CITY_1 = (By.ID, f'field-0-0-8')
+    # COUNTRY_1 = (By.ID, f'field-0-0-9')
+    # IMAGE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[6]/div[2]/div/div/button')
+    # MEDIA_LIBRARY = (By.ID, f'menu-item-browse')
+    # IMAGE_1_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[1]/div/div')
+    # SELECT_IMAGE = (By.XPATH, f'/html/body/div[4]/div[1]/div/div/div[4]/div/div[2]/button')
+    # URL_1 = (By.ID, f'field-0-0-12')
+    # TIME_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[8]/div[2]/div')
+    # PREVIOUS_MONTH_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
+    #                               f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[1]')
+    # CHOOSE_DATE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
+    #                            f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[2]/div/div['
+    #                            f'2]/div/table/tbody/tr[3]/td[2]')
+    # TAB_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div/h4')
+    # ADD_NEW_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
+    # # id : 1
+    # TITLE_2 = (By.ID, f'field-2-1-0')
+    # F_NAME_2 = (By.ID, f'field-2-1-5')
+    # L_NAME_2 = (By.ID, f'field-2-1-6')
+    # CITY_2 = (By.ID, f'field-2-1-8')
+    # COUNTRY_2 = (By.ID, f'field-2-1-9')
+    # IMAGE_2 = (
+    #     By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[6]/div[2]/div/div/button')
+    # IMAGE_2_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[2]/div/div')
+    # URL_2 = (By.ID, f'field-2-1-12')
+    # TIME_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[8]/div[2]/div')
+    # TAB_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/h4')
+    # ADD_NEW_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
+    # # id : 2
+    # TITLE_3 = (By.ID, f'field-4-2-0')
+    # F_NAME_3 = (By.ID, f'field-4-2-5')
+    # L_NAME_3 = (By.ID, f'field-4-2-6')
+    # CITY_3 = (By.ID, f'field-4-2-8')
+    # COUNTRY_3 = (By.ID, f'field-4-2-9')
+    # IMAGE_3 = (
+    #     By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[6]/div[2]/div/div/button')
+    # IMAGE_3_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[3]/div/div')
+    # URL_3 = (By.ID, f'field-4-2-12')
+    # TIME_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[8]/div[2]/div')
+    # TAB_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[1]/h4')
 
-    # id : 0
-    TITLE_1 = (By.ID, f'field-0-0-0')
-    F_NAME_1 = (By.ID, f'field-0-0-5')
-    L_NAME_1 = (By.ID, f'field-0-0-6')
-    CITY_1 = (By.ID, f'field-0-0-8')
-    COUNTRY_1 = (By.ID, f'field-0-0-9')
-    IMAGE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[6]/div[2]/div/div/button')
-    MEDIA_LIBRARY = (By.ID, f'menu-item-browse')
-    IMAGE_1_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[1]/div/div')
-    SELECT_IMAGE = (By.XPATH, f'/html/body/div[4]/div[1]/div/div/div[4]/div/div[2]/button')
-    URL_1 = (By.ID, f'field-0-0-12')
-    TIME_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div[2]/div[8]/div[2]/div')
-    PREVIOUS_MONTH_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
-                                  f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[1]/div[1]')
-    CHOOSE_DATE_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[8]/div['
-                               f'2]/div/div/div/div/div/div[2]/div/div/div/div[2]/div[2]/div/div['
-                               f'2]/div/table/tbody/tr[3]/td[2]')
-    TAB_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div/div/h4')
-    ADD_NEW_1 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
-    # id : 1
-    TITLE_2 = (By.ID, f'field-2-1-0')
-    F_NAME_2 = (By.ID, f'field-2-1-5')
-    L_NAME_2 = (By.ID, f'field-2-1-6')
-    CITY_2 = (By.ID, f'field-2-1-8')
-    COUNTRY_2 = (By.ID, f'field-2-1-9')
-    IMAGE_2 = (
-        By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[6]/div[2]/div/div/button')
-    IMAGE_2_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[2]/div/div')
-    URL_2 = (By.ID, f'field-2-1-12')
-    TIME_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[8]/div[2]/div')
-    TAB_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/h4')
-    ADD_NEW_2 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[2]/button')
-    # id : 2
-    TITLE_3 = (By.ID, f'field-4-2-0')
-    F_NAME_3 = (By.ID, f'field-4-2-5')
-    L_NAME_3 = (By.ID, f'field-4-2-6')
-    CITY_3 = (By.ID, f'field-4-2-8')
-    COUNTRY_3 = (By.ID, f'field-4-2-9')
-    IMAGE_3 = (
-        By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[6]/div[2]/div/div/button')
-    IMAGE_3_CHOOSE = (By.XPATH, f'/html/body/div[8]/div[1]/div/div/div[3]/div[2]/div/div[3]/ul/li[3]/div/div')
-    URL_3 = (By.ID, f'field-4-2-12')
-    TIME_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[2]/div[8]/div[2]/div')
-    TAB_3 = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[4]/div[1]/div[3]/div[1]/h4')
+    NOTIFICATION_BAR = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[7]/div/label')
+    NOTIFICATION_BAR_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[3]/div/label/img')
+    BUILD_WITH_ELEMENTOR = (By.ID, f'build_with_elementor')
+    ELEMENTOR_TEMPLATE = (By.XPATH,
+                          f'//*[@id="wprf-modal-nx-bar_with_elementor"]/div[2]/div/div/div/div/div[1]/div/div/div/div/div[4]/div/label/img')
+    IMPORT_ELEMENTOR_TEMPLATE = (By.ID, f'import_elementor_theme')
+    CONTENT = (By.XPATH,
+               f'/html/body/div[1]/div[2]/div[2]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div/div/div/div')
+    BUTTON_TEXT = (By.ID, f'button_text')
+    BUTTON_URL = (By.ID, f'button_url')
+    ENABLE_COUNTDOWN = (By.ID, f'enable_countdown')
+    PERMANENT_CLOSE = (By.ID, f'close_forever')
+    EVERGREEN_TIMER = (By.ID, f'evergreen_timer')
+    COUNTDOWN_TEXT = (By.ID, f'countdown_text')
+    EXPIRED_TEXT = (By.ID, f'countdown_expired_text')
+    START_DATE = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[5]/div[2]/div/button')
+    GOTO_PREVIOUS_MONTH = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[5]/div[2]/div/div/div/div/div/div['
+                                     f'2]/div/div/div/div[2]/div[1]/div[1]')
+    CHOOSE_START_DATE = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[5]/div[2]/div/div/div/div/div/div['
+                                   f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]')
+    END_DATE = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[6]/div[2]/div/button')
+    GOTO_NEXT_MONTH = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[6]/div[2]/div/div/div/div/div/div['
+                                 f'2]/div/div/div/div[2]/div[1]/div[2]')
+    CHOOSE_END_DATE = (By.XPATH, f'//*[@id="content_tab"]/div[2]/div[2]/div[6]/div[2]/div/div/div/div/div/div['
+                                 f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
+    START_DATE_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/button')
+    GOTO_PREVIOUS_MONTH_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/div/div/div/div/div['
+                                        f'2]/div/div/div/div[2]/div[1]/div[1]')
+    CHOOSE_START_DATE_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/div/div/div/div/div['
+                                      f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
+    END_DATE_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/button')
+    GOTO_NEXT_MONTH_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/div/div/div/div/div['
+                                    f'2]/div/div/div/div[2]/div[1]/div[2]')
+    CHOOSE_END_DATE_EL = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/div/div/div/div/div['
+                                    f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
+    RANDOMIZE = (By.ID, f'time_randomize')
+    RANDOMIZE_START_TIME = (By.NAME, f'start_time')
+    RANDOMIZE_END_TIME = (By.NAME, f'end_time')
+    TIME_ROTATION = (By.ID, f'time_rotation')
+    TIME_RESET = (By.XPATH, f'time_reset')
 
     def __init__(self, browser):
         self.browser = browser
+        self.cursor = ActionChains(browser)
 
     def load(self):
         # self.browser.get(conf.URL_NX)
@@ -268,26 +319,29 @@ class AddNew:
         self.browser.find_element(*element).click()
 
     def common_task(self, src):
-        if src != 'contact' and src != 'email_subs' and src != 'custom':
-            # link type
-            self.browser.find_element(*self.LINK_TYPE).click()
-            self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
-        # utm controls
-        self.browser.find_element(*self.UTM_CAMPAIGN).send_keys('campaign_automation')
-        self.browser.find_element(*self.UTM_MEDIUM).send_keys('medium_automation')
-        self.browser.find_element(*self.UTM_SOURCE).send_keys('source_automation')
+        if src != 'nxbarel':
+            if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
+                # link type
+                self.browser.find_element(*self.LINK_TYPE).click()
+                self.browser.find_element(*self.LINK_TYPE_CHOOSE).click()
+
+            # utm controls
+            self.browser.find_element(*self.UTM_CAMPAIGN).send_keys('campaign_automation')
+            self.browser.find_element(*self.UTM_MEDIUM).send_keys('medium_automation')
+            self.browser.find_element(*self.UTM_SOURCE).send_keys('source_automation')
 
         # next page display
         self.browser.find_element(*self.NEXT_1).click()
 
         # image
         self.browser.execute_script("window.scrollTo(0, 0)")
-        self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
-        self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
-        if src != 'download-stat':
-            self.browser.find_element(*self.IMAGE).click()
-            self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
-                self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
+        if src != 'nxbarel' and src != 'nxbar':
+            self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
+            self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
+            if src != 'download-stat':
+                self.browser.find_element(*self.IMAGE).click()
+                self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
+                    self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
         # visibility
         self.browser.find_element(*self.SHOW_ON).click()
         self.browser.find_element(*self.SHOW_ON_CHOOSE).click()
@@ -299,43 +353,63 @@ class AddNew:
         # appearance
         self.browser.find_element(*self.POSITION).click()
         self.browser.find_element(*self.POSITION_CHOOSE_RIGHT).click()
+        # sticky bar
+        if src == 'nxbarel' or src == 'nxbar':
+            self.browser.find_element(*self.STICKY_BAR).click()
+            self.browser.find_element(*self.OVERLAPPING).click()
         # notification size
-        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys('400')
+        if src != 'nxbarel' and src != 'nxbar':
+            self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.NOTIFICATION_SIZE).send_keys('400')
         # display close option
         self.double_clicks(self.CLOSE_BUTTON)
         self.double_clicks(self.HIDE_ON_MOBILE)
         # queue management
-        self.double_clicks(self.GLOBAL_QUEUE)
+        if src != 'nxbarel' and src != 'nxbar':
+            self.double_clicks(self.GLOBAL_QUEUE)
         # timing
-        # delay before
-        self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.DELAY_BEFORE).send_keys('1')
-        # display for
-        self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.DISPLAY_FOR).send_keys('5')
-        # delay between
-        self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.DELAY_BETWEEN).send_keys('2')
-        # sound
-        self.browser.find_element(*self.SOUND).click()
-        self.browser.find_element(*self.SOUND_CHOOSE).click()
+        if src == 'nxbarel' or src == 'nxbar':
+            # initial delay
+            self.browser.find_element(*self.INITIAL_DELAY).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.INITIAL_DELAY).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.INITIAL_DELAY).send_keys('1')
+            # auto hide
+            self.browser.find_element(*self.AUTO_HIDE).click()
+            self.browser.find_element(*self.HIDE_AFTER).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.HIDE_AFTER).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.HIDE_AFTER).send_keys('20')
+        else:
+            # delay before
+            self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.DELAY_BEFORE).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.DELAY_BEFORE).send_keys('1')
+            # display for
+            self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.DISPLAY_FOR).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.DISPLAY_FOR).send_keys('5')
+            # delay between
+            self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.DELAY_BETWEEN).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.DELAY_BETWEEN).send_keys('2')
+
+        if src != 'nxbarel' and src != 'nxbar':
+            # sound
+            self.browser.find_element(*self.SOUND).click()
+            self.browser.find_element(*self.SOUND_CHOOSE).click()
         # behavior
-        # display last
-        self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.DISPLAY_LAST).send_keys('19')
-        # display form the last
-        self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.DISPLAY_FORM).send_keys('20')
-        # loop
-        self.double_clicks(self.LOOP)
-        if src != 'contact' and src != 'email_subs':
+        if src != 'nxbarel' and src != 'nxbar':
+            # display last
+            self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.DISPLAY_LAST).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.DISPLAY_LAST).send_keys('19')
+            # display form the last
+            self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.DISPLAY_FORM).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.DISPLAY_FORM).send_keys('20')
+            # loop
+            self.double_clicks(self.LOOP)
+        if src != 'contact' and src != 'email_subs' and src != 'nxbarel':
             # open link in a new tab
             self.browser.find_element(*self.LINK_OPEN).click()
 
@@ -345,7 +419,7 @@ class AddNew:
 
         assert self.browser.find_element(*self.SUCCESS_NOTICE).text == 'Successfully Created.'
 
-    def create_sale_notification(self, src):
+    def create_sale_notice(self, src):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
 
@@ -401,7 +475,7 @@ class AddNew:
         # common tasks
         self.common_task('sale')
 
-    def create_comment_notification(self):
+    def create_comment_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Comment Notification')
 
@@ -445,7 +519,7 @@ class AddNew:
         # common tasks
         self.common_task('comment')
 
-    def create_review_notification(self, src):
+    def create_review_notice(self, src):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WP) Notification') if src == 'wp' else \
             self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WOO) Notification')
@@ -513,7 +587,7 @@ class AddNew:
         # common tasks
         self.common_task('review')
 
-    def create_download_stat_notification(self):
+    def create_download_stat_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Download Stat Notification')
 
@@ -555,7 +629,7 @@ class AddNew:
         # common tasks
         self.common_task('download-stat')
 
-    def create_e_learning_notification(self):
+    def create_e_learning_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX eLearning Notification')
 
@@ -602,7 +676,7 @@ class AddNew:
         # common tasks
         self.common_task('e-learning')
 
-    def create_donation_notification(self):
+    def create_donation_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Donation Notification')
 
@@ -651,7 +725,7 @@ class AddNew:
         # common tasks
         self.common_task('donation')
 
-    def create_contact_notification(self, src):
+    def create_contact_notice(self, src):
         self.browser.find_element(*self.ADD_NEW).click()
         if src == 'cf7':
             self.browser.find_element(*self.NX_TITLE).send_keys('NX Contact (Contact Form 7) Notification')
@@ -709,7 +783,7 @@ class AddNew:
         # common tasks
         self.common_task('contact')
 
-    def create_email_subs_notification(self):
+    def create_email_subs_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Email Subscription Notification')
 
@@ -753,7 +827,7 @@ class AddNew:
         # common tasks
         self.common_task('email_subs')
 
-    def create_custom_notification(self):
+    def create_custom_notice(self):
         self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Custom Notification')
 
@@ -829,3 +903,65 @@ class AddNew:
 
         # common tasks
         self.common_task('custom')
+
+    def create_notificationbar(self, src):
+        self.browser.find_element(*self.ADD_NEW).click()
+        self.browser.find_element(*self.NX_TITLE).send_keys(
+            'Notification Bar') if src == 'nxbar' else self.browser.find_element(*self.NX_TITLE).send_keys(
+            'Notification Bar (Elementor)')
+
+        # source page
+        self.browser.find_element(*self.NOTIFICATION_BAR).click()
+        # next page design
+        self.browser.find_element(*self.NEXT_0).click()
+
+        # design page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        if src == 'nxbar':
+            self.browser.find_element(*self.NOTIFICATION_BAR_TEMPLATE).click()
+        else:
+            self.browser.find_element(*self.BUILD_WITH_ELEMENTOR).click()
+            self.browser.find_element(*self.ELEMENTOR_TEMPLATE).click()
+            self.browser.find_element(*self.IMPORT_ELEMENTOR_TEMPLATE).click()
+        # next page content
+        self.browser.find_element(*self.NEXT_1).click()
+
+        # content page
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        if src == 'nxbar':
+            self.browser.find_element(*self.CONTENT).click()
+            self.browser.find_element(*self.CONTENT).send_keys('NotificationX Automation camp is Running...')
+            # button text
+            self.browser.find_element(*self.BUTTON_TEXT).send_keys('Grab')
+            # button url
+            self.browser.find_element(*self.BUTTON_URL).send_keys('https://translate.google.com/')
+
+        # enable countdown
+        self.browser.find_element(*self.ENABLE_COUNTDOWN).click()
+        if src == 'nxbar':
+            self.browser.find_element(*self.COUNTDOWN_TEXT).send_keys('Grab it before')
+            self.browser.find_element(*self.EXPIRED_TEXT).send_keys(Keys.CONTROL, 'a')
+            self.browser.find_element(*self.EXPIRED_TEXT).send_keys(Keys.BACKSPACE)
+            self.browser.find_element(*self.EXPIRED_TEXT).send_keys('You missed it buddy, Try next time.')
+            self.browser.find_element(*self.START_DATE).click()
+            self.browser.find_element(*self.GOTO_PREVIOUS_MONTH).click()
+            self.browser.find_element(*self.CHOOSE_START_DATE).click()
+            self.browser.find_element(*self.START_DATE).click()
+            self.browser.find_element(*self.END_DATE).click()
+            self.browser.find_element(*self.GOTO_NEXT_MONTH).click()
+            self.browser.find_element(*self.CHOOSE_END_DATE).click()
+            self.browser.find_element(*self.END_DATE).click()
+        else:
+            self.browser.find_element(*self.START_DATE_EL).click()
+            self.browser.find_element(*self.GOTO_PREVIOUS_MONTH_EL).click()
+            self.browser.find_element(*self.CHOOSE_START_DATE_EL).click()
+            self.browser.find_element(*self.START_DATE_EL).click()
+            self.browser.find_element(*self.END_DATE_EL).click()
+            self.browser.find_element(*self.GOTO_NEXT_MONTH_EL).click()
+            self.browser.find_element(*self.CHOOSE_END_DATE_EL).click()
+            self.browser.find_element(*self.END_DATE_EL).click()
+
+        self.browser.find_element(*self.PERMANENT_CLOSE).click()
+
+        # common tasks
+        self.common_task(src)
