@@ -3,7 +3,7 @@ from pages.adduser import AddUser
 from pages.wploginpage import WpLoginPage
 
 
-def test_notification(browser, config):
+def skip_test_notification(browser, config):
 
     wp_login = WpLoginPage(browser)
     user_add = AddUser(browser)
