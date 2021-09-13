@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -310,9 +312,10 @@ class AddNew:
         self.browser = browser
         self.cursor = ActionChains(browser)
 
-    def load(self):
-        # self.browser.get(conf.URL_NX)
-        self.browser.find_element(By.XPATH, '//*[@id="toplevel_page_nx-admin"]/a/div[3]').click()
+    def nx_load(self):
+        self.browser.get(conf.URL_NX)
+        self.browser.execute_script("window.scrollTo(0, 0)")
+        self.browser.find_element(*self.ADD_NEW).click()
 
     def double_clicks(self, element):
         self.browser.find_element(*element).click()
@@ -420,7 +423,6 @@ class AddNew:
         assert self.browser.find_element(*self.SUCCESS_NOTICE).text == 'Successfully Created.'
 
     def create_sale_notice(self, src):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
 
         # source page
@@ -476,7 +478,6 @@ class AddNew:
         self.common_task('sale')
 
     def create_comment_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Comment Notification')
 
         # source page
@@ -520,7 +521,6 @@ class AddNew:
         self.common_task('comment')
 
     def create_review_notice(self, src):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WP) Notification') if src == 'wp' else \
             self.browser.find_element(*self.NX_TITLE).send_keys('NX Review (WOO) Notification')
 
@@ -588,7 +588,6 @@ class AddNew:
         self.common_task('review')
 
     def create_download_stat_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Download Stat Notification')
 
         # source page
@@ -630,7 +629,6 @@ class AddNew:
         self.common_task('download-stat')
 
     def create_e_learning_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX eLearning Notification')
 
         # source page
@@ -677,7 +675,6 @@ class AddNew:
         self.common_task('e-learning')
 
     def create_donation_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Donation Notification')
 
         # source page
@@ -726,7 +723,6 @@ class AddNew:
         self.common_task('donation')
 
     def create_contact_notice(self, src):
-        self.browser.find_element(*self.ADD_NEW).click()
         if src == 'cf7':
             self.browser.find_element(*self.NX_TITLE).send_keys('NX Contact (Contact Form 7) Notification')
         elif src == 'wpf':
@@ -784,7 +780,6 @@ class AddNew:
         self.common_task('contact')
 
     def create_email_subs_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Email Subscription Notification')
 
         # source page
@@ -828,7 +823,6 @@ class AddNew:
         self.common_task('email_subs')
 
     def create_custom_notice(self):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys('NX Custom Notification')
 
         # source page
@@ -905,7 +899,6 @@ class AddNew:
         self.common_task('custom')
 
     def create_notificationbar(self, src):
-        self.browser.find_element(*self.ADD_NEW).click()
         self.browser.find_element(*self.NX_TITLE).send_keys(
             'Notification Bar') if src == 'nxbar' else self.browser.find_element(*self.NX_TITLE).send_keys(
             'Notification Bar (Elementor)')

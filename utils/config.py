@@ -1,5 +1,6 @@
 ROOT = "nxdev.com"
 HOME_URL = "https://" + ROOT + "/"
 URL_DASHBOARD = "https://" + ROOT + "/wp-admin/"
-URL_NX = "http://" + ROOT + "/wp-admin/admin.php?page=nx-admin#/?status=all&per-page=20&p=1"
+URL_NX = "https://" + ROOT + "/wp-admin/admin.php?page=nx-admin"
+# URL_NX = "http://" + ROOT + "/wp-admin/admin.php?page=nx-admin&status=all&p=1&per-page=20"
 URL_ADD_USER = "https://" + ROOT + "/wp-admin/user-new.php"
