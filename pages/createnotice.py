@@ -343,7 +343,11 @@ class AddNew:
             self.browser.find_element(*self.SHOW_DEFAULT_IMAGE).click()
             if src != 'download-stat':
                 self.browser.find_element(*self.IMAGE).click()
-                self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click() if src == 'comment' else \
+                if src == 'comment':
+                    self.browser.find_element(*self.COMMENT_GRAVATAR_IMAGE).click()
+                elif src == 'contact':
+                    self.browser.find_element(*self.GRAVATAR_IMAGE).click()
+                else:
                     self.browser.find_element(*self.FEATURE_IMAGE_CHOOSE).click()
         # visibility
         self.browser.find_element(*self.SHOW_ON).click()
