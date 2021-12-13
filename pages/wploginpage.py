@@ -16,9 +16,10 @@ class WpLoginPage:
         self.browser.get(conf.URL_DASHBOARD)
 
     def login(self, config):
-        time.sleep(5)
+        self.browser.find_element(*self.USERNAME_ID).click()
         self.browser.find_element(*self.USERNAME_ID).clear()
         self.browser.find_element(*self.USERNAME_ID).send_keys(config['username'])
+        self.browser.find_element(*self.PASSWORD_ID).click()
         self.browser.find_element(*self.PASSWORD_ID).clear()
         self.browser.find_element(*self.PASSWORD_ID).send_keys(config['password'])
         self.browser.find_element(*self.BUTTON_ID).click()
