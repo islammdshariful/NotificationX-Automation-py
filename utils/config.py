@@ -1,4 +1,4 @@
-ROOT = "nxdev.com"
+ROOT = "autnx.wpdevcloud.com"
 HOME_URL = "https://" + ROOT + "/"
 URL_DASHBOARD = "https://" + ROOT + "/wp-admin/"
 URL_NX = "https://" + ROOT + "/wp-admin/admin.php?page=nx-admin"

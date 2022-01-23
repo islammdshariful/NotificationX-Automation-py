@@ -122,30 +122,30 @@ class AddNew:
 
     SUCCESS_NOTICE = (By.XPATH, f'//*[@id="notificationx"]/div/div[1]/div[2]/p')
 
-    # Sale notification
-    SALE = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2] /div/div/div/div/div[1]/div/label')
-    SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
-    SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
-    SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
-    SALE_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
-    SALE_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    SALE_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
-    SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
-    SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]')
-    SALE_SHOW_PURCHASE_OF_CHOOSE = (By.ID, 'react-select-14-option-0')
-    SALE_EXCLUDE_BY = (By.XPATH, f'//*[@id="product_exclude_by"]/div/div[2]')
-    SALE_EXCLUDE_BY_CHOOSE = (By.ID, 'react-select-15-option-0')
-    SALE_MULTI_ORDER = (By.ID, f'combine_multiorder')
-    SALE_MULTI_ORDER_TEXT = (By.ID, f'combine_multiorder_text')
+    # # Sale notification
+    # SALE = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2] /div/div/div/div/div[1]/div/label')
+    # SALE_WOO = (By.XPATH, f'//*[@id="source_tab"]/div[2]/div[2]/div/div/div/div/div[1]/div/label/img')
+    # SALE_EDD = (By.XPATH, f'//*[@id="source_tab"]/div[3]/div[2]/div/div/div/div/div[2]/div/label/img')
+    # SALE_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[4]/div/label/img')
+    # SALE_1ST_CHOOSE = (By.ID, f'react-select-10-option-1')
+    # SALE_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    # SALE_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    # SALE_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    # SALE_SHOW_PURCHASE_OF = (By.XPATH, f'//*[@id="product_control"]/div/div[2]')
+    # SALE_SHOW_PURCHASE_OF_CHOOSE = (By.ID, 'react-select-14-option-0')
+    # SALE_EXCLUDE_BY = (By.XPATH, f'//*[@id="product_exclude_by"]/div/div[2]')
+    # SALE_EXCLUDE_BY_CHOOSE = (By.ID, 'react-select-15-option-0')
+    # SALE_MULTI_ORDER = (By.ID, f'combine_multiorder')
+    # SALE_MULTI_ORDER_TEXT = (By.ID, f'combine_multiorder_text')
 
-    # comment notification
-    COMMENT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[2]/div/label')
-    COMMENT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[5]/div/label/img')
-    COMMENT_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
-    COMMENT_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
-    COMMENT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
-    COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
-    COMMENT_CONTENT_LENGTH = (By.ID, f'content_trim_length')
+    # # comment notification
+    # COMMENT = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[2]/div/label')
+    # COMMENT_TEMPLATE = (By.XPATH, f'//*[@id="design_tab"]/div/div[2]/div[1]/div/div/div/div[5]/div/label/img')
+    # COMMENT_1ST_CHOOSE = (By.ID, f'react-select-10-option-2')
+    # COMMENT_2ND_CHOOSE = (By.ID, f'react-select-11-option-1')
+    # COMMENT_3RD_CHOOSE = (By.ID, f'react-select-12-option-1')
+    # COMMENT_ADVANCED_TEMPLATE = (By.XPATH, f'//*[@id="content_tab"]/div[1]/div[2]/div[2]/div[2]/div')
+    # COMMENT_CONTENT_LENGTH = (By.ID, f'content_trim_length')
 
     # review notification
     REVIEW = (By.XPATH, f'//*[@id="source_tab"]/div[1]/div[2]/div/div/div/div/div[3]/div/label')
@@ -352,7 +352,6 @@ class AddNew:
         self.browser.find_element(*element).click()
         self.browser.find_element(*element).click()
 
-
     def common_task(self, src, pos):
         if src != 'nxbarel':
             if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
@@ -461,63 +460,63 @@ class AddNew:
 
         assert self.browser.find_element(*self.SUCCESS_NOTICE).text == 'Successfully Created.'
 
-    def create_sale_notice(self, src, pos):
-        self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
-
-        # source page
-        self.browser.find_element(*self.SALE).click()
-        self.browser.find_element(*self.SALE_WOO).click() if src == "woo" else \
-            self.browser.find_element(*self.SALE_EDD).click()
-        # next page design
-        self.browser.find_element(*self.NEXT_0).click()
-
-        # design page
-        self.browser.execute_script("window.scrollTo(0, 0)")
-        self.browser.find_element(*self.SALE_TEMPLATE).click()
-        # next page content
-        self.browser.find_element(*self.NEXT_1).click()
-
-        # content page
-        self.browser.execute_script("window.scrollTo(0, 0)")
-        # 1st
-        self.browser.find_element(*self.CONTENT_1ST).click()
-        # self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
-        self.browser.find_element(*self.CONTENT_1ST_CHOOSE).click()
-        # nt template
-        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine nilo')
-        # 2nd
-        self.browser.find_element(*self.CONTENT_2ND).click()
-        # self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
-        self.browser.find_element(*self.CONTENT_2ND_CHOOSE).click()
-        # 3rd
-        self.browser.find_element(*self.CONTENT_3RD).click()
-        # self.browser.find_element(*self.SALE_3RD_CHOOSE).click()
-        self.browser.find_element(*self.CONTENT_3RD_CHOOSE).click()
-        # advanced template
-        self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
-        self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
-        # random order
-        self.browser.find_element(*self.RANDOM_ORDER).click()
-        self.browser.find_element(*self.RANDOM_ORDER).click()
-        # show purchased of
-        self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF).click()
-        self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF_CHOOSE).click()
-        # exclude by
-        self.browser.find_element(*self.SALE_EXCLUDE_BY).click()
-        self.browser.find_element(*self.SALE_EXCLUDE_BY_CHOOSE).click()
-        # random order
-        self.browser.find_element(*self.RANDOM_ORDER).click()
-        # multi order
-        self.browser.find_element(*self.SALE_MULTI_ORDER).click()
-        self.browser.find_element(*self.SALE_MULTI_ORDER).click()
-        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.CONTROL, 'a')
-        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.BACKSPACE)
-        self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys('Aro onek kichu')
-
-        # common tasks
-        self.common_task('sale', pos)
+    # def create_sale_notice(self, src, pos):
+    #     self.browser.find_element(*self.NX_TITLE).send_keys('NX Sale Notification')
+    #
+    #     # source page
+    #     self.browser.find_element(*self.SALE).click()
+    #     self.browser.find_element(*self.SALE_WOO).click() if src == "woo" else \
+    #         self.browser.find_element(*self.SALE_EDD).click()
+    #     # next page design
+    #     self.browser.find_element(*self.NEXT_0).click()
+    #
+    #     # design page
+    #     self.browser.execute_script("window.scrollTo(0, 0)")
+    #     self.browser.find_element(*self.SALE_TEMPLATE).click()
+    #     # next page content
+    #     self.browser.find_element(*self.NEXT_1).click()
+    #
+    #     # content page
+    #     self.browser.execute_script("window.scrollTo(0, 0)")
+    #     # 1st
+    #     self.browser.find_element(*self.CONTENT_1ST).click()
+    #     # self.browser.find_element(*self.SALE_1ST_CHOOSE).click()
+    #     self.browser.find_element(*self.CONTENT_1ST_CHOOSE).click()
+    #     # nt template
+    #     self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.CONTROL, 'a')
+    #     self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys(Keys.BACKSPACE)
+    #     self.browser.find_element(*self.NT_TEMPLATE_TEXT).send_keys('Kine nilo')
+    #     # 2nd
+    #     self.browser.find_element(*self.CONTENT_2ND).click()
+    #     # self.browser.find_element(*self.SALE_2ND_CHOOSE).click()
+    #     self.browser.find_element(*self.CONTENT_2ND_CHOOSE).click()
+    #     # 3rd
+    #     self.browser.find_element(*self.CONTENT_3RD).click()
+    #     # self.browser.find_element(*self.SALE_3RD_CHOOSE).click()
+    #     self.browser.find_element(*self.CONTENT_3RD_CHOOSE).click()
+    #     # advanced template
+    #     self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
+    #     self.browser.find_element(*self.SALE_ADVANCED_TEMPLATE).click()
+    #     # random order
+    #     self.browser.find_element(*self.RANDOM_ORDER).click()
+    #     self.browser.find_element(*self.RANDOM_ORDER).click()
+    #     # show purchased of
+    #     self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF).click()
+    #     self.browser.find_element(*self.SALE_SHOW_PURCHASE_OF_CHOOSE).click()
+    #     # exclude by
+    #     self.browser.find_element(*self.SALE_EXCLUDE_BY).click()
+    #     self.browser.find_element(*self.SALE_EXCLUDE_BY_CHOOSE).click()
+    #     # random order
+    #     self.browser.find_element(*self.RANDOM_ORDER).click()
+    #     # multi order
+    #     self.browser.find_element(*self.SALE_MULTI_ORDER).click()
+    #     self.browser.find_element(*self.SALE_MULTI_ORDER).click()
+    #     self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.CONTROL, 'a')
+    #     self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys(Keys.BACKSPACE)
+    #     self.browser.find_element(*self.SALE_MULTI_ORDER_TEXT).send_keys('Aro onek kichu')
+    #
+    #     # common tasks
+    #     self.common_task('sale', pos)
 
     # def create_comment_notice(self, pos):
     #     self.browser.find_element(*self.NX_TITLE).send_keys('NX Comment Notification')
