@@ -102,8 +102,8 @@ class Helper:
     # VISIBILITY
     show_on = (By.XPATH, f"//div[@id='show_on']")
     show_on_choose_everywhere = (By.ID, f'react-select-3-option-0')
-    display_for = (By.XPATH, f"//div[@id='show_on_display']")
-    display_for_choose_everywhere = (By.ID, f'react-select-4-option-0')
+    show_on_display = (By.XPATH, f"//div[@id='show_on_display']")
+    show_on_display_choose_everyone = (By.ID, f'react-select-4-option-0')
     # APPEARANCE
     position = (By.XPATH, f"//div[@id='position']")
     position_choose_left = (By.ID, f'react-select-5-option-0')
@@ -170,8 +170,12 @@ class Helper:
                     else:
                         self.browser.find_element(*self.feature_image_choose).click()
             # visibility
+            # show on
             self.browser.find_element(*self.show_on).click()
             self.browser.find_element(*self.show_on_choose_everywhere).click()
+            # display for
+            self.browser.find_element(*self.show_on_display).click()
+            self.browser.find_element(*self.show_on_display_choose_everyone).click()
             # next page customize
             self.browser.find_element(*self.next_btn).click()
 

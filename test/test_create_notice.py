@@ -1,8 +1,11 @@
 from pages.comment_notice import Comment
+from pages.contact_form_notice import ContactForm
 from pages.donation import Donation
 from pages.download_stats import DownloadStats
 from pages.e_learning_notice import ELearning
+from pages.email_subs_notice import EmailSubscription
 from pages.notification_bar import NotificationBar
+from pages.page_analytics import PageAnalytics
 from pages.review_notice import Review
 from pages.sale_notice import Sale
 
@@ -65,3 +68,21 @@ def test_nxbar_w_elementor_notice(browser):
     nxbar = NotificationBar(browser)
     nxbar.load()
     nxbar.create_nxbar_notice('nxbarel', 'T')
+
+
+def test_contact_form_notice(browser):
+    contact_form = ContactForm(browser)
+    contact_form.load()
+    contact_form.create_review_notice('cf7', 'L')
+
+
+def test_email_subscription_notice(browser):
+    email_subs = EmailSubscription(browser)
+    email_subs.load()
+    email_subs.create_email_subs_notice('mc', 'R')
+
+
+def test_page_analytics_notice(browser):
+    page_analytics = PageAnalytics(browser)
+    page_analytics.load()
+    page_analytics.create_page_analytics_notice('L')
