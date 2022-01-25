@@ -13,7 +13,7 @@ from pages.sale_notice import Sale
 def test_comment_notice(browser):
     comment = Comment(browser)
     comment.load()
-    comment.create_comment_notice('L') # L for Left & R for Right
+    comment.create_comment_notice('L')
 
 
 def test_sale_woo_notice(browser):

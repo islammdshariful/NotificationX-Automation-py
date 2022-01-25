@@ -32,7 +32,11 @@ class Sale(Helper):
     sale_show_purchase_of_choose = (By.ID, 'react-select-15-option-0')
     sale_exclude_by = (By.XPATH, f"//div[@id='product_exclude_by']")
     sale_exclude_by_choose = (By.ID, 'react-select-16-option-0')
-    sale_order_status = (By.XPATH, f"//div[@id='order_status']")
+    sale_order_status = (By.XPATH, f"//div[@id='order_status']//div[@class='wprf-select__indicator "
+                                   f"wprf-select__dropdown-indicator css-tlfecz-indicatorContainer']//*[name()='svg']")
+    sale_hide_order_status = (By.XPATH, f"//div[@id='order_status']//div[@class='wprf-select__indicator "
+                                   f"wprf-select__dropdown-indicator css-tlfecz-indicatorContainer']//*[name()='svg']")
+    sale_order_choose_hold = (By.ID, 'react-select-16-option-0')
     sale_multi_order = (By.XPATH, f"//input[@id='combine_multiorder']")
     sale_multi_order_text = (By.XPATH, f"//input[@id='combine_multiorder_text']")
 
@@ -89,14 +93,18 @@ class Sale(Helper):
         # exclude by
         self.browser.find_element(*self.sale_exclude_by).click()
         self.browser.find_element(*self.sale_exclude_by_choose).click()
+        if src.__eq__("woo"):
+            # order status
+            self.browser.find_element(*self.sale_order_status).click()
+            self.browser.find_element(*self.sale_show_purchase_of).click()
         # random order
         self.browser.find_element(*self.random_order).click()
         # multi order
         self.browser.find_element(*self.sale_multi_order).click()
         self.browser.find_element(*self.sale_multi_order).click()
-        # self.browser.find_element(*self.sale_multi_order_text).send_keys(Keys.CONTROL, 'a')
-        # self.browser.find_element(*self.sale_multi_order_text).send_keys(Keys.BACKSPACE)
-        # self.browser.find_element(*self.sale_multi_order_text).send_keys('& more product')
+        self.browser.find_element(*self.sale_multi_order_text).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.sale_multi_order_text).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.sale_multi_order_text).send_keys('& more product')
 
         # common tasks
         self.do_others('sale', pos)

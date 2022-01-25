@@ -79,6 +79,7 @@ class NotificationBar(Helper):
             self.browser.execute_script("window.scrollTo(0,document.body.scrollHeight);")
             time.sleep(1)
         # next page content
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, self.next_btn_for_wait)))
         self.browser.find_element(*self.next_btn).click()
 
         # content page

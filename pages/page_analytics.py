@@ -69,11 +69,19 @@ class PageAnalytics(Helper):
         self.browser.find_element(*self.p_ana_template_3rd_param).click()
         self.browser.find_element(*self.p_ana_choose_3rd_param).click()
         # 4th param
-        self.browser.find_element(*self.p_ana_template_4th_param).click()
-        self.browser.find_element(*self.p_ana_choose_4th_param).click()
+        self.browser.find_element(*self.p_ana_template_4th_param).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.p_ana_template_4th_param).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.p_ana_template_4th_param).send_keys('In The Last')
+        # 5th param
+        self.browser.find_element(*self.p_ana_template_5th_param).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.p_ana_template_5th_param).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.p_ana_template_5th_param).send_keys('30')
+        # 6th param
+        self.browser.find_element(*self.p_ana_template_6th_param).click()
+        self.browser.find_element(*self.p_ana_choose_6th_param).click()
         # advanced template
         self.browser.find_element(*self.p_ana_show_advanced_template).click()
         self.browser.find_element(*self.p_ana_hide_advanced_template).click()
 
         # common tasks
-        self.do_others('review', pos)
+        self.do_others('analytics', pos)

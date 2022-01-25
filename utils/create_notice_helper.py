@@ -16,73 +16,6 @@ class Helper:
     next_btn = (By.XPATH, f"//button[normalize-space()='Next']")
     prev_btn = (By.XPATH, f"//button[normalize-space()='Previous']")
     publish_btn = (By.XPATH, f"//button[normalize-space()='Publish']")
-
-    # # common fields
-    # CONTENT_1ST = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                          f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                          f'1]/div/div/div/div/div[2]')
-    # CONTENT_1ST_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                                 f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                                 f'1]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_2ND = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                          f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                          f'3]/div/div/div/div/div[2]')
-    # CONTENT_2ND_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                                 f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                                 f'3]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_3RD = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                          f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                          f'4]/div/div/div/div/div[2]')
-    # CONTENT_3RD_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[4]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                                 f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                                 f'4]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_4TH = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                          f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                          f'5]/div/div/div/div/div[2]')
-    # CONTENT_4TH_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div['
-    #                                 f'1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[1]/div[2]/div/div/div['
-    #                                 f'5]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_1ST_REVIEW_DSTAT = (
-    #     By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[1]/div/div[2]/div['
-    #               f'1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[1]/div/div/div/div/div[2]')
-    # CONTENT_1ST_REVIEW_DSTAT_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div['
-    #                                              f'1]/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div['
-    #                                              f'3]/div[2]/div/div/div[1]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_2ND_REVIEW_DSTAT = (
-    #     By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[1]/div/div[2]/div['
-    #               f'1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div[2]')
-    # CONTENT_2ND_REVIEW_DSTAT_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div['
-    #                                              f'1]/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div['
-    #                                              f'3]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div[2]')
-    #
-    # CONTENT_3RD_REVIEW_DSTAT = (
-    #     By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[1]/div/div[2]/div['
-    #               f'1]/div/div[3]/div[1]/div[2]/div[3]/div[2]/div/div/div[4]/div/div/div/div/div[2]')
-    # CONTENT_3RD_REVIEW_DSTAT_CHOOSE = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div['
-    #                                              f'1]/div[2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div['
-    #                                              f'3]/div[2]/div/div/div[4]/div/div/div/div[2]/div/div[3]')
-    #
-    # CONTENT_1ST_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div['
-    #                                        f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
-    #                                        f'2]/div/div/div[1]/div/div/div/div/div[2]')
-    # CONTENT_1ST_CONTACT_EMAIL_CHOOSE = (By.XPATH, f'')
-    #
-    # CONTENT_2ND_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div['
-    #                                        f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
-    #                                        f'2]/div/div/div[3]/div/div/div/div/div[2]')
-    # CONTENT_2ND_CONTACT_EMAIL_CHOOSE = (By.XPATH, f'')
-    #
-    # CONTENT_3RD_CONTACT_EMAIL = (By.XPATH, f'/html/body/div[1]/div[2]/div[3]/div[1]/div[2]/div/div/div/div[1]/div['
-    #                                        f'2]/div[1]/div/div[2]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div['
-    #                                        f'2]/div/div/div[4]/div/div/div/div/div[2]')
-    # CONTENT_3RD_CONTACT_EMAIL_CHOOSE = (By.XPATH, f'')
-
-    # nt_template_text = (By.NAME, f'second_param')
     random_order = (By.ID, f'random_order')
     # LINK OPTIONS
     link_type = (By.XPATH, f"//div[@id='link_type']")
@@ -125,6 +58,8 @@ class Helper:
     # SOUND SETTINGS
     sound = (By.XPATH, f"//div[@id='sound']")
     sound_choose = (By.ID, f'react-select-6-option-1')
+    volume_reset_btn = (By.XPATH, f"//button[normalize-space()='Reset']")
+    volume = (By.XPATH, f"//input[@id='inspector-input-control-1']")
     # BEHAVIOUR
     display_last = (By.ID, f'display_last')
     display_form = (By.ID, f'display_from')
@@ -142,13 +77,13 @@ class Helper:
 
     def do_others(self, src, pos):
         with soft_assertions():
-            if src != 'nxbarel':
+            if src != 'nxbarel' and src != 'analytics':
                 if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
-                    # link type
+                    # LINK OPTIONS
                     self.browser.find_element(*self.link_type).click()
                     self.browser.find_element(*self.link_type_choose).click()
 
-                # utm controls
+                # UTM CONTROL
                 self.browser.find_element(*self.utm_campaign).send_keys('campaign_automation')
                 self.browser.find_element(*self.utm_medium).send_keys('medium_automation')
                 self.browser.find_element(*self.utm_source).send_keys('source_automation')
@@ -156,12 +91,12 @@ class Helper:
             # next page display
             self.browser.find_element(*self.next_btn).click()
 
-            # image
+            # IMAGE
             self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
             if src != 'nxbarel' and src != 'nxbar':
                 self.browser.find_element(*self.show_default_image).click()
                 self.browser.find_element(*self.show_default_image).click()
-                if src != 'd_stat':
+                if src != 'd_stat' and src != 'analytics':
                     self.browser.find_element(*self.image).click()
                     if src == 'comment':
                         self.browser.find_element(*self.comment_gravatar_image).click()
@@ -169,7 +104,7 @@ class Helper:
                         self.browser.find_element(*self.gravatar_image).click()
                     else:
                         self.browser.find_element(*self.feature_image_choose).click()
-            # visibility
+            # VISIBILITY
             # show on
             self.browser.find_element(*self.show_on).click()
             self.browser.find_element(*self.show_on_choose_everywhere).click()
@@ -181,7 +116,7 @@ class Helper:
 
             # customize page
             self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-            # appearance
+            # APPEARANCE
             self.browser.find_element(*self.position).click()
             if pos == "L" or pos == "T":
                 self.browser.find_element(*self.position_choose_left).click()
@@ -199,10 +134,10 @@ class Helper:
             # display close option
             self.double_clicks(self.close_button)
             self.double_clicks(self.hide_on_mobile)
-            # queue management
+            # QUEUE MANAGEMENT
             if src != 'nxbarel' and src != 'nxbar':
                 self.double_clicks(self.global_queue)
-            # timing
+            # TIMING
             if src == 'nxbarel' or src == 'nxbar':
                 # initial delay
                 self.browser.find_element(*self.initial_delay).send_keys(Keys.CONTROL, 'a')
@@ -228,22 +163,28 @@ class Helper:
                 self.browser.find_element(*self.delay_between).send_keys('2')
 
             if src != 'nxbarel' and src != 'nxbar':
-                # sound
+                # SOUND SETTINGS
                 self.browser.find_element(*self.sound).click()
                 self.browser.find_element(*self.sound_choose).click()
-            # behavior
+                self.browser.find_element(*self.volume_reset_btn).click()
+
+                self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
+                self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
+                self.browser.find_element(*self.volume).send_keys('30')
+            # BEHAVIOUR
             if src != 'nxbarel' and src != 'nxbar':
-                # display last
-                self.browser.find_element(*self.display_last).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.display_last).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.display_last).send_keys('5')
-                # display form the last
-                self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.display_form).send_keys('2')
+                if src != 'analytics':
+                    # display last
+                    self.browser.find_element(*self.display_last).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.display_last).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.display_last).send_keys('5')
+                    # display form the last
+                    self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.display_form).send_keys('2')
                 # loop
                 self.double_clicks(self.loop)
-            if src != 'contact' and src != 'email_subs' and src != 'nxbarel':
+            if src != 'contact' and src != 'email_subs' and src != 'nxbarel' and src != 'analytics':
                 # open link in a new tab
                 self.browser.find_element(*self.link_open).click()
 
