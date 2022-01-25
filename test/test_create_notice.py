@@ -4,6 +4,7 @@ from pages.donation import Donation
 from pages.download_stats import DownloadStats
 from pages.e_learning_notice import ELearning
 from pages.email_subs_notice import EmailSubscription
+from pages.inline_notice import Inline
 from pages.notification_bar import NotificationBar
 from pages.page_analytics import PageAnalytics
 from pages.review_notice import Review
@@ -86,3 +87,15 @@ def test_page_analytics_notice(browser):
     page_analytics = PageAnalytics(browser)
     page_analytics.load()
     page_analytics.create_page_analytics_notice('L')
+
+
+def test_inline_woo_notice(browser):
+    inline = Inline(browser)
+    inline.load()
+    inline.create_inline_notice('woo')
+
+
+def test_inline_edd_notice(browser):
+    inline = Inline(browser)
+    inline.load()
+    inline.create_inline_notice('edd')

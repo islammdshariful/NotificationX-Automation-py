@@ -37,6 +37,11 @@ class Helper:
     show_on_choose_everywhere = (By.ID, f'react-select-3-option-0')
     show_on_display = (By.XPATH, f"//div[@id='show_on_display']")
     show_on_display_choose_everyone = (By.ID, f'react-select-4-option-0')
+    # VISIBILITY - INLINE
+    locations = (By.XPATH, f"//div[@id='inline_location']")
+    locations_product_page = (By.ID, 'react-select-18-option-0')
+    locations_archive_page_1 = (By.ID, 'react-select-18-option-1')
+    locations_archive_page_2 = (By.ID, 'react-select-18-option-2')
     # APPEARANCE
     position = (By.XPATH, f"//div[@id='position']")
     position_choose_left = (By.ID, f'react-select-5-option-0')
@@ -77,116 +82,122 @@ class Helper:
 
     def do_others(self, src, pos):
         with soft_assertions():
-            if src != 'nxbarel' and src != 'analytics':
-                if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
-                    # LINK OPTIONS
-                    self.browser.find_element(*self.link_type).click()
-                    self.browser.find_element(*self.link_type_choose).click()
-
-                # UTM CONTROL
-                self.browser.find_element(*self.utm_campaign).send_keys('campaign_automation')
-                self.browser.find_element(*self.utm_medium).send_keys('medium_automation')
-                self.browser.find_element(*self.utm_source).send_keys('source_automation')
-
-            # next page display
-            self.browser.find_element(*self.next_btn).click()
-
-            # IMAGE
-            self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-            if src != 'nxbarel' and src != 'nxbar':
-                self.browser.find_element(*self.show_default_image).click()
-                self.browser.find_element(*self.show_default_image).click()
-                if src != 'd_stat' and src != 'analytics':
-                    self.browser.find_element(*self.image).click()
-                    if src == 'comment':
-                        self.browser.find_element(*self.comment_gravatar_image).click()
-                    elif src == 'contact':
-                        self.browser.find_element(*self.gravatar_image).click()
-                    else:
-                        self.browser.find_element(*self.feature_image_choose).click()
-            # VISIBILITY
-            # show on
-            self.browser.find_element(*self.show_on).click()
-            self.browser.find_element(*self.show_on_choose_everywhere).click()
-            # display for
-            self.browser.find_element(*self.show_on_display).click()
-            self.browser.find_element(*self.show_on_display_choose_everyone).click()
-            # next page customize
-            self.browser.find_element(*self.next_btn).click()
-
-            # customize page
-            self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-            # APPEARANCE
-            self.browser.find_element(*self.position).click()
-            if pos == "L" or pos == "T":
-                self.browser.find_element(*self.position_choose_left).click()
+            if src.__eq__("inline"):
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_product_page).click()
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_archive_page_1).click()
             else:
-                self.browser.find_element(*self.position_choose_right).click()
-            # sticky bar
-            if src == 'nxbarel' or src == 'nxbar':
-                self.browser.find_element(*self.sticky_bar).click()
-                self.browser.find_element(*self.overlapping).click()
-            # notification size
-            if src != 'nxbarel' and src != 'nxbar':
-                self.browser.find_element(*self.notification_size).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.notification_size).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.notification_size).send_keys('400')
-            # display close option
-            self.double_clicks(self.close_button)
-            self.double_clicks(self.hide_on_mobile)
-            # QUEUE MANAGEMENT
-            if src != 'nxbarel' and src != 'nxbar':
-                self.double_clicks(self.global_queue)
-            # TIMING
-            if src == 'nxbarel' or src == 'nxbar':
-                # initial delay
-                self.browser.find_element(*self.initial_delay).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.initial_delay).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.initial_delay).send_keys('1')
-                # auto hide
-                self.browser.find_element(*self.auto_hide).click()
-                self.browser.find_element(*self.hide_after).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.hide_after).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.hide_after).send_keys('20')
-            else:
-                # delay before
-                self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.delay_before_first_notification).send_keys('1')
+                if src != 'nxbarel' and src != 'analytics':
+                    if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
+                        # LINK OPTIONS
+                        self.browser.find_element(*self.link_type).click()
+                        self.browser.find_element(*self.link_type_choose).click()
+
+                    # UTM CONTROL
+                    self.browser.find_element(*self.utm_campaign).send_keys('campaign_automation')
+                    self.browser.find_element(*self.utm_medium).send_keys('medium_automation')
+                    self.browser.find_element(*self.utm_source).send_keys('source_automation')
+
+                # next page display
+                self.browser.find_element(*self.next_btn).click()
+
+                # IMAGE
+                self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+                if src != 'nxbarel' and src != 'nxbar':
+                    self.browser.find_element(*self.show_default_image).click()
+                    self.browser.find_element(*self.show_default_image).click()
+                    if src != 'd_stat' and src != 'analytics':
+                        self.browser.find_element(*self.image).click()
+                        if src == 'comment':
+                            self.browser.find_element(*self.comment_gravatar_image).click()
+                        elif src == 'contact':
+                            self.browser.find_element(*self.gravatar_image).click()
+                        else:
+                            self.browser.find_element(*self.feature_image_choose).click()
+                # VISIBILITY
+                # show on
+                self.browser.find_element(*self.show_on).click()
+                self.browser.find_element(*self.show_on_choose_everywhere).click()
                 # display for
-                self.browser.find_element(*self.display_for).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.display_for).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.display_for).send_keys('5')
-                # delay between
-                self.browser.find_element(*self.delay_between).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.delay_between).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.delay_between).send_keys('2')
+                self.browser.find_element(*self.show_on_display).click()
+                self.browser.find_element(*self.show_on_display_choose_everyone).click()
+                # next page customize
+                self.browser.find_element(*self.next_btn).click()
 
-            if src != 'nxbarel' and src != 'nxbar':
-                # SOUND SETTINGS
-                self.browser.find_element(*self.sound).click()
-                self.browser.find_element(*self.sound_choose).click()
-                self.browser.find_element(*self.volume_reset_btn).click()
+                # customize page
+                self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+                # APPEARANCE
+                self.browser.find_element(*self.position).click()
+                if pos == "L" or pos == "T":
+                    self.browser.find_element(*self.position_choose_left).click()
+                else:
+                    self.browser.find_element(*self.position_choose_right).click()
+                # sticky bar
+                if src == 'nxbarel' or src == 'nxbar':
+                    self.browser.find_element(*self.sticky_bar).click()
+                    self.browser.find_element(*self.overlapping).click()
+                # notification size
+                if src != 'nxbarel' and src != 'nxbar':
+                    self.browser.find_element(*self.notification_size).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.notification_size).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.notification_size).send_keys('400')
+                # display close option
+                self.double_clicks(self.close_button)
+                self.double_clicks(self.hide_on_mobile)
+                # QUEUE MANAGEMENT
+                if src != 'nxbarel' and src != 'nxbar':
+                    self.double_clicks(self.global_queue)
+                # TIMING
+                if src == 'nxbarel' or src == 'nxbar':
+                    # initial delay
+                    self.browser.find_element(*self.initial_delay).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.initial_delay).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.initial_delay).send_keys('1')
+                    # auto hide
+                    self.browser.find_element(*self.auto_hide).click()
+                    self.browser.find_element(*self.hide_after).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.hide_after).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.hide_after).send_keys('20')
+                else:
+                    # delay before
+                    self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.delay_before_first_notification).send_keys('1')
+                    # display for
+                    self.browser.find_element(*self.display_for).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.display_for).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.display_for).send_keys('5')
+                    # delay between
+                    self.browser.find_element(*self.delay_between).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.delay_between).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.delay_between).send_keys('2')
 
-                self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
-                self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
-                self.browser.find_element(*self.volume).send_keys('30')
-            # BEHAVIOUR
-            if src != 'nxbarel' and src != 'nxbar':
-                if src != 'analytics':
-                    # display last
-                    self.browser.find_element(*self.display_last).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.display_last).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.display_last).send_keys('5')
-                    # display form the last
-                    self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.display_form).send_keys('2')
-                # loop
-                self.double_clicks(self.loop)
-            if src != 'contact' and src != 'email_subs' and src != 'nxbarel' and src != 'analytics':
-                # open link in a new tab
-                self.browser.find_element(*self.link_open).click()
+                if src != 'nxbarel' and src != 'nxbar':
+                    # SOUND SETTINGS
+                    self.browser.find_element(*self.sound).click()
+                    self.browser.find_element(*self.sound_choose).click()
+                    self.browser.find_element(*self.volume_reset_btn).click()
+
+                    self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
+                    self.browser.find_element(*self.volume).send_keys('30')
+                # BEHAVIOUR
+                if src != 'nxbarel' and src != 'nxbar':
+                    if src != 'analytics':
+                        # display last
+                        self.browser.find_element(*self.display_last).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.display_last).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.display_last).send_keys('5')
+                        # display form the last
+                        self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.display_form).send_keys('2')
+                    # loop
+                    self.double_clicks(self.loop)
+                if src != 'contact' and src != 'email_subs' and src != 'nxbarel' and src != 'analytics':
+                    # open link in a new tab
+                    self.browser.find_element(*self.link_open).click()
 
             # publishing notification
             self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
