@@ -1,5 +1,6 @@
 from pages.comment_notice import Comment
 from pages.contact_form_notice import ContactForm
+from pages.custom_notice import Custom
 from pages.donation import Donation
 from pages.download_stats import DownloadStats
 from pages.e_learning_notice import ELearning
@@ -99,3 +100,9 @@ def test_inline_edd_notice(browser):
     inline = Inline(browser)
     inline.load()
     inline.create_inline_notice('edd')
+
+
+def test_custom_notice(browser):
+    custom = Custom(browser)
+    custom.load()
+    custom.create_custom_notice('R')
