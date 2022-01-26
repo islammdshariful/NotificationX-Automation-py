@@ -31,14 +31,8 @@ class NotificationBar(Helper):
     choose_end_date = (By.XPATH, f'//*[@id="countdown_timer"]/div[2]/div[6]/div[2]/div/div/div/div/div/div[2]/div/div'
                                  f'/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]')
     # Elementor
-    start_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/button')
-    goto_previous_month_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/div/div/div/div/div['
-                                        f'2]/div/div/div/div[2]/div[1]/div[1]')
     choose_start_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/div/div/div/div/div['
                                       f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
-    end_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/button')
-    goto_next_month_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/div/div/div/div/div['
-                                    f'2]/div/div/div/div[2]/div[1]/div[2]')
     choose_end_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/div/div/div/div/div['
                                     f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
 
@@ -46,7 +40,7 @@ class NotificationBar(Helper):
     randomize_start_time = (By.NAME, f'start_time')
     randomize_end_time = (By.NAME, f'end_time')
     time_rotation = (By.ID, f'time_rotation')
-    time_reset = (By.XPATH, f'time_reset')
+    time_reset = (By.ID, f'time_reset')
 
     def __init__(self, browser):
         super().__init__(browser)
@@ -94,31 +88,68 @@ class NotificationBar(Helper):
 
         # enable countdown
         self.browser.find_element(*self.enable_countdown).click()
+        # if src.__eq__("nxbar"):
+        # evergreen
+        self.browser.find_element(*self.evergreen_timer).click()
         if src.__eq__("nxbar"):
+            # countdown text
             self.browser.find_element(*self.countdown_text).send_keys('Grab it before')
+        # randomize
+        self.browser.find_element(*self.randomize).click()
+        # randomize start time
+        self.browser.find_element(*self.randomize_start_time).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.randomize_start_time).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.randomize_start_time).send_keys('5')
+        # randomize end time
+        self.browser.find_element(*self.randomize_end_time).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.randomize_end_time).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.randomize_end_time).send_keys('10')
+        # daily time reset
+        self.browser.find_element(*self.time_reset).click()
+        # randomize
+        self.browser.find_element(*self.randomize).click()
+        # time rotation
+        self.browser.find_element(*self.time_rotation).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.time_rotation).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.time_rotation).send_keys('9')
+        # evergreen timer
+        self.browser.find_element(*self.evergreen_timer).click()
+        if src.__eq__("nxbar"):
+            # expired text
             self.browser.find_element(*self.expired_text).send_keys(Keys.CONTROL, 'a')
             self.browser.find_element(*self.expired_text).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.expired_text).send_keys('You missed it buddy, Try next time.')
-            self.browser.find_element(*self.start_date).click()
-            self.browser.find_element(*self.goto_previous_month).click()
+        # start date
+        self.browser.find_element(*self.start_date).click()
+        self.browser.find_element(*self.goto_previous_month).click()
+        if src.__eq__("nxbar"):
             self.browser.find_element(*self.choose_start_date).click()
             self.browser.find_element(*self.choose_start_date).click()
-            self.browser.find_element(*self.countdown_text).click()
-            self.browser.find_element(*self.end_date).click()
-            self.browser.find_element(*self.goto_next_month).click()
-            self.browser.find_element(*self.choose_end_date).click()
-            self.browser.find_element(*self.choose_end_date).click()
-            self.browser.find_element(*self.end_date).click()
         else:
-            self.browser.find_element(*self.start_date_el).click()
-            self.browser.find_element(*self.goto_previous_month_el).click()
             self.browser.find_element(*self.choose_start_date_el).click()
-            self.browser.find_element(*self.start_date_el).click()
-            self.browser.find_element(*self.end_date_el).click()
-            self.browser.find_element(*self.goto_next_month_el).click()
+            self.browser.find_element(*self.choose_start_date_el).click()
+        # if src.__eq__("nxbar"):
+        self.browser.find_element(*self.start_date).click()
+        # end date
+        self.browser.find_element(*self.end_date).click()
+        self.browser.find_element(*self.goto_next_month).click()
+        if src.__eq__("nxbar"):
+            self.browser.find_element(*self.choose_end_date).click()
+            self.browser.find_element(*self.choose_end_date).click()
+        else:
             self.browser.find_element(*self.choose_end_date_el).click()
-            self.browser.find_element(*self.end_date_el).click()
-
+            self.browser.find_element(*self.choose_end_date_el).click()
+        self.browser.find_element(*self.end_date).click()
+        # else:
+        #     self.browser.find_element(*self.start_date_el).click()
+        #     self.browser.find_element(*self.goto_previous_month_el).click()
+        #     self.browser.find_element(*self.choose_start_date_el).click()
+        #     self.browser.find_element(*self.start_date_el).click()
+        #     self.browser.find_element(*self.end_date_el).click()
+        #     self.browser.find_element(*self.goto_next_month_el).click()
+        #     self.browser.find_element(*self.choose_end_date_el).click()
+        #     self.browser.find_element(*self.end_date_el).click()
+        # permanent close
         self.browser.find_element(*self.permanent_close).click()
 
         # common tasks
