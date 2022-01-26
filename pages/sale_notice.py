@@ -49,7 +49,7 @@ class Sale(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_sale_notice(self, src, pos):
+    def create_sale_notice(self, src, qm, pos):
 
         self.browser.find_element(*self.nx_title).send_keys('NX Sale (' + src.upper() + ') Notification')
 
@@ -107,4 +107,4 @@ class Sale(Helper):
         self.browser.find_element(*self.sale_multi_order_text).send_keys('& more product')
 
         # common tasks
-        self.do_others('sale', pos)
+        self.do_others('sale', qm, pos)

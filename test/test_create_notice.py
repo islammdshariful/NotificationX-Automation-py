@@ -15,49 +15,49 @@ from pages.sale_notice import Sale
 def test_comment_notice(browser):
     comment = Comment(browser)
     comment.load()
-    comment.create_comment_notice('L')
+    comment.create_comment_notice('y', 'L')
 
 
 def test_sale_woo_notice(browser):
     sale = Sale(browser)
     sale.load()
-    sale.create_sale_notice('woo', 'R')
+    sale.create_sale_notice('woo', 'y', 'R')
 
 
-def test_sale_edd_notice(browser):
-    sale = Sale(browser)
-    sale.load()
-    sale.create_sale_notice('edd', 'L')
+# def test_sale_edd_notice(browser):
+#     sale = Sale(browser)
+#     sale.load()
+#     sale.create_sale_notice('edd', 'y', 'L')
 
 
 def test_review_org_notice(browser):
     review = Review(browser)
     review.load()
-    review.create_review_notice('org', 'R')
+    review.create_review_notice('org', 'y', 'R')
 
 
 def test_review_woo_notice(browser):
     review = Review(browser)
     review.load()
-    review.create_review_notice('woo', 'L')
+    review.create_review_notice('woo', 'y', 'L')
 
 
 def test_d_stats_notice(browser):
     d_stats = DownloadStats(browser)
     d_stats.load()
-    d_stats.create_d_stats_notice('R')
+    d_stats.create_d_stats_notice('y', 'R')
 
 
 def test_e_learning_notice(browser):
     e_learning = ELearning(browser)
     e_learning.load()
-    e_learning.create_e_learning_notice('tutor', 'L')
+    e_learning.create_e_learning_notice('tutor', 'y', 'L')
 
 
 def test_donation_notice(browser):
     donation = Donation(browser)
     donation.load()
-    donation.create_donation_notice('R')
+    donation.create_donation_notice('y', 'R')
 
 
 def test_nxbar_notice(browser):
@@ -75,19 +75,19 @@ def test_nxbar_w_elementor_notice(browser):
 def test_contact_form_notice(browser):
     contact_form = ContactForm(browser)
     contact_form.load()
-    contact_form.create_review_notice('cf7', 'L')
+    contact_form.create_review_notice('cf7', 'y', 'L')
 
 
 def test_email_subscription_notice(browser):
     email_subs = EmailSubscription(browser)
     email_subs.load()
-    email_subs.create_email_subs_notice('mc', 'R')
+    email_subs.create_email_subs_notice('mc', 'y', 'R')
 
 
 def test_page_analytics_notice(browser):
     page_analytics = PageAnalytics(browser)
     page_analytics.load()
-    page_analytics.create_page_analytics_notice('L')
+    page_analytics.create_page_analytics_notice('y', 'L')
 
 
 def test_inline_woo_notice(browser):
@@ -105,4 +105,4 @@ def test_inline_edd_notice(browser):
 def test_custom_notice(browser):
     custom = Custom(browser)
     custom.load()
-    custom.create_custom_notice('R')
+    custom.create_custom_notice('y', 'R')

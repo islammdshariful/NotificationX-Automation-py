@@ -44,7 +44,7 @@ class Review(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_review_notice(self, src, pos):
+    def create_review_notice(self, src, qm, pos):
 
         self.browser.find_element(*self.nx_title).send_keys('NX Review (' + src.upper() + ') Notification')
 
@@ -99,4 +99,4 @@ class Review(Helper):
             self.browser.find_element(*self.review_exclude_by_choose).click()
 
         # common tasks
-        self.do_others('review', pos)
+        self.do_others('review', qm, pos)

@@ -39,7 +39,7 @@ class EmailSubscription(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_email_subs_notice(self, src, pos):
+    def create_email_subs_notice(self, src, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Email Subscription (' + src.upper() + ') Notification')
 
         # source page
@@ -86,4 +86,4 @@ class EmailSubscription(Helper):
         self.browser.find_element(*self.random_order).click()
 
         # common tasks
-        self.do_others("email_subs", pos)
+        self.do_others("email_subs", qm, pos)

@@ -42,7 +42,7 @@ class Donation(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_donation_notice(self, pos):
+    def create_donation_notice(self, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Donation Notification')
         # source page
         self.browser.find_element(*self.donation).click()
@@ -84,4 +84,4 @@ class Donation(Helper):
         self.browser.find_element(*self.donation_show_notification_of_choose).click()
 
         # common tasks
-        self.do_others('donation', pos)
+        self.do_others('donation', qm, pos)

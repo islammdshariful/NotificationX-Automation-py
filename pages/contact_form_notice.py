@@ -40,7 +40,7 @@ class ContactForm(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_review_notice(self, src, pos):
+    def create_review_notice(self, src, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Contact Form (' + src.upper() + ') Notification')
 
         # source page
@@ -89,4 +89,4 @@ class ContactForm(Helper):
         self.browser.find_element(*self.random_order).click()
 
         # common tasks
-        self.do_others("contact", pos)
+        self.do_others("contact", qm, pos)

@@ -38,7 +38,7 @@ class ELearning(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_e_learning_notice(self, src, pos):
+    def create_e_learning_notice(self, src, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Sale (' + src.upper() + ') Notification')
 
         # source page
@@ -80,4 +80,4 @@ class ELearning(Helper):
         self.browser.find_element(*self.sale_show_purchase_of_choose).click()
 
         # common tasks
-        self.do_others('tutor', pos)
+        self.do_others('tutor', qm, pos)

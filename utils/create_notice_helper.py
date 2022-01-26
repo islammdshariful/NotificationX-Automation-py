@@ -80,7 +80,7 @@ class Helper:
         self.browser.find_element(*element).click()
         self.browser.find_element(*element).click()
 
-    def do_others(self, src, pos):
+    def do_others(self, src, qm, pos):
         with soft_assertions():
             if src.__eq__("inline"):
                 self.browser.find_element(*self.locations).click()
@@ -147,7 +147,11 @@ class Helper:
                 self.double_clicks(self.hide_on_mobile)
                 # QUEUE MANAGEMENT
                 if src != 'nxbarel' and src != 'nxbar':
-                    self.double_clicks(self.global_queue)
+                    if qm.__eq__("y"):
+                        self.browser.find_element(*self.global_queue).click()
+                    else:
+                        self.double_clicks(self.global_queue)
+
                 # TIMING
                 if src == 'nxbarel' or src == 'nxbar':
                     # initial delay
@@ -160,18 +164,19 @@ class Helper:
                     self.browser.find_element(*self.hide_after).send_keys(Keys.BACKSPACE)
                     self.browser.find_element(*self.hide_after).send_keys('20')
                 else:
-                    # delay before
-                    self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.delay_before_first_notification).send_keys('1')
-                    # display for
-                    self.browser.find_element(*self.display_for).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.display_for).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.display_for).send_keys('5')
-                    # delay between
-                    self.browser.find_element(*self.delay_between).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.delay_between).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.delay_between).send_keys('2')
+                    if qm != 'y':
+                        # delay before
+                        self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.delay_before_first_notification).send_keys('1')
+                        # display for
+                        self.browser.find_element(*self.display_for).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.display_for).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.display_for).send_keys('5')
+                        # delay between
+                        self.browser.find_element(*self.delay_between).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.delay_between).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.delay_between).send_keys('2')
 
                 if src != 'nxbarel' and src != 'nxbar':
                     # SOUND SETTINGS
@@ -194,7 +199,8 @@ class Helper:
                         self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.display_form).send_keys('2')
                     # loop
-                    self.double_clicks(self.loop)
+                    if qm != 'y':
+                        self.double_clicks(self.loop)
                 if src != 'contact' and src != 'email_subs' and src != 'nxbarel' and src != 'analytics':
                     # open link in a new tab
                     self.browser.find_element(*self.link_open).click()

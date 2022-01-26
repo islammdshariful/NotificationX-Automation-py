@@ -52,7 +52,7 @@ class Custom(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_custom_notice(self, pos):
+    def create_custom_notice(self, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Custom Notification')
 
         # source page
@@ -107,4 +107,4 @@ class Custom(Helper):
         self.browser.find_element(*self.duplicate_btn).click()
 
         # common tasks
-        self.do_others('custom', pos)
+        self.do_others('custom', qm, pos)

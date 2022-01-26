@@ -42,7 +42,7 @@ class PageAnalytics(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_page_analytics_notice(self, pos):
+    def create_page_analytics_notice(self, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Page Analytics Notification')
 
         # source page
@@ -84,4 +84,4 @@ class PageAnalytics(Helper):
         self.browser.find_element(*self.p_ana_hide_advanced_template).click()
 
         # common tasks
-        self.do_others('analytics', pos)
+        self.do_others('analytics', qm, pos)

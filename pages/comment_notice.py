@@ -36,7 +36,7 @@ class Comment(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_comment_notice(self, pos):
+    def create_comment_notice(self, qm, pos):
         h = Helper(self.browser)
 
         self.browser.find_element(*self.nx_title).send_keys('NX Comment Notification')
@@ -77,6 +77,8 @@ class Comment(Helper):
         self.browser.find_element(*self.comment_content_length).send_keys(Keys.CONTROL, 'a')
         self.browser.find_element(*self.comment_content_length).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.comment_content_length).send_keys('20')
+        # random order
+        self.browser.find_element(*self.random_order).click()
 
         # common tasks
-        h.do_others('comment', pos)
+        h.do_others('comment', qm, pos)

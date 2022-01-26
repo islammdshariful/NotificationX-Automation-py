@@ -39,7 +39,7 @@ class DownloadStats(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_d_stats_notice(self, pos):
+    def create_d_stats_notice(self, qm, pos):
         self.browser.find_element(*self.nx_title).send_keys('NX Download Stats Notification')
 
         # source page
@@ -79,4 +79,4 @@ class DownloadStats(Helper):
         self.browser.find_element(*self.d_stats_hide_advanced_template).click()
 
         # common tasks
-        self.do_others('d_stat', pos)
+        self.do_others('d_stat', qm, pos)
