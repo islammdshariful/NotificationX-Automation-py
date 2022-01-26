@@ -40,7 +40,7 @@ class ContactForm(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_review_notice(self, src, qm, pos):
+    def create_review_notice(self, src, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Contact Form (' + src.upper() + ') Notification')
 
         # source page
@@ -60,6 +60,8 @@ class ContactForm(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.contact_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design('contact')
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
@@ -89,4 +91,4 @@ class ContactForm(Helper):
         self.browser.find_element(*self.random_order).click()
 
         # common tasks
-        self.do_others("contact", qm, pos)
+        self.do_others("contact", advanced_design, queue_management, position)

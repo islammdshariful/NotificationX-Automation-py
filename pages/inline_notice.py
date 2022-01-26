@@ -89,4 +89,4 @@ class Inline(Helper):
             self.browser.find_element(*self.inline_order_status).click()
             self.browser.find_element(*self.inline_show_purchase_of).click()
         # common tasks
-        self.do_others('inline', 'null', 'null')
+        self.do_others('inline', 'null', 'null', 'null')

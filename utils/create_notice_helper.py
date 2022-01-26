@@ -71,9 +71,9 @@ class Helper:
 
     # Advanced Design
     ad_toggle_on = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
-                                           f"//label[@for='advance_edit']")
+                              f"//label[@for='advance_edit']")
     ad_toggle_off = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked wprf-label-position-right']"
-                                            f"//label[@for='advance_edit']")
+                               f"//label[@for='advance_edit']")
     # background color
     ad_bg_color = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-colorpicker wprf-inline-label "
                              f"wprf-name-bg_color']//span[@class='wprf-picker-display']")
@@ -91,7 +91,7 @@ class Helper:
     ad_border_comment_style_choose = (By.ID, f'react-select-19-option-1')
     ad_border_org_review_style_choose = (By.ID, f'react-select-20-option-1')
     ad_border_woo_review_style_choose = (By.ID, f'react-select-22-option-1')
-    ad_border_donation_review_style_choose = (By.ID, f'react-select-21-option-1')
+    ad_border_donation_style_choose = (By.ID, f'react-select-21-option-1')
     ad_border_color = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-colorpicker wprf-inline-label "
                                  f"wprf-name-border_color']//span[@class='wprf-picker-display']")
     ad_border_color_hx = (By.XPATH, f"//button[@aria-label='Show detailed inputs']//*[name()='svg']")
@@ -140,14 +140,15 @@ class Helper:
         self.browser.find_element(*self.ad_border_size).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.ad_border_size).send_keys('2')
         self.browser.find_element(*self.ad_border_style).click()
-        if source.__eq__("comment"):
+        if source == "comment" or source == "custom":
             self.browser.find_element(*self.ad_border_comment_style_choose).click()
-        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+        elif source == "org-review" or source == "d_stats" or source == 'tutor' or source == 'contact' or \
+                source == 'email' or source == 'analytics':
             self.browser.find_element(*self.ad_border_org_review_style_choose).click()
         elif source.__eq__("woo-review"):
             self.browser.find_element(*self.ad_border_woo_review_style_choose).click()
         elif source.__eq__('donation'):
-            self.browser.find_element(*self.ad_border_donation_review_style_choose).click()
+            self.browser.find_element(*self.ad_border_donation_style_choose).click()
         else:
             self.browser.find_element(*self.ad_border_style_choose).click()
         self.browser.find_element(*self.ad_border_color).click()
@@ -169,9 +170,10 @@ class Helper:
         self.browser.find_element(*self.ad_font_3rd_size).send_keys('12')
         # IMAGE APPEARANCE
         self.browser.find_element(*self.ad_image).click()
-        if source.__eq__("comment"):
+        if source == "comment" or source == "custom":
             self.browser.find_element(*self.ad_image_comment_choose).click()
-        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+        elif source == "org-review" or source == "d_stats" or source == 'tutor' or source == 'contact' or \
+                source == 'email' or source == 'analytics':
             self.browser.find_element(*self.ad_image_review_choose).click()
         elif source.__eq__('donation'):
             self.browser.find_element(*self.ad_image_donation_choose).click()
@@ -182,15 +184,15 @@ class Helper:
         self.browser.find_element(*self.ad_image_radius).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.ad_image_radius).send_keys('50')
         self.browser.find_element(*self.ad_image_position).click()
-        if source.__eq__("comment"):
+        if source == "comment" or source == "custom":
             self.browser.find_element(*self.ad_image_comment_position_choose).click()
-        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+        elif source == "org-review" or source == "d_stats" or source == 'tutor' or source == 'contact' or \
+                source == 'email' or source == 'analytics':
             self.browser.find_element(*self.ad_image_review_position_choose).click()
         elif source == "sale" or source == "woo-review":
             self.browser.find_element(*self.ad_image_position_choose).click()
         elif source.__eq__('donation'):
             self.browser.find_element(*self.ad_image_donation_position_choose).click()
-
 
     def do_others(self, src, advanced_design, queue_management, position):
         with soft_assertions():

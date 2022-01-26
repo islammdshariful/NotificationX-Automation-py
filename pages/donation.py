@@ -59,6 +59,7 @@ class Donation(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         # 1st param
         self.browser.find_element(*self.donation_template_1st_param).click()
         self.browser.find_element(*self.donation_choose_1st_param).click()

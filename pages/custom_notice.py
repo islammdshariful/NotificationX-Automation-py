@@ -52,7 +52,7 @@ class Custom(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_custom_notice(self, qm, pos):
+    def create_custom_notice(self, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Custom Notification')
 
         # source page
@@ -63,6 +63,8 @@ class Custom(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.custom_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design('custom')
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
@@ -107,4 +109,4 @@ class Custom(Helper):
         self.browser.find_element(*self.duplicate_btn).click()
 
         # common tasks
-        self.do_others('custom', qm, pos)
+        self.do_others('custom', advanced_design, queue_management, position)

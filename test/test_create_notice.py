@@ -75,19 +75,19 @@ def test_nxbar_w_elementor_notice(browser):
 def test_contact_form_notice(browser):
     contact_form = ContactForm(browser)
     contact_form.load()
-    contact_form.create_review_notice('cf7', 'y', 'L')
+    contact_form.create_review_notice('cf7', 'y', 'y', 'L')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_email_subscription_notice(browser):
     email_subs = EmailSubscription(browser)
     email_subs.load()
-    email_subs.create_email_subs_notice('mc', 'y', 'R')
+    email_subs.create_email_subs_notice('mc', 'y', 'y', 'R')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_page_analytics_notice(browser):
     page_analytics = PageAnalytics(browser)
     page_analytics.load()
-    page_analytics.create_page_analytics_notice('y', 'L')
+    page_analytics.create_page_analytics_notice('y', 'y', 'L')  # Advanced Design - Queue Management - Position
 
 
 def test_inline_woo_notice(browser):
@@ -105,4 +105,4 @@ def test_inline_edd_notice(browser):
 def test_custom_notice(browser):
     custom = Custom(browser)
     custom.load()
-    custom.create_custom_notice('y', 'R')
+    custom.create_custom_notice('y', 'y', 'R')  # Advanced Design - Queue Management - Position

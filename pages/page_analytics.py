@@ -42,7 +42,7 @@ class PageAnalytics(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_page_analytics_notice(self, qm, pos):
+    def create_page_analytics_notice(self, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Page Analytics Notification')
 
         # source page
@@ -52,7 +52,10 @@ class PageAnalytics(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.p_ana_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design('analytics')
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
@@ -84,4 +87,4 @@ class PageAnalytics(Helper):
         self.browser.find_element(*self.p_ana_hide_advanced_template).click()
 
         # common tasks
-        self.do_others('analytics', qm, pos)
+        self.do_others('analytics', advanced_design, queue_management, position)
