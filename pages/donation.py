@@ -42,7 +42,7 @@ class Donation(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_donation_notice(self, qm, pos):
+    def create_donation_notice(self, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Donation Notification')
         # source page
         self.browser.find_element(*self.donation).click()
@@ -52,6 +52,8 @@ class Donation(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.donation_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design('donation')
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
@@ -84,4 +86,4 @@ class Donation(Helper):
         self.browser.find_element(*self.donation_show_notification_of_choose).click()
 
         # common tasks
-        self.do_others('donation', qm, pos)
+        self.do_others('donation', advanced_design, queue_management, position)

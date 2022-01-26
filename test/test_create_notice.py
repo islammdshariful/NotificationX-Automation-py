@@ -15,49 +15,49 @@ from pages.sale_notice import Sale
 def test_comment_notice(browser):
     comment = Comment(browser)
     comment.load()
-    comment.create_comment_notice('y', 'L')
+    comment.create_comment_notice('y', 'y', 'L')  # Advanced Design - Queue Management - Position
 
 
 def test_sale_woo_notice(browser):
     sale = Sale(browser)
     sale.load()
-    sale.create_sale_notice('woo', 'y', 'R')
+    sale.create_sale_notice('woo', 'y', 'y', 'R')  # Source - Advanced Design - Queue Management - Position
 
 
 # def test_sale_edd_notice(browser):
 #     sale = Sale(browser)
 #     sale.load()
-#     sale.create_sale_notice('edd', 'y', 'L')
+#     sale.create_sale_notice('edd', 'n', 'y', 'L')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_review_org_notice(browser):
     review = Review(browser)
     review.load()
-    review.create_review_notice('org', 'y', 'R')
+    review.create_review_notice('org-review', 'y', 'y', 'R')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_review_woo_notice(browser):
     review = Review(browser)
     review.load()
-    review.create_review_notice('woo', 'y', 'L')
+    review.create_review_notice('woo-review', 'y', 'y', 'L')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_d_stats_notice(browser):
     d_stats = DownloadStats(browser)
     d_stats.load()
-    d_stats.create_d_stats_notice('y', 'R')
+    d_stats.create_d_stats_notice('y', 'y', 'R')  # Advanced Design - Queue Management - Position
 
 
 def test_e_learning_notice(browser):
     e_learning = ELearning(browser)
     e_learning.load()
-    e_learning.create_e_learning_notice('tutor', 'y', 'L')
+    e_learning.create_e_learning_notice('tutor', 'y', 'y', 'L')  # Source - Advanced Design - Queue Management - Position
 
 
 def test_donation_notice(browser):
     donation = Donation(browser)
     donation.load()
-    donation.create_donation_notice('y', 'R')
+    donation.create_donation_notice('y', 'y', 'R')  # Advanced Design - Queue Management - Position
 
 
 def test_nxbar_notice(browser):

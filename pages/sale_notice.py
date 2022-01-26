@@ -49,7 +49,7 @@ class Sale(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_sale_notice(self, src, qm, pos):
+    def create_sale_notice(self, src, advanced_design, queue_management, position):
 
         self.browser.find_element(*self.nx_title).send_keys('NX Sale (' + src.upper() + ') Notification')
 
@@ -63,11 +63,14 @@ class Sale(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.sale_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design('sale')
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         # 1st param
         self.browser.find_element(*self.sale_template_1st_param).click()
         self.browser.find_element(*self.sale_choose_1st_param).click()
@@ -107,4 +110,4 @@ class Sale(Helper):
         self.browser.find_element(*self.sale_multi_order_text).send_keys('& more product')
 
         # common tasks
-        self.do_others('sale', qm, pos)
+        self.do_others('sale', advanced_design, queue_management, position)

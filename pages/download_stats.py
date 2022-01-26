@@ -39,7 +39,7 @@ class DownloadStats(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_d_stats_notice(self, qm, pos):
+    def create_d_stats_notice(self, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Download Stats Notification')
 
         # source page
@@ -50,6 +50,8 @@ class DownloadStats(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.d_stats_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design("d_stats")
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
@@ -79,4 +81,4 @@ class DownloadStats(Helper):
         self.browser.find_element(*self.d_stats_hide_advanced_template).click()
 
         # common tasks
-        self.do_others('d_stat', qm, pos)
+        self.do_others('d_stat', advanced_design, queue_management, position)

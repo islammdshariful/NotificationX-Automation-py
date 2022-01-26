@@ -1,12 +1,9 @@
 import time
-
 from assertpy import assert_that, soft_assertions
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-from utils.config import *
 
 
 class Helper:
@@ -65,12 +62,56 @@ class Helper:
     sound_choose = (By.ID, f'react-select-6-option-1')
     volume_reset_btn = (By.XPATH, f"//button[normalize-space()='Reset']")
     volume = (By.XPATH, f"//input[@id='inspector-input-control-1']")
+    volume_1 = (By.XPATH, f"//input[@id='inspector-input-control-4']")
     # BEHAVIOUR
     display_last = (By.ID, f'display_last')
     display_form = (By.ID, f'display_from')
     loop = (By.ID, f'loop')
     link_open = (By.ID, f'link_open')
 
+    # Advanced Design
+    ad_toggle_on = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
+                                           f"//label[@for='advance_edit']")
+    ad_toggle_off = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked wprf-label-position-right']"
+                                            f"//label[@for='advance_edit']")
+    # background color
+    ad_bg_color = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-colorpicker wprf-inline-label "
+                             f"wprf-name-bg_color']//span[@class='wprf-picker-display']")
+    ad_bg_color_hx = (By.XPATH, f"//button[@aria-label='Show detailed inputs']//*[name()='svg']")
+    ad_color_reset = (By.XPATH, f"//button[@class='wprf-colorpicker-reset']")
+    # text color
+    ad_txt_color = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-colorpicker wprf-inline-label "
+                              f"wprf-name-text_color']//span[@class='wprf-picker-display']")
+    ad_txt_color_hx = (By.XPATH, f"//button[@aria-label='Show detailed inputs']//*[name()='svg']")
+    # border
+    ad_border = (By.XPATH, f"//input[@id='border']")
+    ad_border_size = (By.XPATH, f"//input[@id='border_size']")
+    ad_border_style = (By.XPATH, f"//div[@id='border_style']")
+    ad_border_style_choose = (By.ID, f'react-select-22-option-1')
+    ad_border_comment_style_choose = (By.ID, f'react-select-19-option-1')
+    ad_border_org_review_style_choose = (By.ID, f'react-select-20-option-1')
+    ad_border_woo_review_style_choose = (By.ID, f'react-select-22-option-1')
+    ad_border_donation_review_style_choose = (By.ID, f'react-select-21-option-1')
+    ad_border_color = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-colorpicker wprf-inline-label "
+                                 f"wprf-name-border_color']//span[@class='wprf-picker-display']")
+    ad_border_color_hx = (By.XPATH, f"//button[@aria-label='Show detailed inputs']//*[name()='svg']")
+    # font size
+    ad_font_1st_size = (By.XPATH, f"//input[@id='first_font_size']")
+    ad_font_2nd_size = (By.XPATH, f"//input[@id='second_font_size']")
+    ad_font_3rd_size = (By.XPATH, f"//input[@id='third_font_size']")
+    # image
+    ad_image = (By.XPATH, f"//div[@id='image_shape']")
+    ad_image_choose = (By.ID, f'react-select-20-option-3')
+    ad_image_comment_choose = (By.ID, f'react-select-17-option-3')
+    ad_image_review_choose = (By.ID, f'react-select-18-option-3')
+    ad_image_donation_choose = (By.ID, f'react-select-19-option-3')
+    ad_image_radius = (By.XPATH, f"//input[@id='custom_image_shape']")
+    ad_image_position = (By.XPATH, f"//div[@id='image_position']")
+    ad_image_position_choose = (By.ID, f'react-select-21-option-0')
+    ad_image_comment_position_choose = (By.ID, f'react-select-18-option-0')
+    ad_image_review_position_choose = (By.ID, f'react-select-19-option-0')
+    ad_image_donation_position_choose = (By.ID, f'react-select-20-option-0')
+    # Message
     success_notice = f'//*[@id="notificationx"]/div/div[1]/div[2]/p'
 
     def __init__(self, browser):
@@ -80,7 +121,78 @@ class Helper:
         self.browser.find_element(*element).click()
         self.browser.find_element(*element).click()
 
-    def do_others(self, src, qm, pos):
+    def check_advanced_design(self, source):
+        self.browser.find_element(*self.ad_toggle_on).click()
+        self.browser.find_element(*self.ad_toggle_off).click()
+        self.browser.find_element(*self.ad_toggle_on).click()
+        # DESIGN
+        # background color
+        self.browser.find_element(*self.ad_bg_color).click()
+        self.browser.find_element(*self.ad_bg_color_hx).click()
+        self.browser.find_element(*self.ad_color_reset).click()
+        # text color
+        self.browser.find_element(*self.ad_txt_color).click()
+        self.browser.find_element(*self.ad_txt_color_hx).click()
+        self.browser.find_element(*self.ad_color_reset).click()
+        # border
+        self.browser.find_element(*self.ad_border).click()
+        self.browser.find_element(*self.ad_border_size).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.ad_border_size).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.ad_border_size).send_keys('2')
+        self.browser.find_element(*self.ad_border_style).click()
+        if source.__eq__("comment"):
+            self.browser.find_element(*self.ad_border_comment_style_choose).click()
+        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+            self.browser.find_element(*self.ad_border_org_review_style_choose).click()
+        elif source.__eq__("woo-review"):
+            self.browser.find_element(*self.ad_border_woo_review_style_choose).click()
+        elif source.__eq__('donation'):
+            self.browser.find_element(*self.ad_border_donation_review_style_choose).click()
+        else:
+            self.browser.find_element(*self.ad_border_style_choose).click()
+        self.browser.find_element(*self.ad_border_color).click()
+        self.browser.find_element(*self.ad_border_color_hx).click()
+        self.browser.find_element(*self.ad_color_reset).click()
+        self.browser.execute_script("window.scrollTo(0,document.body.scrollHeight);")
+        # TYPOGRAPHY
+        # 1st
+        self.browser.find_element(*self.ad_font_1st_size).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.ad_font_1st_size).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.ad_font_1st_size).send_keys('14')
+        # 2nd
+        self.browser.find_element(*self.ad_font_2nd_size).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.ad_font_2nd_size).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.ad_font_2nd_size).send_keys('15')
+        # 3rd
+        self.browser.find_element(*self.ad_font_3rd_size).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.ad_font_3rd_size).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.ad_font_3rd_size).send_keys('12')
+        # IMAGE APPEARANCE
+        self.browser.find_element(*self.ad_image).click()
+        if source.__eq__("comment"):
+            self.browser.find_element(*self.ad_image_comment_choose).click()
+        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+            self.browser.find_element(*self.ad_image_review_choose).click()
+        elif source.__eq__('donation'):
+            self.browser.find_element(*self.ad_image_donation_choose).click()
+        elif source == "sale" or source == "woo-review":
+            self.browser.find_element(*self.ad_image_choose).click()
+
+        self.browser.find_element(*self.ad_image_radius).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.ad_image_radius).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.ad_image_radius).send_keys('50')
+        self.browser.find_element(*self.ad_image_position).click()
+        if source.__eq__("comment"):
+            self.browser.find_element(*self.ad_image_comment_position_choose).click()
+        elif source == "org-review" or source == "d_stats" or source == 'tutor':
+            self.browser.find_element(*self.ad_image_review_position_choose).click()
+        elif source == "sale" or source == "woo-review":
+            self.browser.find_element(*self.ad_image_position_choose).click()
+        elif source.__eq__('donation'):
+            self.browser.find_element(*self.ad_image_donation_position_choose).click()
+
+
+    def do_others(self, src, advanced_design, queue_management, position):
         with soft_assertions():
             if src.__eq__("inline"):
                 self.browser.find_element(*self.locations).click()
@@ -129,7 +241,7 @@ class Helper:
                 self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
                 # APPEARANCE
                 self.browser.find_element(*self.position).click()
-                if pos == "L" or pos == "T":
+                if position == "L" or position == "T":
                     self.browser.find_element(*self.position_choose_left).click()
                 else:
                     self.browser.find_element(*self.position_choose_right).click()
@@ -147,7 +259,7 @@ class Helper:
                 self.double_clicks(self.hide_on_mobile)
                 # QUEUE MANAGEMENT
                 if src != 'nxbarel' and src != 'nxbar':
-                    if qm.__eq__("y"):
+                    if queue_management.__eq__("y"):
                         self.browser.find_element(*self.global_queue).click()
                     else:
                         self.double_clicks(self.global_queue)
@@ -164,7 +276,7 @@ class Helper:
                     self.browser.find_element(*self.hide_after).send_keys(Keys.BACKSPACE)
                     self.browser.find_element(*self.hide_after).send_keys('20')
                 else:
-                    if qm != 'y':
+                    if queue_management != 'y':
                         # delay before
                         self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
                         self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
@@ -183,10 +295,14 @@ class Helper:
                     self.browser.find_element(*self.sound).click()
                     self.browser.find_element(*self.sound_choose).click()
                     self.browser.find_element(*self.volume_reset_btn).click()
-
-                    self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
-                    self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
-                    self.browser.find_element(*self.volume).send_keys('30')
+                    if advanced_design.__eq__('y'):
+                        self.browser.find_element(*self.volume_1).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.volume_1).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.volume_1).send_keys('30')
+                    else:
+                        self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
+                        self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
+                        self.browser.find_element(*self.volume).send_keys('30')
                 # BEHAVIOUR
                 if src != 'nxbarel' and src != 'nxbar':
                     if src != 'analytics':
@@ -199,7 +315,7 @@ class Helper:
                         self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.display_form).send_keys('2')
                     # loop
-                    if qm != 'y':
+                    if queue_management != 'y':
                         self.double_clicks(self.loop)
                 if src != 'contact' and src != 'email_subs' and src != 'nxbarel' and src != 'analytics':
                     # open link in a new tab

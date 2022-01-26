@@ -44,13 +44,12 @@ class Review(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_review_notice(self, src, qm, pos):
-
+    def create_review_notice(self, src, advanced_design, queue_management, position):
         self.browser.find_element(*self.nx_title).send_keys('NX Review (' + src.upper() + ') Notification')
 
         # source page
         self.browser.find_element(*self.review).click()
-        self.browser.find_element(*self.review_woo).click() if src.__eq__("woo") else \
+        self.browser.find_element(*self.review_woo).click() if src.__eq__("woo-review") else \
             self.browser.find_element(*self.review_org).click()
         # next page design
         self.browser.find_element(*self.next_btn).click()
@@ -58,12 +57,15 @@ class Review(Helper):
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.review_template).click()
+        if advanced_design.__eq__('y'):
+            self.check_advanced_design(src)
         # next page content
         self.browser.find_element(*self.next_btn).click()
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
-        if src.__eq__("org"):
+        time.sleep(1)
+        if src.__eq__("org-review"):
             # product type
             self.browser.find_element(*self.review_product_type).click()
             self.browser.find_element(*self.review_choose_product_type).click()
@@ -90,7 +92,7 @@ class Review(Helper):
         self.browser.find_element(*self.random_order).click()
         self.browser.find_element(*self.random_order).click()
 
-        if src.__eq__("woo"):
+        if src.__eq__("woo-review"):
             # show purchased of
             self.browser.find_element(*self.review_show_purchase_of).click()
             self.browser.find_element(*self.review_show_purchase_of_choose).click()
@@ -99,4 +101,4 @@ class Review(Helper):
             self.browser.find_element(*self.review_exclude_by_choose).click()
 
         # common tasks
-        self.do_others('review', qm, pos)
+        self.do_others(src, advanced_design, queue_management, position)
