@@ -51,7 +51,7 @@ class NotificationBar(Helper):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         self.browser.find_element(*self.add_new).click()
 
-    def create_nxbar_notice(self, src, pos):
+    def create_nxbar_notice(self, src, advanced_design, position):
         self.browser.find_element(*self.nx_title).send_keys('Notification Bar') if src.__eq__("nxbar") else \
             self.browser.find_element(*self.nx_title).send_keys('Notification Bar (Elementor)')
 
@@ -62,8 +62,11 @@ class NotificationBar(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         if src.__eq__("nxbar"):
             self.browser.find_element(*self.nxbar_template).click()
+            if advanced_design.__eq__('y'):
+                self.check_advanced_design(src)
         else:
             self.browser.find_element(*self.build_w_ele).click()
             self.browser.find_element(*self.nx_bar_ele_template).click()
@@ -78,6 +81,7 @@ class NotificationBar(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         if src.__eq__("nxbar"):
             self.browser.find_element(*self.content).click()
             self.browser.find_element(*self.content).send_keys('NotificationX Automation camp is Running...')
@@ -140,17 +144,8 @@ class NotificationBar(Helper):
             self.browser.find_element(*self.choose_end_date_el).click()
             self.browser.find_element(*self.choose_end_date_el).click()
         self.browser.find_element(*self.end_date).click()
-        # else:
-        #     self.browser.find_element(*self.start_date_el).click()
-        #     self.browser.find_element(*self.goto_previous_month_el).click()
-        #     self.browser.find_element(*self.choose_start_date_el).click()
-        #     self.browser.find_element(*self.start_date_el).click()
-        #     self.browser.find_element(*self.end_date_el).click()
-        #     self.browser.find_element(*self.goto_next_month_el).click()
-        #     self.browser.find_element(*self.choose_end_date_el).click()
-        #     self.browser.find_element(*self.end_date_el).click()
         # permanent close
         self.browser.find_element(*self.permanent_close).click()
 
         # common tasks
-        self.do_others(src, 'n', pos)
+        self.do_others(src, advanced_design, 'null', position)

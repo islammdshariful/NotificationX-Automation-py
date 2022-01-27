@@ -63,13 +63,13 @@ def test_donation_notice(browser):
 def test_nxbar_notice(browser):
     nxbar = NotificationBar(browser)
     nxbar.load()
-    nxbar.create_nxbar_notice('nxbar', 'T')
+    nxbar.create_nxbar_notice('nxbar', 'y', 'T')
 
 
 def test_nxbar_w_elementor_notice(browser):
     nxbar = NotificationBar(browser)
     nxbar.load()
-    nxbar.create_nxbar_notice('nxbarel', 'T')
+    nxbar.create_nxbar_notice('nxbarel', 'null', 'T')
 
 
 def test_contact_form_notice(browser):
