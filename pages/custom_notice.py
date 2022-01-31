@@ -32,16 +32,14 @@ class Custom(Helper):
     id_0_lname = (By.XPATH, f"//input[@id='field-0-0-6']")
     id_0_email = (By.XPATH, f"//input[@id='field-0-0-7']")
     id_0_url = (By.XPATH, f"//input[@id='field-0-0-12']")
-    id_0_time = (By.XPATH, f"//div[@class='wprf-repeater-content']//div[1]//div[2]//div[7]//div[2]//div[1]")
+    id_0_time = (By.XPATH, f"//div[@class='wprf-repeater-content']//div[1]//div[2]//div[7]//div[2]//div[1]//button[1]")
     # ID 1
     id_1_title = (By.XPATH, f"//input[@id='field-1-1-0']")
     id_1_fname = (By.XPATH, f"//input[@id='field-1-1-5']")
     id_1_lname = (By.XPATH, f"//input[@id='field-1-1-6']")
     id_1_email = (By.XPATH, f"//input[@id='field-1-1-7']")
     id_1_url = (By.XPATH, f"//input[@id='field-1-1-12']")
-    id_1_time = (By.XPATH, f"//body[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]"
-                           f"/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[4]/div[1]/div[2]/div[2]/div[7]"
-                           f"/div[2]/div[1]")
+    id_1_time = (By.XPATH, f"//div[@class='wprf-section-fields']//div[2]//div[2]//div[7]//div[2]//div[1]//button[1]")
 
     def __init__(self, browser):
         super().__init__(browser)

@@ -250,6 +250,12 @@ class Helper:
             elif source.__eq__('donation'):
                 self.browser.find_element(*self.ad_image_donation_position_choose).click()
 
+    def check_visibility(self, element, error_message):
+        if self.browser.find_element(By.XPATH, element).is_displayed():
+            assert_that(1).is_equal_to(1)
+        else:
+            assert_that('Success').is_equal_to(error_message)
+
     def do_others(self, src, advanced_design, queue_management, position):
         with soft_assertions():
             if src.__eq__("inline"):

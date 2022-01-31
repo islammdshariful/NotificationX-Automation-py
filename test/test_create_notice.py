@@ -1,3 +1,5 @@
+from assertpy import soft_assertions
+
 from pages.comment_notice import Comment
 from pages.contact_form_notice import ContactForm
 from pages.custom_notice import Custom
@@ -6,6 +8,7 @@ from pages.download_stats import DownloadStats
 from pages.e_learning_notice import ELearning
 from pages.email_subs_notice import EmailSubscription
 from pages.inline_notice import Inline
+from pages.manage_notice import Manage
 from pages.notification_bar import NotificationBar
 from pages.page_analytics import PageAnalytics
 from pages.review_notice import Review
@@ -90,10 +93,10 @@ def test_page_analytics_notice(browser):
     page_analytics.create_page_analytics_notice('y', 'y', 'L')  # Advanced Design - Queue Management - Position
 
 
-def test_inline_woo_notice(browser):
-    inline = Inline(browser)
-    inline.load()
-    inline.create_inline_notice('woo')
+def test_custom_notice(browser):
+    custom = Custom(browser)
+    custom.load()
+    custom.create_custom_notice('y', 'y', 'R')  # Advanced Design - Queue Management - Position
 
 
 def test_inline_edd_notice(browser):
@@ -102,7 +105,27 @@ def test_inline_edd_notice(browser):
     inline.create_inline_notice('edd')
 
 
-def test_custom_notice(browser):
-    custom = Custom(browser)
-    custom.load()
-    custom.create_custom_notice('y', 'y', 'R')  # Advanced Design - Queue Management - Position
+def test_inline_woo_notice(browser):
+    inline = Inline(browser)
+    inline.load()
+    inline.create_inline_notice('woo')
+
+
+def test_manage_notice(browser):
+    mg = Manage(browser)
+    with soft_assertions():
+        mg.duplicate_notice()
+        mg.delete_notice_from_edit_page()
+        mg.duplicate_notice()
+        mg.update_notice()
+        mg.disable_notice('single')
+        mg.enable_notice('single')
+        mg.create_shortcode()
+        mg.cross_domain_notice('single')
+        mg.regenerate_notice('single')
+        mg.disable_notice('bulk')
+        mg.enable_notice('bulk')
+        mg.delete_notice('single')
+        mg.delete_notice('bulk')
+
+
