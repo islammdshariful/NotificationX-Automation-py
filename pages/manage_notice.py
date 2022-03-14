@@ -19,11 +19,11 @@ class Manage(Helper):
     ana_ctr_count = (By.XPATH, f'//*[@id="notificationx"]/div/div[1]/div[2]/div[3]/div/a/div/span[1]')
 
     bulk_action = (By.XPATH, f"//div[@class='bulk-action-select css-2b097c-container']")
-    bulk_action_enable = (By.ID, f'react-select-2-option-1')
-    bulk_action_disable = (By.ID, f'react-select-2-option-2')
-    bulk_action_regenerate = (By.ID, f'react-select-2-option-3')
-    bulk_action_cdn = (By.ID, f'react-select-2-option-4')
-    bulk_action_delete = (By.ID, f'react-select-2-option-5')
+    bulk_action_enable = (By.XPATH, f"//div[@class='bulk-action-select__menu css-26l3qy-menu']//div//div[2]")
+    bulk_action_disable = (By.XPATH, f"//div[@class='bulk-action-select__menu css-26l3qy-menu']//div//div[3]")
+    bulk_action_regenerate = (By.XPATH, f"//div[@class='bulk-action-select__menu css-26l3qy-menu']//div//div[4]")
+    bulk_action_cdn = (By.XPATH, f"//div[@class='bulk-action-select__menu css-26l3qy-menu']//div//div[5]")
+    bulk_action_delete = (By.XPATH, f"//div[@class='bulk-action-select__menu css-26l3qy-menu']//div//div[6]")
     bulk_action_apply_btn = (By.XPATH, f"//button[@class='nx-bulk-action-button']")
     select_all = (By.XPATH, f"//input[@name='nx_all']")
 
