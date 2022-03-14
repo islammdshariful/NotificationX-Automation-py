@@ -287,6 +287,7 @@ class Helper:
 
                 # IMAGE
                 self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+                time.sleep(1)
                 if src != 'nxbarel' and src != 'nxbar':
                     self.browser.find_element(*self.show_default_image).click()
                     self.browser.find_element(*self.show_default_image).click()
@@ -310,6 +311,7 @@ class Helper:
 
                 # customize page
                 self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+                time.sleep(1)
                 # APPEARANCE
                 self.browser.find_element(*self.position).click()
                 if position == "L" or position == "T":
