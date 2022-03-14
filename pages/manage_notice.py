@@ -262,6 +262,7 @@ class Manage(Helper):
     def delete_notice(self, type):
         if type.__eq__('bulk'):
             self.browser.find_element(By.XPATH, f"//div[normalize-space()='NotificationX']").click()
+            self.browser.refresh()
             self.browser.find_element(*self.select_all).click()
             self.browser.find_element(*self.bulk_action).click()
             self.browser.find_element(*self.bulk_action_delete).click()

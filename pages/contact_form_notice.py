@@ -10,21 +10,21 @@ class ContactForm(Helper):
     contact_gf = (By.XPATH, f"//label[@for='wprf-input-radio-1-3']")
     contact_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-1']")
     contact_form_list = (By.XPATH, f"//div[@id='form_list']")
-    contact_choose_form = (By.ID, f'react-select-15-option-0')
+    contact_choose_form = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     # 1st
     contact_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    contact_choose_1st_param = (By.ID, f'react-select-12-option-2')
+    contact_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
     # 2nd
     contact_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     contact_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-third_param']")
-    contact_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    contact_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     contact_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-fourth_param']")
-    contact_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    contact_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     contact_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                 f"//label[@for='template_adv']")

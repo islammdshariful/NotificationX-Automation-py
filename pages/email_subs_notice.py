@@ -9,21 +9,21 @@ class EmailSubscription(Helper):
     e_subs_zp = (By.XPATH, f"//label[@for='wprf-input-radio-1-2']")
     e_subs_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-1']")
     e_subs_form_list = (By.XPATH, f"//div[@id='mailchimp_list']")
-    e_subs_choose_form = (By.ID, f'react-select-15-option-0')
+    e_subs_choose_form = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     # 1st
     e_subs_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    e_subs_choose_1st_param = (By.ID, f'react-select-12-option-2')
+    e_subs_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
     # 2nd
     e_subs_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     e_subs_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-third_param']")
-    e_subs_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    e_subs_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     e_subs_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-fourth_param']")
-    e_subs_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    e_subs_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     e_subs_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                 f"//label[@for='template_adv']")

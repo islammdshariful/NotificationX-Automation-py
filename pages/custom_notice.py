@@ -8,17 +8,17 @@ class Custom(Helper):
     # 1st
     custom_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                            f'wprf-label-none wprf-name-first_param"]')
-    custom_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    custom_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     custom_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     custom_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                            f"wprf-label-none wprf-name-third_param']")
-    custom_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    custom_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     custom_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                            f"wprf-label-none wprf-name-fourth_param']")
-    custom_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    custom_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     custom_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                f"//label[@for='template_adv']")
@@ -40,6 +40,8 @@ class Custom(Helper):
     id_1_email = (By.XPATH, f"//input[@id='field-1-1-7']")
     id_1_url = (By.XPATH, f"//input[@id='field-1-1-12']")
     id_1_time = (By.XPATH, f"//div[@class='wprf-section-fields']//div[2]//div[2]//div[7]//div[2]//div[1]//button[1]")
+    # ID 2
+    id_2_lname = (By.XPATH, f"//input[@id='field-2-2-6']")
 
     def __init__(self, browser):
         super().__init__(browser)
@@ -68,6 +70,7 @@ class Custom(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         # 1st param
         self.browser.find_element(*self.custom_template_1st_param).click()
         self.browser.find_element(*self.custom_choose_1st_param).click()
@@ -103,8 +106,15 @@ class Custom(Helper):
         self.browser.find_element(*self.id_1_email).send_keys("mr.b@example.com")
         self.browser.find_element(*self.id_1_url).send_keys("www.example.com")
         self.browser.find_element(*self.id_1_time).click()
+        self.browser.find_element(*self.id_1_fname).click()
+        self.browser.execute_script("window.scrollTo(0, 760)")
+        time.sleep(1)
         # Duplicated
         self.browser.find_element(*self.duplicate_btn).click()
+        # ID 2
+        self.browser.find_element(*self.id_2_lname).send_keys(Keys.CONTROL, 'a')
+        self.browser.find_element(*self.id_2_lname).send_keys(Keys.BACKSPACE)
+        self.browser.find_element(*self.id_2_lname).send_keys("C")
 
         # common tasks
         self.do_others('custom', advanced_design, queue_management, position)

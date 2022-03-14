@@ -10,24 +10,24 @@ class ELearning(Helper):
     # 1st
     e_learn_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                             f'wprf-label-none wprf-name-first_param"]')
-    e_learn_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    e_learn_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     e_learn_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     e_learn_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-third_param']")
-    e_learn_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    e_learn_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     e_learn_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-fourth_param']")
-    e_learn_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    e_learn_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     e_learn_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                 f"//label[@for='template_adv']")
     e_learn_hide_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked "
                                                 f"wprf-label-position-right']//label[@for='template_adv']")
     e_learn_show_purchase_of = (By.XPATH, f"//div[@id='ld_product_control']")
-    sale_show_purchase_of_choose = (By.ID, 'react-select-15-option-0')
+    sale_show_purchase_of_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
 
     def __init__(self, browser):
         super().__init__(browser)
@@ -58,6 +58,7 @@ class ELearning(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         # 1st param
         self.browser.find_element(*self.e_learn_template_1st_param).click()
         self.browser.find_element(*self.e_learn_choose_1st_param).click()

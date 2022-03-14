@@ -10,13 +10,13 @@ class PageAnalytics(Helper):
     # 1st
     p_ana_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    p_ana_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    p_ana_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     p_ana_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     p_ana_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-third_param']")
-    p_ana_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    p_ana_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     p_ana_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-text wprf-label-none "
                                           f"wprf-name-ga_fourth_param']//input[@id='notification-template']")
@@ -26,7 +26,7 @@ class PageAnalytics(Helper):
     # 6th
     p_ana_template_6th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-label-none "
                                           f"wprf-name-sixth_param']")
-    p_ana_choose_6th_param = (By.ID, f'react-select-15-option-1')
+    p_ana_choose_6th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     p_ana_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                         f"//label[@for='template_adv']")

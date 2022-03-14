@@ -10,28 +10,28 @@ class Donation(Helper):
     # 1st
     donation_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    donation_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    donation_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     donation_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     donation_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-label-none "
                                              f"wprf-name-third_param']")
-    donation_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    donation_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     donation_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-label-none "
                                              f"wprf-name-fourth_param']")
-    donation_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    donation_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 5th
     donation_template_5th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-label-none "
                                              f"wprf-name-fifth_param']")
-    donation_choose_5th_param = (By.ID, f'react-select-16-option-1')
+    donation_choose_5th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     donation_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                         f"//label[@for='template_adv']")
     donation_hide_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked "
                                                  f"wprf-label-position-right']//label[@for='template_adv']")
     donation_show_notification_of = (By.XPATH, f"//div[@id='give_forms_control']")
-    donation_show_notification_of_choose = (By.ID, 'react-select-15-option-0')
+    donation_show_notification_of_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
 
     def __init__(self, browser):
         super().__init__(browser)

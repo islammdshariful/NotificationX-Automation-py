@@ -9,31 +9,31 @@ class Review(Helper):
     review_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-1']")
     review_product_type = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-inline-label "
                                      f"wprf-name-wp_reviews_product_type']//div[@class='wprf-select-wrapper']")
-    review_choose_product_type = (By.ID, f'react-select-15-option-0')
+    review_choose_product_type = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     review_product_slug = (By.XPATH, f"//input[@id='wp_reviews_slug']")
     # 1st
     review_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    review_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    review_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     review_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     review_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-third_param']")
-    review_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    review_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     review_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-fourth_param']")
-    review_choose_4th_param = (By.ID, f'react-select-14-option-2')
+    review_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
 
     review_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                         f"//label[@for='template_adv']")
     review_hide_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked wprf-label-position-right']"
                                         f"//label[@for='template_adv']")
     review_show_purchase_of = (By.XPATH, f"//div[@id='product_control']")
-    review_show_purchase_of_choose = (By.ID, 'react-select-16-option-0')
+    review_show_purchase_of_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     review_exclude_by = (By.XPATH, f"//div[@id='product_exclude_by']")
-    review_exclude_by_choose = (By.ID, 'react-select-17-option-0')
+    review_exclude_by_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
 
     def __init__(self, browser):
         super().__init__(browser)

@@ -9,17 +9,17 @@ class Comment(Helper):
     # 1st
     comment_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                             f'wprf-label-none wprf-name-first_param"]')
-    comment_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    comment_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     comment_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     comment_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-third_param']")
-    comment_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    comment_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     comment_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-fourth_param']")
-    comment_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    comment_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     comment_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                 f"//label[@for='template_adv']")

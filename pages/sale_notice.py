@@ -12,31 +12,31 @@ class Sale(Helper):
     # 1st
     sale_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                          f'wprf-label-none wprf-name-first_param"]')
-    sale_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    sale_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     sale_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     sale_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-third_param']")
-    sale_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    sale_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     sale_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                          f"wprf-label-none wprf-name-fourth_param']")
-    sale_choose_4th_param = (By.ID, f'react-select-14-option-1')
+    sale_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
 
     sale_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                         f"//label[@for='template_adv']")
     sale_hide_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-checked wprf-label-position-right']"
                                         f"//label[@for='template_adv']")
     sale_show_purchase_of = (By.XPATH, f"//div[@id='product_control']")
-    sale_show_purchase_of_choose = (By.ID, 'react-select-15-option-0')
+    sale_show_purchase_of_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     sale_exclude_by = (By.XPATH, f"//div[@id='product_exclude_by']")
-    sale_exclude_by_choose = (By.ID, 'react-select-16-option-0')
+    sale_exclude_by_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     sale_order_status = (By.XPATH, f"//div[@id='order_status']//div[@class='wprf-select__indicator "
                                    f"wprf-select__dropdown-indicator css-tlfecz-indicatorContainer']//*[name()='svg']")
     sale_hide_order_status = (By.XPATH, f"//div[@id='order_status']//div[@class='wprf-select__indicator "
                                    f"wprf-select__dropdown-indicator css-tlfecz-indicatorContainer']//*[name()='svg']")
-    sale_order_choose_hold = (By.ID, 'react-select-16-option-0')
+    sale_order_choose_hold = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     sale_multi_order = (By.XPATH, f"//input[@id='combine_multiorder']")
     sale_multi_order_text = (By.XPATH, f"//input[@id='combine_multiorder_text']")
 

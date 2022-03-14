@@ -10,13 +10,14 @@ class Helper:
     add_new = (By.XPATH, f"//a[@class='nx-add-new-btn']")
     nx_title = (By.ID, f'nx-title')
     next_btn_for_wait = f"//button[normalize-space()='Next']"
+    remove_elementor_design = f"//button[@id='nx-bar_with_elementor-remove']"
     next_btn = (By.XPATH, f"//button[normalize-space()='Next']")
     prev_btn = (By.XPATH, f"//button[normalize-space()='Previous']")
     publish_btn = (By.XPATH, f"//button[normalize-space()='Publish']")
     random_order = (By.ID, f'random_order')
     # LINK OPTIONS
     link_type = (By.XPATH, f"//div[@id='link_type']")
-    link_type_choose = (By.ID, f'react-select-11-option-2')
+    link_type_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
     # UTM CONTROL
     utm_campaign = (By.ID, f'utm_campaign')
     utm_medium = (By.ID, f'utm_medium')
@@ -25,24 +26,25 @@ class Helper:
     show_default_image = (By.ID, f'show_default_image')
     default_image = (By.XPATH, f"//label[@for='wprf-input-radio-3-4']")
     image = (By.XPATH, f"//div[@id='show_notification_image']")
-    feature_image_choose = (By.ID, f'react-select-10-option-1')
-    comment_gravatar_image = (By.ID, f'react-select-10-option-1')
-    gravatar_image = (By.ID, f'react-select-10-option-2')
-    map_image = (By.ID, f'react-select-10-option-3')
+    feature_image_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
+    comment_gravatar_image = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
+    gravatar_image = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
+    map_image = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[4]")
     # VISIBILITY
     show_on = (By.XPATH, f"//div[@id='show_on']")
-    show_on_choose_everywhere = (By.ID, f'react-select-3-option-0')
+    show_on_choose_everywhere = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     show_on_display = (By.XPATH, f"//div[@id='show_on_display']")
-    show_on_display_choose_everyone = (By.ID, f'react-select-4-option-0')
+    show_on_display_choose_everyone = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
     # VISIBILITY - INLINE
     locations = (By.XPATH, f"//div[@id='inline_location']")
-    locations_product_page = (By.ID, 'react-select-18-option-0')
-    locations_archive_page_1 = (By.ID, 'react-select-18-option-1')
-    locations_archive_page_2 = (By.ID, 'react-select-18-option-2')
+    locations_archive_page = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
+    locations_archive_page_1 = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
+    locations_archive_page_2 = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
+    locations_shop_cart = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
     # APPEARANCE
     position = (By.XPATH, f"//div[@id='position']")
-    position_choose_left = (By.ID, f'react-select-5-option-0')
-    position_choose_right = (By.ID, f'react-select-5-option-1')
+    position_choose_left = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
+    position_choose_right = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     sticky_bar = (By.ID, f'sticky_bar')
     overlapping = (By.ID, f'pressbar_body')
     notification_size = (By.ID, f'size')
@@ -59,7 +61,7 @@ class Helper:
     hide_after = (By.ID, f'hide_after')
     # SOUND SETTINGS
     sound = (By.XPATH, f"//div[@id='sound']")
-    sound_choose = (By.ID, f'react-select-6-option-1')
+    sound_choose = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     volume_reset_btn = (By.XPATH, f"//button[normalize-space()='Reset']")
     volume = (By.XPATH, f"//input[@id='inspector-input-control-1']")
     volume_1 = (By.XPATH, f"//input[@id='inspector-input-control-4']")
@@ -258,11 +260,16 @@ class Helper:
 
     def do_others(self, src, advanced_design, queue_management, position):
         with soft_assertions():
-            if src.__eq__("inline"):
-                self.browser.find_element(*self.locations).click()
-                self.browser.find_element(*self.locations_product_page).click()
+            if src.__eq__("inline-woo"):
                 self.browser.find_element(*self.locations).click()
                 self.browser.find_element(*self.locations_archive_page_1).click()
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_archive_page_1).click()
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_archive_page_1).click()
+            elif src.__eq__("inline-edd"):
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_archive_page).click()
             else:
                 if src != 'nxbarel' and src != 'analytics':
                     if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':

@@ -7,23 +7,23 @@ class DownloadStats(Helper):
     d_stats_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-1']")
     d_stats_product_type = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select wprf-inline-label "
                                       f"wprf-name-wp_stats_product_type']//div[@class='wprf-select-wrapper']")
-    d_stats_choose_product_type = (By.ID, f'react-select-15-option-0')
+    d_stats_choose_product_type = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[1]")
 
     d_stats_product_slug = (By.XPATH, f"//input[@id='wp_stats_slug']")
     # 1st
     d_stats_template_1st_param = (By.XPATH, f'//div[@class="wprf-control-wrapper wprf-type-select '
                                             f'wprf-label-none wprf-name-first_param"]')
-    d_stats_choose_1st_param = (By.ID, f'react-select-12-option-1')
+    d_stats_choose_1st_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 2nd
     d_stats_template_2nd_param = (By.XPATH, f"//input[@id='notification-template']")
     # 3rd
     d_stats_template_3rd_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-third_param']")
-    d_stats_choose_3rd_param = (By.ID, f'react-select-13-option-1')
+    d_stats_choose_3rd_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[2]")
     # 4th
     d_stats_template_4th_param = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-select "
                                             f"wprf-label-none wprf-name-fourth_param']")
-    d_stats_choose_4th_param = (By.ID, f'react-select-14-option-2')
+    d_stats_choose_4th_param = (By.XPATH, f"//div[@class='wprf-select__menu css-26l3qy-menu']//div//div[3]")
 
     d_stats_show_advanced_template = (By.XPATH, f"//div[@class='wprf-toggle-wrap wprf-label-position-right']"
                                                 f"//label[@for='template_adv']")
