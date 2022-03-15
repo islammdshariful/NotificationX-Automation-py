@@ -37,6 +37,7 @@ class DownloadStats(Helper):
     def load(self):
         self.browser.get(conf.URL_NX)
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.add_new).click()
 
     def create_d_stats_notice(self, advanced_design, queue_management, position):
@@ -49,6 +50,7 @@ class DownloadStats(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.d_stats_template).click()
         if advanced_design.__eq__('y'):
             self.check_advanced_design("d_stats")
@@ -57,6 +59,7 @@ class DownloadStats(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         # product type
         self.browser.find_element(*self.d_stats_product_type).click()
         self.browser.find_element(*self.d_stats_choose_product_type).click()

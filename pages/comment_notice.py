@@ -34,6 +34,7 @@ class Comment(Helper):
     def load(self):
         self.browser.get(conf.URL_NX)
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.add_new).click()
 
     def create_comment_notice(self, advanced_design, queue_management, position):
@@ -48,6 +49,7 @@ class Comment(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.comment_template).click()
         if advanced_design.__eq__('y'):
             self.check_advanced_design('comment')

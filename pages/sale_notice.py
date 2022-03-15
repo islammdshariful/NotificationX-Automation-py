@@ -47,6 +47,7 @@ class Sale(Helper):
     def load(self):
         self.browser.get(conf.URL_NX)
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.add_new).click()
 
     def create_sale_notice(self, src, advanced_design, queue_management, position):
@@ -62,6 +63,7 @@ class Sale(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.sale_template).click()
         if advanced_design.__eq__('y'):
             self.check_advanced_design('sale')
@@ -70,6 +72,7 @@ class Sale(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         time.sleep(1)
         # 1st param
         self.browser.find_element(*self.sale_template_1st_param).click()

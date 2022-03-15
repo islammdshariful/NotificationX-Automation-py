@@ -60,6 +60,7 @@ class Inline(Helper):
     def load(self):
         self.browser.get(conf.URL_NX)
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.add_new).click()
 
     def create_inline_notice(self, src, type):
@@ -75,6 +76,7 @@ class Inline(Helper):
 
         # design page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         if type.__eq__('count'):
             template = self.browser.find_element(*self.inline_sale_count_template)
             self.cursor.move_to_element(template).perform()
@@ -91,6 +93,7 @@ class Inline(Helper):
 
         # content page
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         if type.__eq__('count'):
             # 1st param
             self.browser.find_element(*self.inline_template_1st_param).click()

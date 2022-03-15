@@ -49,6 +49,7 @@ class NotificationBar(Helper):
     def load(self):
         self.browser.get(conf.URL_NX)
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         self.browser.find_element(*self.add_new).click()
 
     def create_nxbar_notice(self, src, advanced_design, position):
