@@ -112,24 +112,31 @@ def test_custom_notice(browser):
 def test_inline_edd_notice(browser):
     inline = Inline(browser)
     inline.load()
-    inline.create_inline_notice('edd')
+    inline.create_inline_notice('edd', 'count')
 
 
 @pytest.mark.order(15)
-def test_inline_woo_notice(browser):
+def test_inline_woo_count_notice(browser):
     inline = Inline(browser)
     inline.load()
-    inline.create_inline_notice('woo')
+    inline.create_inline_notice('woo', 'count')
 
 
 @pytest.mark.order(16)
+def test_inline_woo_stock_out_notice(browser):
+    inline = Inline(browser)
+    inline.load()
+    inline.create_inline_notice('woo', 'stockout')
+
+
+@pytest.mark.order(17)
 def test_email_subscription_notice(browser):
     email_subs = EmailSubscription(browser)
     email_subs.load()
     email_subs.create_email_subs_notice('mc', 'y', 'y', 'R')  # Source - Advanced Design - Queue Management - Position
 
 
-@pytest.mark.order(17)
+@pytest.mark.order(18)
 def test_duplicate_n_update_notice(browser):
     mg = Manage(browser)
     with soft_assertions():
@@ -137,7 +144,7 @@ def test_duplicate_n_update_notice(browser):
         mg.update_notice()
 
 
-@pytest.mark.order(18)
+@pytest.mark.order(19)
 def test_disable_enable_notice(browser):
     mg = Manage(browser)
     with soft_assertions():
@@ -147,7 +154,7 @@ def test_disable_enable_notice(browser):
         mg.enable_notice('bulk')
 
 
-@pytest.mark.order(19)
+@pytest.mark.order(20)
 def test_shortcode_regenerate_cross_domain_notice(browser):
     mg = Manage(browser)
     with soft_assertions():
@@ -157,11 +164,10 @@ def test_shortcode_regenerate_cross_domain_notice(browser):
         mg.regenerate_notice('bulk')
 
 
-@pytest.mark.order(20)
+@pytest.mark.order(21)
 def test_delete_notice(browser):
     mg = Manage(browser)
     with soft_assertions():
         mg.delete_notice_from_edit_page()
         mg.delete_notice('single')
         mg.delete_notice('bulk')
-
