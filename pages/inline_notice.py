@@ -1,5 +1,3 @@
-import time
-
 from utils.create_notice_helper import *
 import utils.config as conf
 
@@ -8,6 +6,8 @@ class Inline(Helper):
     inline = (By.XPATH, f"//label[@for='wprf-input-radio-0-11']")
     inline_woo = (By.XPATH, f"//label[@for='wprf-input-radio-1-0']")
     inline_edd = (By.XPATH, f"//label[@for='wprf-input-radio-1-1']")
+    inline_tutor = (By.XPATH, f"//label[@for='wprf-input-radio-1-2']")
+    inline_ld = (By.XPATH, f"//label[@for='wprf-input-radio-1-3']")
     inline_sale_count_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-0']")
     inline_stock_out_template_1 = (By.XPATH, f"//label[@for='wprf-input-radio-2-1']")
     inline_stock_out_template_2 = (By.XPATH, f"//label[@for='wprf-input-radio-2-2']")
@@ -69,8 +69,14 @@ class Inline(Helper):
 
         # source page
         self.browser.find_element(*self.inline).click()
-        self.browser.find_element(*self.inline_woo).click() if src.__eq__("woo") else \
+        if src.__eq__("woo"):
+            self.browser.find_element(*self.inline_woo).click()
+        elif src.__eq__("edd"):
             self.browser.find_element(*self.inline_edd).click()
+        elif src.__eq__("tutor"):
+            self.browser.find_element(*self.inline_tutor).click()
+        else:
+            self.browser.find_element(*self.inline_ld).click()
         # next page design
         self.browser.find_element(*self.next_btn).click()
 
@@ -126,12 +132,13 @@ class Inline(Helper):
         # advanced template
         self.browser.find_element(*self.inline_show_advanced_template).click()
         self.browser.find_element(*self.inline_hide_advanced_template).click()
-        # show purchased of
-        self.browser.find_element(*self.inline_show_purchase_of).click()
-        self.browser.find_element(*self.inline_show_purchase_of_choose).click()
-        # exclude by
-        self.browser.find_element(*self.inline_exclude_by).click()
-        self.browser.find_element(*self.inline_exclude_by_choose).click()
+        if not src.__eq__("tutor"):
+            # show purchased of
+            self.browser.find_element(*self.inline_show_purchase_of).click()
+            self.browser.find_element(*self.inline_show_purchase_of_choose).click()
+            # exclude by
+            self.browser.find_element(*self.inline_exclude_by).click()
+            self.browser.find_element(*self.inline_exclude_by_choose).click()
         if src.__eq__("woo"):
             if type.__eq__('count'):
                 # order status

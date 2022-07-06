@@ -31,3 +31,4 @@ class Notice:
         time.sleep(.5)
         self.browser.find_element(*self.NX_CLOSE_BUTTON).click()
 
+

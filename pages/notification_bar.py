@@ -3,6 +3,7 @@ import utils.config as conf
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class NotificationBar(Helper):
     nx_bar = (By.XPATH, f"//label[@for='wprf-input-radio-0-6']")
     nxbar_template = (By.XPATH, f"//label[@for='wprf-input-radio-2-2']")
@@ -146,6 +147,7 @@ class NotificationBar(Helper):
             self.browser.find_element(*self.choose_end_date_el).click()
         self.browser.find_element(*self.end_date).click()
         # permanent close
+        self.browser.find_element(*self.permanent_close).click()
         self.browser.find_element(*self.permanent_close).click()
 
         # common tasks

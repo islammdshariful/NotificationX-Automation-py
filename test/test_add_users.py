@@ -1,4 +1,3 @@
-from pages.createnotice import AddNew
 from pages.adduser import AddUser
 from pages.wploginpage import WpLoginPage
 

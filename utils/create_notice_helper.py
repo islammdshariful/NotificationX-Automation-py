@@ -1,6 +1,6 @@
 import time
 from assertpy import assert_that, soft_assertions
-from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -270,6 +270,9 @@ class Helper:
             elif src.__eq__("inline-edd"):
                 self.browser.find_element(*self.locations).click()
                 self.browser.find_element(*self.locations_archive_page).click()
+            elif src.__eq__("inline-tutor") or src.__eq__("inline-ld"):
+                self.browser.find_element(*self.locations).click()
+                self.browser.find_element(*self.locations_archive_page).click()
             else:
                 if src != 'nxbarel' and src != 'analytics':
                     if src != 'contact' and src != 'email_subs' and src != 'custom' and src != 'nxbar':
@@ -386,7 +389,7 @@ class Helper:
                         # display form the last
                         self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
                         self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
-                        self.browser.find_element(*self.display_form).send_keys('2')
+                        self.browser.find_element(*self.display_form).send_keys('20')
                     # loop
                     if queue_management != 'y':
                         self.double_clicks(self.loop)
