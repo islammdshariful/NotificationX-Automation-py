@@ -22,20 +22,16 @@ class NotificationBar(Helper):
     start_date = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-date "
                             f"wprf-inline-label wprf-name-countdown_start_date']"
                             f"//div[@class='components-dropdown wprf-control-datetime']")
-    goto_previous_month = (By.XPATH, f"//div[@aria-label='Move backward to switch to the previous month.']")
-    choose_start_date = (By.XPATH, f'//*[@id="countdown_timer"]/div[2]/div[5]/div[2]/div/div/div/div/div/div[2]/div'
-                                   f'/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]')
+    goto_previous_month = (By.XPATH, f"//button[@aria-label='View previous month']")
+    choose_start_date = (By.XPATH, f"//button[normalize-space()='18']")
     end_date = (By.XPATH, f"//div[@class='wprf-control-wrapper wprf-type-date "
                           f"wprf-inline-label wprf-name-countdown_end_date']"
                           f"//div[@class='components-dropdown wprf-control-datetime']")
-    goto_next_month = (By.XPATH, f"//div[@aria-label='Move forward to switch to the next month.']")
-    choose_end_date = (By.XPATH, f'//*[@id="countdown_timer"]/div[2]/div[6]/div[2]/div/div/div/div/div/div[2]/div/div'
-                                 f'/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]')
+    goto_next_month = (By.XPATH, f"//button[@aria-label='View next month']")
+    choose_end_date = (By.XPATH, f"//button[normalize-space()='22']")
     # Elementor
-    choose_start_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[3]/div[2]/div/div/div/div/div/div['
-                                      f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
-    choose_end_date_el = (By.XPATH, f'//*[@id="content_tab"]/div/div[2]/div[4]/div[2]/div/div/div/div/div/div['
-                                    f'2]/div/div/div/div[2]/div[2]/div/div[2]/div/table/tbody/tr[3]/td[4]/div')
+    choose_start_date_el = (By.XPATH, f"//button[normalize-space()='18']")
+    choose_end_date_el = (By.XPATH, f"//button[normalize-space()='22']")
 
     randomize = (By.ID, f'time_randomize')
     randomize_start_time = (By.NAME, f'start_time')
@@ -103,11 +99,11 @@ class NotificationBar(Helper):
         # randomize
         self.browser.find_element(*self.randomize).click()
         # randomize start time
-        self.browser.find_element(*self.randomize_start_time).send_keys(Keys.CONTROL, 'a')
+        self.do_field_input_select_all(self.randomize_start_time)
         self.browser.find_element(*self.randomize_start_time).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.randomize_start_time).send_keys('5')
         # randomize end time
-        self.browser.find_element(*self.randomize_end_time).send_keys(Keys.CONTROL, 'a')
+        self.do_field_input_select_all(self.randomize_end_time)
         self.browser.find_element(*self.randomize_end_time).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.randomize_end_time).send_keys('10')
         # daily time reset
@@ -115,14 +111,14 @@ class NotificationBar(Helper):
         # randomize
         self.browser.find_element(*self.randomize).click()
         # time rotation
-        self.browser.find_element(*self.time_rotation).send_keys(Keys.CONTROL, 'a')
+        self.do_field_input_select_all(self.time_rotation)
         self.browser.find_element(*self.time_rotation).send_keys(Keys.BACKSPACE)
         self.browser.find_element(*self.time_rotation).send_keys('9')
         # evergreen timer
         self.browser.find_element(*self.evergreen_timer).click()
         if src.__eq__("nxbar"):
             # expired text
-            self.browser.find_element(*self.expired_text).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.expired_text)
             self.browser.find_element(*self.expired_text).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.expired_text).send_keys('You missed it buddy, Try next time.')
         # start date

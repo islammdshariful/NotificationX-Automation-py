@@ -1,12 +1,14 @@
 import time
+import platform
 from assertpy import assert_that, soft_assertions
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from test.basepage import BasePage
 
 
-class Helper:
+class Helper(BasePage):
     add_new = (By.XPATH, f"//a[@class='nx-add-new-btn']")
     nx_title = (By.ID, f'nx-title')
     next_btn_for_wait = f"//button[normalize-space()='Next']"
@@ -65,6 +67,8 @@ class Helper:
     volume_reset_btn = (By.XPATH, f"//button[normalize-space()='Reset']")
     volume = (By.XPATH, f"//input[@id='inspector-input-control-1']")
     volume_1 = (By.XPATH, f"//input[@id='inspector-input-control-4']")
+    volume_src_custom = (By.XPATH, f"//input[@id='inspector-input-control-9']")
+
     # BEHAVIOUR
     display_last = (By.ID, f'display_last')
     display_form = (By.ID, f'display_from')
@@ -180,7 +184,7 @@ class Helper:
             self.browser.find_element(*self.ad_btn_position_choose_bar).click()
             # TYPOGRAPHY
             # font size
-            self.browser.find_element(*self.ad_font_size_bar).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_font_size_bar)
             self.browser.find_element(*self.ad_font_size_bar).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_font_size_bar).send_keys('14')
         else:
@@ -194,7 +198,7 @@ class Helper:
             self.browser.find_element(*self.ad_color_reset).click()
             # border
             self.browser.find_element(*self.ad_border).click()
-            self.browser.find_element(*self.ad_border_size).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_border_size)
             self.browser.find_element(*self.ad_border_size).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_border_size).send_keys('2')
             self.browser.find_element(*self.ad_border_style).click()
@@ -215,15 +219,15 @@ class Helper:
             self.browser.execute_script("window.scrollTo(0,document.body.scrollHeight);")
             # TYPOGRAPHY
             # 1st
-            self.browser.find_element(*self.ad_font_1st_size).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_font_1st_size)
             self.browser.find_element(*self.ad_font_1st_size).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_font_1st_size).send_keys('14')
             # 2nd
-            self.browser.find_element(*self.ad_font_2nd_size).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_font_2nd_size)
             self.browser.find_element(*self.ad_font_2nd_size).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_font_2nd_size).send_keys('15')
             # 3rd
-            self.browser.find_element(*self.ad_font_3rd_size).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_font_3rd_size)
             self.browser.find_element(*self.ad_font_3rd_size).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_font_3rd_size).send_keys('12')
             # IMAGE APPEARANCE
@@ -238,7 +242,7 @@ class Helper:
             elif source == "sale" or source == "woo-review":
                 self.browser.find_element(*self.ad_image_choose).click()
 
-            self.browser.find_element(*self.ad_image_radius).send_keys(Keys.CONTROL, 'a')
+            self.do_field_input_select_all(self.ad_image_radius)
             self.browser.find_element(*self.ad_image_radius).send_keys(Keys.BACKSPACE)
             self.browser.find_element(*self.ad_image_radius).send_keys('50')
             self.browser.find_element(*self.ad_image_position).click()
@@ -327,7 +331,8 @@ class Helper:
                     self.browser.find_element(*self.overlapping).click()
                 # notification size
                 if src != 'nxbarel' and src != 'nxbar':
-                    self.browser.find_element(*self.notification_size).send_keys(Keys.CONTROL, 'a')
+                    self.browser.find_element(*self.notification_size).click()
+                    self.do_field_input_select_all(self.notification_size)
                     self.browser.find_element(*self.notification_size).send_keys(Keys.BACKSPACE)
                     self.browser.find_element(*self.notification_size).send_keys('400')
                 # display close option
@@ -343,26 +348,26 @@ class Helper:
                 # TIMING
                 if src == 'nxbarel' or src == 'nxbar':
                     # initial delay
-                    self.browser.find_element(*self.initial_delay).send_keys(Keys.CONTROL, 'a')
+                    self.do_field_input_select_all(self.initial_delay)
                     self.browser.find_element(*self.initial_delay).send_keys(Keys.BACKSPACE)
                     self.browser.find_element(*self.initial_delay).send_keys('1')
                     # auto hide
                     self.browser.find_element(*self.auto_hide).click()
-                    self.browser.find_element(*self.hide_after).send_keys(Keys.CONTROL, 'a')
+                    self.do_field_input_select_all(self.hide_after)
                     self.browser.find_element(*self.hide_after).send_keys(Keys.BACKSPACE)
                     self.browser.find_element(*self.hide_after).send_keys('20')
                 else:
                     if queue_management != 'y':
                         # delay before
-                        self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.delay_before_first_notification)
                         self.browser.find_element(*self.delay_before_first_notification).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.delay_before_first_notification).send_keys('1')
                         # display for
-                        self.browser.find_element(*self.display_for).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.display_for)
                         self.browser.find_element(*self.display_for).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.display_for).send_keys('5')
                         # delay between
-                        self.browser.find_element(*self.delay_between).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.delay_between)
                         self.browser.find_element(*self.delay_between).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.delay_between).send_keys('2')
 
@@ -372,22 +377,27 @@ class Helper:
                     self.browser.find_element(*self.sound_choose).click()
                     self.browser.find_element(*self.volume_reset_btn).click()
                     if advanced_design.__eq__('y'):
-                        self.browser.find_element(*self.volume_1).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.volume_1)
                         self.browser.find_element(*self.volume_1).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.volume_1).send_keys('30')
                     else:
-                        self.browser.find_element(*self.volume).send_keys(Keys.CONTROL, 'a')
-                        self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
-                        self.browser.find_element(*self.volume).send_keys('30')
+                        if not src.__eq__('custom'):
+                            self.do_field_input_select_all(self.volume)
+                            self.browser.find_element(*self.volume).send_keys(Keys.BACKSPACE)
+                            self.browser.find_element(*self.volume).send_keys('30')
+                        else:
+                            self.do_field_input_select_all(self.volume_src_custom)
+                            self.browser.find_element(*self.volume_src_custom).send_keys(Keys.BACKSPACE)
+                            self.browser.find_element(*self.volume_src_custom).send_keys('30')
                 # BEHAVIOUR
                 if src != 'nxbarel' and src != 'nxbar':
                     if src != 'analytics':
                         # display last
-                        self.browser.find_element(*self.display_last).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.display_last)
                         self.browser.find_element(*self.display_last).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.display_last).send_keys('5')
                         # display form the last
-                        self.browser.find_element(*self.display_form).send_keys(Keys.CONTROL, 'a')
+                        self.do_field_input_select_all(self.display_form)
                         self.browser.find_element(*self.display_form).send_keys(Keys.BACKSPACE)
                         self.browser.find_element(*self.display_form).send_keys('20')
                     # loop
