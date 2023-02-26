@@ -1,30 +1,29 @@
-import platform
 import pytest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from pathlib import Path
+from selenium.webdriver.common.by import By
+
+from utils.config import URL_DASHBOARD, USERNAME, PASSWORD
 
 
-# This will run before all test case
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session', autouse=True)
 def browser():
     options = Options()
-    # # opts.add_experimental_option("detach", True)
+    # options.add_experimental_option("detach", True)
     # options.add_experimental_option('debuggerAddress', 'localhost:9250')
-
-    if platform.system().__eq__("Windows"):
-        # For Windows
-        path = str(Path(__file__).parent.parent) + "/venv/Lib/site-packages/seleniumbase/drivers/chromedriver.exe"
-    else:
-        # For Mac
-        path = str(
-            Path(__file__).parent.parent) + "/venv/lib/python3.10/site-packages/seleniumbase/drivers/chromedriver"
-
-    browser = webdriver.Chrome(executable_path=path, chrome_options=options)
+    browser = webdriver.Chrome(chrome_options=options)
     browser.maximize_window()
-    browser.implicitly_wait('10')
+    browser.implicitly_wait(10)
+    login_to_dashboard(browser)
 
     yield browser
 
-    # browser.quit()
+    browser.quit()
+
+
+def login_to_dashboard(browser):
+    browser.get(URL_DASHBOARD)
+    browser.find_element(By.ID, 'user_login').send_keys(USERNAME)
+    browser.find_element(By.ID, 'user_pass').send_keys(PASSWORD)
+    browser.find_element(By.ID, 'wp-submit').click()
